@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="users">
+
+	<!-- 아이디로 회원정보 불러오기 -->
+	<select id="select" parameterType="userDTO" resultMap="rs">
+		SELECT
+		*
+		FROM users
+		WHERE id = #{id}
+	</select>
+	
+	<resultMap type="userDTO" id="rs">
+		<result property="id" column="id" />
+		<result property="pw" column="pw" />
+		<result property="name" column="name" />
+		<result property="birth" column="birth" />
+		<result property="tel" column="tel" />
+		<result property="mail" column="mail" />
+		<result property="grade" column="grade" />
+		<result property="gender" column="gender" />
+	</resultMap>
+	
+	<!-- 전체 회원정보 보기 -->
+	<select id="selectAll" resultMap="rs">
+		SELECT * FROM users
+	</select>
+	
+	<!-- 회원정보 삽입 -->
+	<insert id="insert" parameterType="userDTO">
+		INSERT INTO users
+		VALUES(#{id},#{pw},#{name},#{birth},#{tel},#{mail},#{grade},#{gender})
+	</insert>
+	
+	<!-- 회원정보 수정 : 비밀번호, 이름, 생년월일, 전화번호, 메일주소 수정가능 -->
+	<update id="update" parameterType="userDTO">
+		UPDATE users
+		SET
+		pw=#{pw}
+		name=#{name}
+		birth=#{birth}
+		tel=#{tel}
+		mail=#{mail}
+		WHERE
+		columnname2 = #{param2}
+	</update>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="delete" parameterType="userDTO">
+		DELETE FROM users WHERE
+		id = #{id}
+	</delete>
+
+</mapper>
