@@ -3,7 +3,7 @@
 create table serviceCenter (
 	title varchar2(30) not null,
 	titleNo number(10) primary key not null ,
-	place varchar2(30) not null,
+	movieTheaters varchar2(30) not null,
 	uploadDate varchar2(30),
 	content varchar2(1000) not null
 	);
