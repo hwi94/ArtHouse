@@ -7,4 +7,3 @@ create table serviceCenter (
 	content varchar2(1000) not null
 	);
 	
-ㅇㄻㄴ루딜
