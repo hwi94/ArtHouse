@@ -11,7 +11,7 @@
 				<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 				
 				<!-- 네이버 스마트 에디터 -->
-				<script type="text/javascript" src="resources/SE2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+				<script type="text/javascript" src="../resources/SE2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 				<script type="text/javascript">
 					
 				
@@ -29,7 +29,7 @@
 						nhn.husky.EZCreator.createInIFrame({
 						oAppRef: oEditors,
 					    elPlaceHolder: "k_contents",		// content id 값 일치.
-					    sSkinURI: "resources/SE2/SmartEditor2Skin.html", //파일 존재 경로
+					    sSkinURI: "../resources/SE2/SmartEditor2Skin.html", //파일 존재 경로
 					    htParams : {
 					    	bUseToolbar : true,			// 툴바사용여부 
 					    	bUseVerticalResizer : true, // 입력창 크기 조절바 사용여부
@@ -76,7 +76,7 @@
 				
 	</head>
 	<body>
-		<form action="serviceCenter/noticeUpload.do" id="k_form">
+		<form action="noticeUpload.do" id="k_form">
 			<table style="margin: 0 auto">
 			
 				<tr>
