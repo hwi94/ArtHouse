@@ -356,6 +356,6 @@
 			</div>
 		</div><!-- main-context 끝 -->
 	<jsp:include page="../bottom.jsp"></jsp:include>
-</div><!-- page-body 끝 -->
+	</div><!-- page-body 끝 -->
 </body>
 </html>

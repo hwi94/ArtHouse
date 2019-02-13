@@ -13,6 +13,7 @@
 				<!-- 네이버 스마트 에디터 -->
 				<script type="text/javascript" src="../resources/SE2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 				<script type="text/javascript">
+				
 					
 				
 				
@@ -76,39 +77,44 @@
 				
 	</head>
 	<body>
-		<form action="noticeUpload.do" id="k_form">
-			<table style="margin: 0 auto">
-			
-				<tr>
-					<th style="background: gray">제목</th>
-					<td colspan="3" style="width: 592px">
-						<input type="text" style="width: 600px;" id="k_title" name="title">
-					</td>
-				</tr>
-				<tr>
-					<th style="background: gray">영화관</th>
-					<td>
-						<input type="text" style="width: 270px" id="k_movieTheaters" name="movieTheaters">
-					</td>
-					<th style="background: gray">등록일</th>
-					<td>
-						<input type="text" style="width: 270px" id="k_uploadDate" name="uploadDate">
-					</td>
-				</tr>
-				<tr>
-					<td colspan="4">
-						<!-- 내용 --><textarea id="k_contents" name="contents" style="width: 654px;height: 412px"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="4">
-						<center>
-							<input type="button" id="save" value="저장">
-						</center>
-					</td>
-				</tr>
-			</table>
-		</form>
+	<div class="page-body">
+			<jsp:include page="../top.jsp"></jsp:include>
+			<center><h3>공지사항 등록 페이지</h3></center>
+			<hr>
+				<form action="noticeUpload.do" id="k_form">
+					<table style="margin: 0 auto">
+						<tr>
+							<th style="background: gray">제목</th>
+							<td colspan="3" style="width: 592px">
+								<input type="text" style="width: 600px;" id="k_title" name="title">
+							</td>
+						</tr>
+						<tr>
+							<th style="background: gray">영화관</th>
+							<td>
+								<input type="text" style="width: 270px" id="k_movieTheaters" name="movieTheaters">
+							</td>
+							<th style="background: gray">등록일</th>
+							<td>
+								<input type="text" style="width: 270px" id="k_uploadDate" name="uploadDate">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<!-- 내용 --><textarea id="k_contents" name="contents" style="width: 654px;height: 412px"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<center>
+									<input type="button" id="save" value="등록">
+								</center>
+							</td>
+						</tr>
+					</table>
+				</form>
+		<jsp:include page="../bottom.jsp"></jsp:include>
+		</div>
 	
 	</body>
 </html>
