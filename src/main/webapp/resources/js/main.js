@@ -2,5 +2,8 @@
 
 //이미지 슬라이드
 $(document).ready(function(){
-  $('.slider').slider();
+	$('.slider').bxSlider({
+		auto: true,
+		speed: 500
+	});
 });

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="movie">
+
+	<!-- 영화 불러오기 -->
+	<select id="select" parameterType="movieDTO" resultMap="rs">
+		SELECT
+		*
+		FROM movie
+		WHERE code = #{code}
+	</select>
+	
+	<resultMap type="movieDTO" id="rs">
+		<result property="code" column="code" />
+		<result property="title" column="title" />
+		<result property="ganre" column="ganre" />
+		<result property="playdate" column="playdate" />
+		<result property="runtime" column="runtime" />
+		<result property="summary" column="summary" />
+		<result property="director" column="director" />
+		<result property="actors" column="actors" />
+		<result property="agerequire" column="agerequire" />
+		<result property="grade" column="grade" />
+		<result property="count" column="count" />
+		<result property="recommend" column="recommend" />
+		<result property="photo" column="photo" />
+	</resultMap>
+	
+	<!-- 전체 영화정보 보기 -->
+	<select id="selectAll" resultMap="rs">
+		SELECT * FROM movie
+	</select>
+
+</mapper>
