@@ -6,9 +6,13 @@
 
 	<typeAliases>
 		<typeAlias type="com.itbank.artHouse.users.UserDTO" alias="UserDTO"></typeAlias>
+		<typeAlias type="com.itbank.artHouse.movie.MovieDTO" alias="movieDTO"></typeAlias>
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="mapper/users.xml" />
+		<mapper resource="mapper/movie.xml" />
 	</mappers>
+	
+	
 </configuration>

@@ -10,7 +10,7 @@
 	<link href="http://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 	
 	<!-- css파일 -->
-	<link href="./resources/css/arthouse.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/artHouse/resources/css/arthouse.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
 	<!-- 상단메뉴 : header -->
@@ -19,7 +19,7 @@
 			<!-- 로고 -->
 			<div class="top_logo">
 				<a title="ArtHouse 메인으로 가기">
-					<img alt="ARTHOUSE" src="./resources/img/logo01.gif" height="100px">
+					<img alt="ARTHOUSE" src="/artHouse/resources/img/logo01.gif" height="100px">
 				</a>
 			</div>
 			
@@ -42,7 +42,7 @@
 			<div class="header-menu">		
 				<ul>
 					<li>
-						<a title="영화정보" class="main_menu"><span>영화</span></a>
+						<a href="selectAllMovie.do" title="영화정보" class="main_menu"><span>영화</span></a>
 					</li>
 					<li>
 						<a title="예매하기" class="main_menu"><span>예매</span></a>
@@ -57,10 +57,5 @@
 			</div>
 		</div>
 	</header>
-	
-	<!-- 바디페이지 -->
-	<div class="page-body">
-
-	</div>
 </body>
 </html>
