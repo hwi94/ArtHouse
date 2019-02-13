@@ -1,12 +1,12 @@
 
 	공지사항 테이블
-create table serviceCenter (
+create table notice (
 	title varchar2(30) not null,
-	titleNo number(10) primary key not null ,
+	titleNo number(10) ,												
 	movieTheaters varchar2(30) not null,
 	uploadDate varchar2(30),
-	content varchar2(1000) not null
-	);
+	contents varchar2(3000) not null
+);
 	
 drop table serviceCenter purge;
 
