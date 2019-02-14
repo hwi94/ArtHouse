@@ -1,0 +1,78 @@
+.k_question_container{
+	width: 900px;
+	height: 1250px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+.k_custommer_container {
+			    overflow: auto;
+			    position: relative;
+			    width: 870px;
+			    height: 180px;
+			    padding: 20px 4px 20px 24px;
+			    border: 1px solid #ccc;
+			}
+			
+.k_question_ul_container{
+	
+	padding-left : 25px;
+	padding-top : 20px;
+	font-size: 9px;
+}
+.k_agreeAboutprivacy_contanier{
+	font-size : 12px;
+	padding-left : 24px;
+	padding-top: 5px;
+	padding-bottom: 24px;
+	width: 876px;
+}
+
+.k_question_column{
+	font-size: 9px;
+	width: 120px;
+	background: #EAEAEA;
+}
+
+.k_question_table{
+	width : 900px;
+	padding-top:5px;
+	padding-bottom:5px;
+	border-top: 1px solid #503396;
+	border-bottom: 1px solid #503396;
+}
+
+.mobileLength{
+	width: 57px;
+}
+.k_question_uploadButton{
+	margin: auto 0px;
+	width: 100px;
+	height: 40px;	
+	color: white;
+	background: #503396;
+}
+.k_submitButtonCenter_container{
+	padding-top:20px;
+}
+
+.k_question_trRow{
+	
+}
+
+.selectMenu{
+	font-size: 9px;
+	margin: auto;
+}
+.class=radioMenu{
+	padding-top: 3px; 
+	padding-bottom: 3px;
+}
+.agreeOrDisagree{
+	
+}
+.k_buttonGroup{
+	float: left;
+	width: 15%;
+}
