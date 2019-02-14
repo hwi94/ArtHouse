@@ -19,6 +19,7 @@
 	
 	padding-left : 25px;
 	padding-top : 20px;
+	padding-bottom:20px;
 	font-size: 9px;
 }
 .k_agreeAboutprivacy_contanier{
@@ -37,8 +38,8 @@
 
 .k_question_table{
 	width : 900px;
-	padding-top:5px;
-	padding-bottom:5px;
+	padding-top:10px;
+	padding-bottom:10px;
 	border-top: 1px solid #503396;
 	border-bottom: 1px solid #503396;
 }

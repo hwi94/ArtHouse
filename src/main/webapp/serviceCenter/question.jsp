@@ -8,14 +8,37 @@
 		<link rel="stylesheet" href="../resources/css/k_service.css">
 		<script type="text/javascript"src="../resources/js/jquery.min.js"></script>
 		
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+			
+		
+		
+		
 		<script type="text/javascript">
 			$(function() {
-				$("#k_agree").click(function() {
-					alert("동의버튼눌렀네요 ^_^");
-					$("#k_disagree").attr("check",false);
-						
+				/* 기타문의클릭시 지역선택 , 영화관선택 비활성 */
+				$("#k_question_other").click(function() {
+					alert("기타문의를 클릭하셨군요");
+					$("#k_areaSelectBox").prop("disabled",true);
+					$("#k_selectMovieTheater").prop("disabled",true);
 				});
-			
+				
+				/* 지역문의클릭시 지역선택 , 영화관선택 활성 */
+				$("#k_question_place").click(function() {
+					alert("지점문의를 클릭하셨군요");
+					$("#k_areaSelectBox").prop("disabled",false);
+					$("#k_selectMovieTheater").prop("disabled",false);
+				});
+				
+				
+				
+				$("#k_selectArea").click(function() {
+					alert("지역선택 클릭했네요");
+					$("#k_areaSelectBox").trigger("click");
+				});
 			
 			
 			
@@ -61,7 +84,7 @@
 						<p class="k_agreeAboutprivacy_contanier">
 							개인정보 수집에 동의하십니까?<br>
 							* 원활한 서비스 이용을 위한 최소한의 개인정보이므로 동의하지 않을 경우 서비스를 이용하실수 없습니다.　　　　　　　　　　　　　　　　　　　
-							<input type="radio" id="k_agree" name="agree"><label class="selectMenu">동의함</label><input type="radio" id="k_disagree" name="disagree"><label class="selectMenu">동의하지 않음</label>
+							<input type="radio" id="k_agree" name="infoAgree"><label class="selectMenu">동의함</label><input type="radio" id="k_disagree" name="infoAgree"><label class="selectMenu">동의하지 않음</label>
 						</p>
 						<table class="k_question_table">
 							<tr class="k_question_trRow">
@@ -75,7 +98,7 @@
 								<td>
 									<input type="text" name="" id="" class="mobileLength">-
 									<input type="text" name="" id="" class="mobileLength">-
-									<input type="text" name="" id="" class="mobileLength">
+									<input type="text" name="" id="" class="mobileLength" >
 								</td>
 								<th class="k_question_column" style="width: 195px">이메일</th>
 								<td>
@@ -87,39 +110,59 @@
 								<td colspan="3">
 									<div class="k_buttonGroup">
 										<span>
-											<input type="radio" class="radioMenu">
+											<input type="radio" class="radioMenu" id="k_question_place" name="questionType" checked="checked"><label class="selectMenu">지점문의</label>
 										</span>
-										<label class="selectMenu">
- 											지점문의
-										</label>
 										<span>
-											<input type="radio" class="radioMenu">
+											<input type="radio" class="radioMenu" id="k_question_other" name="questionType"><label class="selectMenu">기타문의</label>
 										</span>
-										<label class="selectMenu">
-											기타문의
-										</label>
 									</div>
+									
 									<div class="k_buttonGroup">
-										<button style="width: 70px;height: 25px;">
-											<span style="font-size: 9pt;">
-												지역선택
-											</span>
-										</button>
+										<select id="k_areaSelectBox" style="width: 70px;height: 25px;font-size: 9pt;">
+											<option value="">지역선택</option>
+											<option value="서울">서울</option>
+											<option value="경기">경기</option>
+											<option value="인천">인천</option>
+											<option value="대충세">대전/충청/세종</option>
+											<option value="부대경">부산/대구/경상</option>
+											<option value="광전">광주/전라</option>
+											<option value="강원">강원</option>
+											<option value="제주">제주</option>
+										</select>
 									</div>
+									
 									<div class="k_buttonGroup">
-										<button style="width: 85px;height: 25px;">
-											<span>
-												영화관선택
-											</span>
-										</button>
-										
+										<select id="k_selectMovieTheater" style="width: 70px;height: 25px;font-size: 9pt;">
+											<option value="">영화관선택</option>
+											<option value="서울">서울</option>
+											<option value="경기">경기</option>
+											<option value="인천">인천</option>
+											<option value="대충세">대전/충청/세종</option>
+											<option value="부대경">부산/대구/경상</option>
+											<option value="광전">광주/전라</option>
+											<option value="강원">강원</option>
+											<option value="제주">제주</option>
+										</select>
 									</div>
+									
 								</td>
 							</tr>
 							<tr>
 								<th class="k_question_column">문의유형</th>
 								<td>
-									<button>문의유형선택</button>
+									<div class="k_buttonGroup">
+										<select id="k_selectMovieTheater" style="width: 120px;height: 25px;font-size: 9pt;">
+											<option value=""></option>
+											<option value="서울"></option>
+											<option value="경기"></option>
+											<option value="인천"></option>
+											<option value="대충세"></option>
+											<option value="부대경"></option>
+											<option value="광전"></option>
+											<option value="강원"></option>
+											<option value="제주"></option>
+										</select>
+									</div>
 								</td>
 							</tr>
 							<tr>
@@ -137,7 +180,7 @@
 							</tr>
 							<tr>
 								<th class="k_question_column">파일첨부</th>
-								<td>	
+								<td colspan="3" width="785px;">	
 									<button style="width: 120px;height: 60px">사진 추가하기</button>
 								</td> 
 							</tr>
