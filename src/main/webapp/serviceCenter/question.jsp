@@ -5,15 +5,35 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Insert title here</title>
-
-
+		<link rel="stylesheet" href="../resources/css/k_service.css">
+		<script type="text/javascript"src="../resources/js/jquery.min.js"></script>
+		
+		<script type="text/javascript">
+			$(function() {
+				$("#k_agree").click(function() {
+					alert("동의버튼눌렀네요 ^_^");
+					$("#k_disagree").attr("check",false);
+						
+				});
+			
+			
+			
+			
+			
+			
+			
+			
+			});//callback		
+		</script>
+		
+		
 
 	</head>
 	<body>
 		<div class="page-body">
 			<jsp:include page="../top.jsp"></jsp:include>
 				<div class="k_question_container">
-					<ul>
+					<ul class="k_question_ul_container">
 						<li>
 							문의하시기 전 FAQ를 확인하시면 궁금증을 더욱 빠르게 해결하실 수 있습니다.
 						</li>
@@ -21,8 +41,8 @@
 							1:1 문의글 답변 운영시간 09:00 ~ 21:00
 						</li>
 					</ul>
-					<h4>개인정보 수집에 대한 동의</h4>
-					<div class="k_custommer_container">
+					<h4 style="font-size: 10px">개인정보 수집에 대한 동의</h4>
+					<div class="k_custommer_container" style="font-size: 8pt;">
 						귀하께서 문의하신 다음의 내역은 법률에 의거 개인정보 수집. 이용에 대한 본인동의가 필요한 항목입니다.<br>
 						<br>
 						개인정보의 수집 및 이용목적<br>
@@ -37,90 +57,96 @@
 						자세한 내용은 '개인정보 처리방침' 을 확인하시기 바랍니다.<br>
 					</div>
 					<div class="k_questionInputForm_container">
+						<form>
 						<p class="k_agreeAboutprivacy_contanier">
 							개인정보 수집에 동의하십니까?<br>
-							* 원활한 서비스 이용을 위한 최소한의 개인정보이므로 동의하지 않을 경우 서비스를 이용하실수 없습니다.
+							* 원활한 서비스 이용을 위한 최소한의 개인정보이므로 동의하지 않을 경우 서비스를 이용하실수 없습니다.　　　　　　　　　　　　　　　　　　　
+							<input type="radio" id="k_agree" name="agree"><label class="selectMenu">동의함</label><input type="radio" id="k_disagree" name="disagree"><label class="selectMenu">동의하지 않음</label>
 						</p>
-						<div>
-							<span>
-								
-							</span>
-						</div>
-						<table>
-							<tr>
-								<th>이름</th>
+						<table class="k_question_table">
+							<tr class="k_question_trRow">
+								<th class="k_question_column">이름</th>
 								<td colspan="3">
-									<input type="text">
+									<input type="text" style="width: 195px">
 								</td>
 							</tr>
 							<tr>
-								<th>연락처</th>
+								<th class="k_question_column">연락처</th>
 								<td>
-									<input type="text" name="" id="">-
-									<input type="text" name="" id="">-
-									<input type="text" name="" id="">
+									<input type="text" name="" id="" class="mobileLength">-
+									<input type="text" name="" id="" class="mobileLength">-
+									<input type="text" name="" id="" class="mobileLength">
 								</td>
-								<th>이메일</th>
+								<th class="k_question_column" style="width: 195px">이메일</th>
 								<td>
 									<input type="text" name="" id="">
 								</td>
 							</tr>
 							<tr>
-								<th>문의지점</th>
-								<td>
-									<div>
+								<th class="k_question_column">문의지점</th>
+								<td colspan="3">
+									<div class="k_buttonGroup">
 										<span>
-											<input type="radio">
+											<input type="radio" class="radioMenu">
 										</span>
-										<label>
-											지점문의
+										<label class="selectMenu">
+ 											지점문의
 										</label>
 										<span>
-											<input type="radio">
+											<input type="radio" class="radioMenu">
 										</span>
-										<label>
+										<label class="selectMenu">
 											기타문의
 										</label>
 									</div>
-									<div>
-										
+									<div class="k_buttonGroup">
+										<button style="width: 70px;height: 25px;">
+											<span style="font-size: 9pt;">
+												지역선택
+											</span>
+										</button>
 									</div>
-									<div>
+									<div class="k_buttonGroup">
+										<button style="width: 85px;height: 25px;">
+											<span>
+												영화관선택
+											</span>
+										</button>
 										
 									</div>
 								</td>
 							</tr>
 							<tr>
-								<th>문의유형</th>
+								<th class="k_question_column">문의유형</th>
 								<td>
 									<button>문의유형선택</button>
 								</td>
 							</tr>
 							<tr>
-								<th>제목</th>
+								<th class="k_question_column">제목</th>
 								<td colspan="3">
-									<input type="text" id="" name="">
+									<input type="text" id="" name="" style="width: 785px">
 								</td>
 							</tr>
 							<tr>
-								<th>내용</th>
+								<th class="k_question_column">내용</th>
 								<td colspan="3">
-									<textarea id="" name=""></textarea>
-									<p>0/2000자</p>
+									<textarea id="" name="" style= "width: 785px;height: 200px"></textarea>
+									<p style="font-size:9pt">0/2000자</p>
 								</td>
 							</tr>
 							<tr>
-								<th>파일첨부</th>
-								<td>
-									<input type="button" id="" name="" value="사진첨부">
+								<th class="k_question_column">파일첨부</th>
+								<td>	
+									<button style="width: 120px;height: 60px">사진 추가하기</button>
 								</td> 
 							</tr>
 						</table>
 						<div class="k_submitButtonCenter_container">
-							<input type="button" id="" name="" value="등록">
+							<input type="button" id="" name="" value="등록" class="k_question_uploadButton">
 						</div>
+					</form>
 					</div>
-								
 				</div>
 			<jsp:include page="../bottom.jsp"></jsp:include>
 		</div>
