@@ -10,16 +10,14 @@
 	<link href="http://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 	
 	<!-- css파일 -->
-	<link href="/artHouse/resources/css/arthouse.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/artHouse1/resources/css/arthouse.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
-	<!-- 상단메뉴 : header -->
-	<header>
 		<div class="header-wrap">			
 			<!-- 로고 -->
 			<div class="top_logo">
 				<a title="ArtHouse 메인으로 가기">
-					<img alt="ARTHOUSE" src="/artHouse/resources/img/logo01.gif" height="100px">
+					<img alt="ARTHOUSE" src="/artHouse1/resources/img/logo01.gif" height="100px">
 				</a>
 			</div>
 			
@@ -48,7 +46,7 @@
 						<a title="예매하기" class="main_menu"><span>예매</span></a>
 					</li>
 					<li>
-						<a title="스토어" class="main_menu"><span>스토어</span></a>
+						<a title="스토어" class="main_menu" href="selectAll.do"><span>스토어</span></a>
 					</li>
 					<li>
 						<a title="공지사항" class="main_menu"><span>공지</span></a>

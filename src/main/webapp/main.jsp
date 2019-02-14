@@ -11,10 +11,10 @@
 	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 	
 	<!-- 자바스크립트 -->
-	<script type="text/javascript" src="/artHouse/resources/js/main.js"></script>
+	<script type="text/javascript" src="/artHouse1/resources/js/main.js"></script>
 	
 	<!-- css -->
-	<link rel="stylesheet" href="/artHouse/resources/css/jquery.bxslider.css">
+	<link rel="stylesheet" href="/artHouse1/resources/css/jquery.bxslider.css">
 </head>
 <body>	
 	<div class="page-body">
@@ -27,22 +27,22 @@
 			<div class="slider">
 				<div>
 					<a href="#">
-						<img src="/artHouse/resources/img/slide/slide01.jpg" alt="콜드워">
+						<img src="/artHouse1/resources/img/slide/slide01.jpg" alt="콜드워">
 					</a>		
 				</div>
 				<div>
 					<a href="#">
-						<img src="/artHouse/resources/img/slide/slide02.jpg" alt="그린북">
+						<img src="/artHouse1/resources/img/slide/slide02.jpg" alt="그린북">
 					</a>
 				</div>
 				<div>
 					<a href="#">
-						<img src="/artHouse/resources/img/slide/slide03.jpg" alt="가버나움">
+						<img src="/artHouse1/resources/img/slide/slide03.jpg" alt="가버나움">
 					</a>
 				</div>
 				<div>
 					<a href="#">
-						<img src="/artHouse/resources/img/slide/slide04.jpg" alt="로마">
+						<img src="/artHouse1/resources/img/slide/slide04.jpg" alt="로마">
 					</a>
 				</div>
 			</div>

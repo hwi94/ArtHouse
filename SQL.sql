@@ -39,3 +39,16 @@ create table movie (
 	photo varchar2(200)
 );
 
+===================유민재===================
+
+	카트 테이블 생성
+create table cart (
+	cart_id NUMBER NOT NULL PRIMARY KEY,
+	user_id VARCHAR2(50),
+	code VARCHAR2(20) NOT NULL,
+	amount NUMBER DEFAULT 0);
+
+	외래키 설정
+alter table cart add foreign key(code) references food(card);
+alter table cart add foreign key(user_id) references users(id);	
+

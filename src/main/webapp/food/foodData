@@ -1,0 +1,8 @@
+insert into FOOD values ('p1','','고소팝콘','popcorn','5000','http://localhost:7777/artHouse/resources/img/food/pop1.jpg');
+
+
+create table cart (
+cart_id NUMBER NOT NULL PRIMARY KEY,
+user_id VARCHAR2(50),
+code VARCHAR2(10) NOT NULL,
+amount NUMBER DEFAULT 0);

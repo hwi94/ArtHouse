@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="food">
+
+	<select id="select" parameterType="foodDTO" resultMap="rs">
+		SELECT * FROM food WHERE code = #{code}
+	</select>
+
+	<resultMap type="foodDTO" id="rs">
+		<result property="code" column="code" />
+		<result property="name" column="name" />
+		<result property="category" column="category" />
+		<result property="price" column="price" />
+		<result property="img" column="img" />	
+	</resultMap>
+ 
+	<select id="selectAll" resultMap="rs">
+		SELECT * FROM food
+	</select>
+
+	<insert id="insert" parameterType="foodDTO">
+		INSERT INTO food 
+		VALUES(#{code},#{name},#{category},#{price},#{img})
+	</insert>
+
+	<update id="update" parameterType="foodDTO">
+		UPDATE food
+		SET
+		columnname1=#{param1}
+		WHERE
+		columnname2 = #{param2}
+	</update>
+
+	<delete id="delete" parameterType="foodDTO">
+		DELETE FROM food WHERE
+		code = #{code}
+	</delete>
+
+</mapper>
