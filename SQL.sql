@@ -7,6 +7,15 @@ create table notice (
 	uploadDate varchar2(30),
 	contents varchar2(3000) not null
 );
+
+	oracle sequence (auto_increment 기능)
+
+	CREATE SEQUENCE titleNo(
+		INCREMENT BY 1,
+		START WITH 1,
+		MINVALUE 1,
+		MAXVALUE 999999
+	);
 	
 drop table serviceCenter purge;
 
