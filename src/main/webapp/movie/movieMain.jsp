@@ -14,7 +14,6 @@
 		width: 210px;
 		height: auto;
 		margin: 20px;
-		
 	}
 	
 	.box-contents{

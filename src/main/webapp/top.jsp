@@ -10,19 +10,19 @@
 	<link href="http://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 	
 	<!-- css파일 -->
-	<link href="/artHouse1/resources/css/arthouse.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/artHouse/resources/css/arthouse.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
-		<div class="header-wrap">			
+		<div class="header-wrap">
 			<!-- 로고 -->
 			<div class="top_logo">
 				<a title="ArtHouse 메인으로 가기">
-					<img alt="ARTHOUSE" src="/artHouse1/resources/img/logo01.gif" height="100px">
+					<img alt="ARTHOUSE" src="/artHouse/resources/img/logo01.gif" height="100px">
 				</a>
 			</div>
 			
 			<!-- 사용자 메뉴 -->
-			<div class="top_members">			
+			<div class="top_members">
 				<ul>
 					<li>
 						<a title="로그인" class="member_menu"><span>로그인</span></a>
