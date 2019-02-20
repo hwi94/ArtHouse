@@ -11,7 +11,7 @@ body
 	padding: 0px;
 	font-family: "Noto Sans KR", sans-serif;
 	-webkit-font-smoothing: antialiased;
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: 300;
 	color: #333;
 	letter-spacing: -0.5px;
@@ -23,6 +23,7 @@ a
 	text-decoration: none;
 	outline: none;
 	cursor: pointer;
+	color: #333;
 }
 
 ul, ol, dl, li, p
@@ -30,6 +31,16 @@ ul, ol, dl, li, p
 	padding: 0;
 	margin: 0;
 	list-style: none;
+}
+
+input, button
+{
+	outline: none;
+}
+
+button
+{
+	cursor: pointer;
 }
 
 /**************** 상단메뉴 *****************/
@@ -144,6 +155,15 @@ header .header-wrap .header-menu ul li span:HOVER
 	font-size: 14px;
 }
 
+/***** 버튼 *****/
+.btn
+{
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: middle;
+	font-weight: 600;
+}
+
 /**************** 내용출력 페이지바디 *****************/
 .page-body
 {
@@ -159,11 +179,82 @@ header .header-wrap .header-menu ul li span:HOVER
 	margin: 0px auto;
 }
 
+.center-context
+{
+	text-align: center;
+}
+
+/***** 현재위치 안내 *****/
+
 .this-menu
 {
-	line-height: 50px;
+	border-top: 1px solid #e1e1e1;
 	background-color: #f2f2f2;
 	border-bottom: 2px solid #333;
+	margin-bottom: 80px;
+}
+
+.this-menu .cur-info
+{
+	line-height: 50px;
+	font-weight: 400;
+	font-size: 15px;
+}
+
+.this-menu a
+{
+	color: #777;
+}
+
+.this-menu a span
+{
+	padding: 0 5px 0 5px;
+}
+
+.this-menu .current-page
+{
+	color: #000;
+	font-weight: 600;
+}
+
+/**************** 좌측 서브메뉴 *****************/
+.col-aside
+{
+	float: left;
+	width: 160px;
+}
+
+.col-aside ul li
+{
+	border-top: 1px solid #bbb9b1;
+}
+
+.col-aside ul li a
+{
+	width: 155px;
+	height: 34px;
+	padding-left: 5px;
+	color: #222;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 34px;
+	display: block;
+	position: relative;
+}
+
+.col-aside ul li a:hover
+{
+	background-color: #000;
+	color: #fff;
+}
+
+/**************** 우측 메인컨텐츠 *****************/
+.col-detail
+{
+	float: right;
+	position: relative;
+	width: 800px;
+	margin-bottom: 80px;
 }
 
 /**************** 하단메뉴 *****************/

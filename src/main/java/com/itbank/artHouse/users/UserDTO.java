@@ -11,6 +11,22 @@ public class UserDTO {
 	private String grade;	//회원등급
 	private String gender;	//성별
 	
+	public UserDTO() {
+	}
+	
+	public UserDTO(String id, String pw, String name, String birth, String tel, String mail, String grade,
+			String gender) {
+		super();
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.birth = birth;
+		this.tel = tel;
+		this.mail = mail;
+		this.grade = grade;
+		this.gender = gender;
+	}
+	
 	public String getId() {
 		return id;
 	}

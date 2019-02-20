@@ -4,8 +4,22 @@
 
 <mapper namespace="users">
 
+	<!-- 회원정보 삽입 -->
+	<insert id="insert" parameterType="userDTO">
+		INSERT INTO users
+		VALUES(#{id},#{pw},#{name},#{birth},#{tel},#{mail},#{grade},#{gender})
+	</insert>
+	
+	<!-- 아이디 체크 -->
+	<select id="idCheck" parameterType="String" resultType="int">
+		SELECT
+		count(*)
+		FROM users
+		WHERE id = #{id}
+	</select>
+
 	<!-- 아이디로 회원정보 불러오기 -->
-	<select id="select" parameterType="userDTO" resultMap="rs">
+	<select id="select" parameterType="UserDTO" resultMap="rs">
 		SELECT
 		*
 		FROM users
@@ -28,23 +42,27 @@
 		SELECT * FROM users
 	</select>
 	
-	<!-- 회원정보 삽입 -->
-	<insert id="insert" parameterType="userDTO">
-		INSERT INTO users
-		VALUES(#{id},#{pw},#{name},#{birth},#{tel},#{mail},#{grade},#{gender})
-	</insert>
-	
 	<!-- 회원정보 수정 : 비밀번호, 이름, 생년월일, 전화번호, 메일주소 수정가능 -->
 	<update id="update" parameterType="userDTO">
 		UPDATE users
 		SET
-		pw=#{pw}
-		name=#{name}
-		birth=#{birth}
-		tel=#{tel}
+		pw=#{pw},
+		name=#{name},
+		birth=#{birth},
+		tel=#{tel},
 		mail=#{mail}
-		WHERE
-		columnname2 = #{param2}
+		WHERE id = #{id}
+	</update>
+	
+	<!-- 회원정보 수정2 : 이름, 생년월일, 전화번호, 메일주소 수정가능 -->
+	<update id="update2" parameterType="userDTO">
+		UPDATE users
+		SET
+		name=#{name},
+		birth=#{birth},
+		tel=#{tel},
+		mail=#{mail}
+		WHERE id = #{id}
 	</update>
 	
 	<!-- 회원탈퇴 -->

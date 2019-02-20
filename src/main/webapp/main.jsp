@@ -1,3 +1,4 @@
+<%@page import="com.itbank.artHouse.users.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -15,6 +16,7 @@
 	
 	<!-- css -->
 	<link rel="stylesheet" href="/artHouse/resources/css/jquery.bxslider.css">
+	<link rel="stylesheet" href="/artHouse/resources/css/arthouse.main.css">
 </head>
 <body>	
 	<div class="page-body">
@@ -46,17 +48,39 @@
 					</a>
 				</div>
 			</div>
-		
-			d<br>
-			d<br>
-			d<br>
-			d<br>
-			d<br>
-			d<br>
-			d<br>
-			d<br>
-			d<br>
-			d<br>
+			<!-- //이미지 슬라이드 끝 -->
+			
+			<br>
+			<br>
+			
+			<!-- 현재상영작 / 상영예정작 탭메뉴 -->
+			<div class="flip-box">
+				<ul class="tabs">
+					<li class="active" rel="tab1">현재상영작</li>
+					<li rel="tab2">상영예정작</li>
+				</ul>
+				
+				<div class="flip-content"> 			
+					<!-- 현재상영작 -->
+					<div id="tab1" class="tab_content">
+						<ul>
+							<li class="tab-item">
+								<div class="flip-img"></div>
+								<div class="flip-info"></div>
+								<div class="flip-btn"></div>
+							</li>
+						</ul> 
+					</div>
+	    			
+	    			<!-- 상영예정작 -->
+					<div id="tab2" class="tab_content">
+						<h2>제목2</h2>
+						<p>내용2</p>
+					</div>
+				</div>
+			</div>
+			<!-- 현재상영작 / 상영예정작 탭메뉴 끝 -->
+			
 		</div>
 		
 		<!-- 하단내용 -->
