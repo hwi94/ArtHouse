@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="resv">
+
+	<select id="select" parameterType="resvDTO" resultMap="rs">
+		SELECT *
+		FROM resv
+		WHERE movie = #{movie}
+	</select>
+
+	<select id="selectPlaytime" parameterType="resvDTO" resultMap="rs">
+		SELECT *
+		FROM resv
+		WHERE playtime = #{playtime}
+	</select>
+
+	<!-- 컬럼과. -->
+	<resultMap type="resvDTO" id="rs">
+		<result property="movie" column="movie" />
+		<result property="tName" column="tName" />
+		<result property="playtime" column="playtime" />
+		<result property="taken" column="taken" />
+	</resultMap>
+
+	<!-- 전체목록 -->
+	<select id="selectAll" resultMap="rs">
+		SELECT * FROM resv
+	</select>
+
+	<!-- 컬럼과. -->
+	<resultMap type="resvDTO2" id="rs2">
+		<result property="movie" column="movie" />
+		<result property="tName" column="tName" />
+		<result property="playtime" column="playtime" />
+		<result property="taken" column="taken" />
+		<result property="name" column="name" />
+		<result property="seats" column="seats" />
+	</resultMap>
+
+	<resultMap type="resvDTO" id="tNameId">
+		<result property="tName" column="tName" />
+	</resultMap>
+	<resultMap type="resvDTO" id="movieId">
+		<result property="movie" column="movie" />
+	</resultMap>
+	<resultMap type="resvDTO2" id="seatId">
+		<result property="seats" column="seats" />
+	</resultMap>
+
+
+	<select id="selectName" parameterType="resvDTO" resultMap="tNameId">
+		select distinct tName from resv where movie = #{movie}
+	</select>
+
+	<select id="selectMovie" resultMap="movieId">
+		select distinct movie from
+		resv
+	</select>
+
+	<select id="selectTheater" parameterType="resvDTO2" resultMap="rs2">
+		select resv.movie, resv.tName, resv.playtime, resv.taken,
+		theater.name, theater.seats from resv join theater on resv.tName =
+		theater.name and resv.playtime = #{playtime}
+	</select>
+
+	<insert id="insert" parameterType="resvDTO">
+		INSERT INTO resv VALUES (#{movie},#{tName},#{playtime},#{taken})
+	</insert>
+
+
+	<update id="update" parameterType="noticeDTO">
+		UPDATE resv SET taken = #{taken} WHERE playtime = #{playtime}
+	</update>
+	<!-- 삭제 -->
+	<!-- <delete id="delete" parameterType="noticeDTO"> DELETE FROM member WHERE 
+		titleNo = #{titleNo} </delete> -->
+
+</mapper>
