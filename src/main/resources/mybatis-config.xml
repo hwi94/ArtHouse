@@ -8,17 +8,25 @@
 		<typeAlias type="com.itbank.artHouse.users.UserDTO" alias="UserDTO"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.movie.MovieDTO" alias="movieDTO"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.serviceCenter.NoticeDTO" alias="noticeDTO"></typeAlias>
+<<<<<<< HEAD
 		<typeAlias type="com.itbank.artHouse.book.ResvDTO" alias="resvDTO"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.book.ResvDTO2" alias="resvDTO2"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.book.TicketDTO" alias="ticketDTO"></typeAlias>
+=======
+		<typeAlias type="com.itbank.artHouse.food.FoodDTO" alias="foodDTO"></typeAlias>
+>>>>>>> branch 'master' of https://github.com/hwi94/ArtHouse
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="mapper/users.xml" />
 		<mapper resource="mapper/movie.xml" />
 		<mapper resource="mapper/notice.xml" />
+<<<<<<< HEAD
 		<mapper resource="mapper/resv.xml" />
 		<mapper resource="mapper/ticket.xml" />
+=======
+		<mapper resource="mapper/food.xml"/>
+>>>>>>> branch 'master' of https://github.com/hwi94/ArtHouse
 	</mappers>
 	
 	

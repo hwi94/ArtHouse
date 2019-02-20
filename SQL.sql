@@ -7,6 +7,15 @@ create table notice (
 	uploadDate varchar2(30),
 	contents varchar2(3000) not null
 );
+
+	oracle sequence (auto_increment 기능)
+
+	CREATE SEQUENCE titleNo(
+		INCREMENT BY 1,
+		START WITH 1,
+		MINVALUE 1,
+		MAXVALUE 999999
+	);
 	
 drop table serviceCenter purge;
 
@@ -38,4 +47,17 @@ create table movie (
 	recommend int,
 	photo varchar2(200)
 );
+
+===================유민재===================
+
+	카트 테이블 생성
+create table cart (
+	cart_id NUMBER NOT NULL PRIMARY KEY,
+	user_id VARCHAR2(50),
+	code VARCHAR2(20) NOT NULL,
+	amount NUMBER DEFAULT 0);
+
+	외래키 설정
+alter table cart add foreign key(code) references food(card);
+alter table cart add foreign key(user_id) references users(id);	
 

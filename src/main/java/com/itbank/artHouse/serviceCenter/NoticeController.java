@@ -23,7 +23,7 @@ public class NoticeController {
 		dao.insert(dto);
 		model.addAttribute("dto",dto);
 		
-		return "complete";
+		return "serviceCenter/complete";
 	}
 	
 	
