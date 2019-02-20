@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="notice">
+
+	<select id="select" parameterType="noticeDTO" resultMap="rs">
+		SELECT * FROM NOTICE WHERE titleNo = #{titleNo}
+	</select>
+	
+	<!-- 컬럼과. -->
+	<resultMap type="noticeDTO" id="rs">
+		<result property="title" column="title"/>
+		<result property="titleNo" column="titleNo"/>
+		<result property="movieTheaters" column="movieTheaters"/>
+		<result property="uploadDate" column="uploadDate"/>
+		<result property="contents" column="contents"/>
+	</resultMap>
+
+	<!-- 전체목록 -->
+	<select id="selectAll" resultMap="rs">
+		SELECT * FROM NOTICE
+	</select>
+	
+	<!-- 생성 -->
+	<insert id="insert" parameterType="noticeDTO">
+		INSERT INTO NOTICE (title,titleNo,movieTheaters,uploadDate,contents) VALUES (#{title},TITLENO.nextval,#{movieTheaters},#{uploadDate},#{contents})
+	</insert>
+
+	<!-- 수정 -->
+	<update id="update" parameterType="noticeDTO">
+		UPDATE NOTICE SET title = #{title} WHERE titleNo = #{titleNo}
+	</update>
+	<!-- 삭제 -->
+	<delete id="delete" parameterType="noticeDTO">
+		DELETE FROM member WHERE titleNo = #{titleNo}
+	</delete>
+
+</mapper>

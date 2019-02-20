@@ -6,9 +6,20 @@
 
 	<typeAliases>
 		<typeAlias type="com.itbank.artHouse.users.UserDTO" alias="UserDTO"></typeAlias>
+		<typeAlias type="com.itbank.artHouse.movie.MovieDTO" alias="movieDTO"></typeAlias>
+		<typeAlias type="com.itbank.artHouse.serviceCenter.NoticeDTO" alias="noticeDTO"></typeAlias>
+		<typeAlias type="com.itbank.artHouse.book.ResvDTO" alias="resvDTO"></typeAlias>
+		<typeAlias type="com.itbank.artHouse.book.ResvDTO2" alias="resvDTO2"></typeAlias>
+		<typeAlias type="com.itbank.artHouse.book.TicketDTO" alias="ticketDTO"></typeAlias>
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="mapper/users.xml" />
+		<mapper resource="mapper/movie.xml" />
+		<mapper resource="mapper/notice.xml" />
+		<mapper resource="mapper/resv.xml" />
+		<mapper resource="mapper/ticket.xml" />
 	</mappers>
+	
+	
 </configuration>

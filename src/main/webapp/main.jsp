@@ -4,51 +4,62 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>ArtHouse</title>
+	<title>아트하우스</title>
 	
 	<!-- 제이쿼리 -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 	
 	<!-- 자바스크립트 -->
-	<script type="text/javascript" src="./resources/js/main.js"></script>
-</head>
-<body>
-	<jsp:include page="top.jsp"></jsp:include>
+	<script type="text/javascript" src="/artHouse/resources/js/main.js"></script>
 	
+	<!-- css -->
+	<link rel="stylesheet" href="/artHouse/resources/css/jquery.bxslider.css">
+</head>
+<body>	
 	<div class="page-body">
-		<div class="slider">
-			<ul class="slides">
-				<li><img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
-					<div class="caption center-align">
-						<h3>This is our big Tagline!</h3>
-						<h5 class="light grey-text text-lighten-3">Here's our small
-							slogan.</h5>
-					</div>
-				</li>
-				<li><img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
-					<div class="caption left-align">
-						<h3>Left Aligned Caption</h3>
-						<h5 class="light grey-text text-lighten-3">Here's our small
-							slogan.</h5>
-					</div>
-				</li>
-				<li><img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
-					<div class="caption right-align">
-						<h3>Right Aligned Caption</h3>
-						<h5 class="light grey-text text-lighten-3">Here's our small
-							slogan.</h5>
-					</div>
-				</li>
-				<li><img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
-					<div class="caption center-align">
-						<h3>This is our big Tagline!</h3>
-						<h5 class="light grey-text text-lighten-3">Here's our small
-							slogan.</h5>
-					</div>
-				</li>
-			</ul>
+		<!-- 상단메뉴 -->
+		<jsp:include page="top.jsp"></jsp:include>
+		
+		<!-- 중간내용 -->
+		<div class="main-context">
+			<!-- 이미지 슬라이드 -->	
+			<div class="slider">
+				<div>
+					<a href="#">
+						<img src="/artHouse/resources/img/slide/slide01.jpg" alt="콜드워">
+					</a>		
+				</div>
+				<div>
+					<a href="#">
+						<img src="/artHouse/resources/img/slide/slide02.jpg" alt="그린북">
+					</a>
+				</div>
+				<div>
+					<a href="#">
+						<img src="/artHouse/resources/img/slide/slide03.jpg" alt="가버나움">
+					</a>
+				</div>
+				<div>
+					<a href="#">
+						<img src="/artHouse/resources/img/slide/slide04.jpg" alt="로마">
+					</a>
+				</div>
+			</div>
+			
+			d<br>
+			d<br>
+			d<br>
+			d<br>
+			d<br>
+			d<br>
+			d<br>
+			d<br>
+			d<br>
+			d<br>
 		</div>
 		
+		<!-- 하단내용 -->
 		<jsp:include page="bottom.jsp"></jsp:include>
 	</div>
 
