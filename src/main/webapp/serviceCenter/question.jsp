@@ -13,11 +13,276 @@
 		
 		<script type="text/javascript">
 			$(function() {
+				
+				var cnt = 1;
+				
+				/* 클릭마다사진올릴수있는공간생성  */
+				$("#k_attachments_upload").click(function () {
+					console.log("펑션들어왔습니다.");
+					if(cnt == 1){
+						$("#attachments1").show();
+						cnt++;
+						console.log("cnt빠져나가는값은 2입니다.");
+						return false;
+					}else if(cnt == 2){
+						$("#attachments2").show();
+						cnt++;
+						console.log("cnt빠져나가는값은 3입니다.");
+						return false;
+					}else if(cnt == 3){
+						$("#attachments3").show();
+						cnt++;
+						console.log("cnt빠져나가는값은 4입니다.");
+						return false;
+					}else if(cnt == 4){
+						$("#attachments4").show();
+						cnt++;
+						console.log("cnt빠져나가는값은 5입니다.");
+						return false;
+					}else if(cnt == 5){
+						$("#attachments5").show();
+						cnt++;
+						console.log("cnt빠져나가는값은 6입니다.");
+						return false;
+					}
+				});
+				// ------------------------------------------------사진공간----------------------------------------------------------------------------
+				
+				/* 사진업로드1번버튼 */
+				$("#k_attachments_fub1").change(function(e) {
+					console.log("사진업로드 1번버튼 ");
+					/* 선택한파일을 files에넣는다. */
+					var files = e.target.files;
+					console.log("파일이름:"+files);
+					/* files를 배열에 넣는다 */
+					var filesArr = Array.prototype.slice.call(files);
+					console.log(filesArr);
+					/* 배열에 들어있는거하나씩꺼내기 */
+					filesArr.forEach(function(f){
+						/* 이미지타입이아닐때, */
+						if(!f.type.match("image.*")){
+							alert("확장자는 이미지 확장자만 가능합니다.");
+							console.log("not image");
+							return;
+						} // match if 
+							console.log("yes image");
+						/* f를 sel_file에 대입. */
+						sel_file = f;
+						/* 파일리더는 무엇인가? */
+						var reader = new FileReader();
+						reader.onload = function(e){
+							/* 1. 파일선택을완료하면버튼숨김 */
+							$("#k_attachments_fub1").hide();
+							/* 2. 이미지태그생성 및 속성, 아이디부여 */
+							$("#k_attachments_img_container1").append("<img id='k_uploadImg1' style= 'width:120px; heigth:93px;'>");
+							/* 속성 : src 지정 */
+							$("#k_uploadImg1").attr("src", e.target.result);
+							console.log($("#k_uploadImg1").val());
+							
+						} // reader Function 
+						reader.readAsDataURL(f);
+					}); // forEach
+				});	//사진업로드	
+				
+				/* 사진클릭시 삭제. */
+				$(document).on("click","#k_uploadImg1",function(){
+					console.log("1111??");
+					$("#k_uploadImg1").remove();
+					$("#k_attachments_fub1").show();
+					
+				});
+				//--------------------------------------------------------------------------------------------------------------------------------------
+				/* 사진업로드1번버튼 */
+				$("#k_attachments_fub2").change(function(e) {
+					console.log("사진업로드 1번버튼 ");
+					/* 선택한파일을 files에넣는다. */
+					var files = e.target.files;
+					console.log("파일이름:"+files);
+					/* files를 배열에 넣는다 */
+					var filesArr = Array.prototype.slice.call(files);
+					console.log(filesArr);
+					/* 배열에 들어있는거하나씩꺼내기 */
+					filesArr.forEach(function(f){
+						/* 이미지타입이아닐때, */
+						if(!f.type.match("image.*")){
+							alert("확장자는 이미지 확장자만 가능합니다.");
+							console.log("not image");
+							return;
+						} // match if 
+							console.log("yes image");
+						/* f를 sel_file에 대입. */
+						sel_file = f;
+						/* 파일리더는 무엇인가? */
+						var reader = new FileReader();
+						reader.onload = function(e){
+							/* 1. 파일선택을완료하면버튼숨김 */
+							$("#k_attachments_fub2").hide();
+							/* 2. 이미지태그생성 및 속성, 아이디부여 */
+							$("#k_attachments_img_container2").append("<img id='k_uploadImg2' style= 'width:120px; heigth:93px;'>");
+							/* 속성 : src 지정 */
+							$("#k_uploadImg2").attr("src", e.target.result);
+							
+						} // reader Function 
+						reader.readAsDataURL(f);
+					}); // forEach
+				});	//사진업로드	
+				
+				/* 사진클릭시 삭제. */
+				$(document).on("click","#k_uploadImg2",function(){
+					console.log("1111??");
+					$("#k_uploadImg2").remove();
+					$("#k_attachments_fub2").show();
+					
+				});
+				//--------------------------------------------------------------------------------------------------------------------------------------
+				/* 사진업로드3번버튼 */
+				$("#k_attachments_fub3").change(function(e) {
+					console.log("사진업로드 3번버튼 ");
+					/* 선택한파일을 files에넣는다. */
+					var files = e.target.files;
+					console.log("파일이름:"+files);
+					/* files를 배열에 넣는다 */
+					var filesArr = Array.prototype.slice.call(files);
+					console.log(filesArr);
+					/* 배열에 들어있는거하나씩꺼내기 */
+					filesArr.forEach(function(f){
+						/* 이미지타입이아닐때, */
+						if(!f.type.match("image.*")){
+							alert("확장자는 이미지 확장자만 가능합니다.");
+							console.log("not image");
+							return;
+						} // match if 
+							console.log("yes image");
+						/* f를 sel_file에 대입. */
+						sel_file = f;
+						/* 파일리더는 무엇인가? */
+						var reader = new FileReader();
+						reader.onload = function(e){
+							/* 1. 파일선택을완료하면버튼숨김 */
+							$("#k_attachments_fub3").hide();
+							/* 2. 이미지태그생성 및 속성, 아이디부여 */
+							$("#k_attachments_img_container3").append("<img id='k_uploadImg3' style= 'width:120px; heigth:93px;'>");
+							/* 속성 : src 지정 */
+							$("#k_uploadImg3").attr("src", e.target.result);
+							
+						} // reader Function 
+						reader.readAsDataURL(f);
+					}); // forEach
+				});	//사진업로드	
+				
+				/* 사진클릭시 삭제. */
+				$(document).on("click","#k_uploadImg3",function(){
+					console.log("1111??");
+					$("#k_uploadImg3").remove();
+					$("#k_attachments_fub3").show();
+					
+				});
+				//--------------------------------------------------------------------------------------------------------------------------------------
+				/* 사진업로드4번버튼 */
+				$("#k_attachments_fub4").change(function(e) {
+					console.log("사진업로드 4번버튼 ");
+					/* 선택한파일을 files에넣는다. */
+					var files = e.target.files;
+					console.log("파일이름:"+files);
+					/* files를 배열에 넣는다 */
+					var filesArr = Array.prototype.slice.call(files);
+					console.log(filesArr);
+					/* 배열에 들어있는거하나씩꺼내기 */
+					filesArr.forEach(function(f){
+						/* 이미지타입이아닐때, */
+						if(!f.type.match("image.*")){
+							alert("확장자는 이미지 확장자만 가능합니다.");
+							console.log("not image");
+							return;
+						} // match if 
+							console.log("yes image");
+						/* f를 sel_file에 대입. */
+						sel_file = f;
+						/* 파일리더는 무엇인가? */
+						var reader = new FileReader();
+						reader.onload = function(e){
+							/* 1. 파일선택을완료하면버튼숨김 */
+							$("#k_attachments_fub4").hide();
+							/* 2. 이미지태그생성 및 속성, 아이디부여 */
+							$("#k_attachments_img_container4").append("<img id='k_uploadImg4' style= 'width:120px; heigth:93px;'>");
+							/* 속성 : src 지정 */
+							$("#k_uploadImg4").attr("src", e.target.result);
+							
+						} // reader Function 
+						reader.readAsDataURL(f);
+					}); // forEach
+				});	//사진업로드	
+				
+				/* 사진클릭시 삭제. */
+				$(document).on("click","#k_uploadImg4",function(){
+					console.log("1111??");
+					$("#k_uploadImg4").remove();
+					$("#k_attachments_fub4").show();
+					
+				});
+				//--------------------------------------------------------------------------------------------------------------------------------------
+				/* 사진업로드1번버튼 */
+				$("#k_attachments_fub5").change(function(e) {
+					console.log("사진업로드 5번버튼 ");
+					/* 선택한파일을 files에넣는다. */
+					var files = e.target.files;
+					console.log("파일이름:"+files);
+					/* files를 배열에 넣는다 */
+					var filesArr = Array.prototype.slice.call(files);
+					console.log(filesArr);
+					/* 배열에 들어있는거하나씩꺼내기 */
+					filesArr.forEach(function(f){
+						/* 이미지타입이아닐때, */
+						if(!f.type.match("image.*")){
+							alert("확장자는 이미지 확장자만 가능합니다.");
+							console.log("not image");
+							return;
+						} // match if 
+							console.log("yes image");
+						/* f를 sel_file에 대입. */
+						sel_file = f;
+						/* 파일리더는 무엇인가? */
+						var reader = new FileReader();
+						reader.onload = function(e){
+							/* 1. 파일선택을완료하면버튼숨김 */
+							$("#k_attachments_fub5").hide();
+							/* 2. 이미지태그생성 및 속성, 아이디부여 */
+							$("#k_attachments_img_container5").append("<img id='k_uploadImg5' style= 'width:120px; heigth:93px;'>");
+							/* 속성 : src 지정 */
+							$("#k_uploadImg5").attr("src", e.target.result);
+							
+						} // reader Function 
+						reader.readAsDataURL(f);
+					}); // forEach
+				});	//사진업로드	
+				
+				/* 사진클릭시 삭제. */
+				$(document).on("click","#k_uploadImg5",function(){
+					console.log("1111??");
+					$("#k_uploadImg5").remove();
+					$("#k_attachments_fub5").show();
+					
+				});
+				
+				
+				
+				
+				
+				
+				//----------------------------------------------------------------------------------------------------------------------------------------
+				
+				
+				
+				
+				
 				/* 기타문의클릭시 지역선택 , 영화관선택 비활성 */
 				$("#k_question_other").click(function() {
 					alert("기타문의를 클릭하셨군요");
 					$("#k_areaSelectBox").prop("disabled",true);
 					$("#k_selectMovieTheater").prop("disabled",true);
+					/* 문의유형선택바뀜  */
+					$("#k_questionType1").hide();
+					$("#k_questionType2").show();
 				});
 				
 				/* 지역문의클릭시 지역선택 , 영화관선택 활성 */
@@ -25,14 +290,14 @@
 					alert("지점문의를 클릭하셨군요");
 					$("#k_areaSelectBox").prop("disabled",false);
 					$("#k_selectMovieTheater").prop("disabled",false);
+					/* 문의유형선택바뀜  */
+					$("#k_questionType1").show();
+					$("#k_questionType2").hide();
+					$("#")
 				});
 				
 				
 				
-				$("#k_selectArea").click(function() {
-					alert("지역선택 클릭했네요");
-					$("#k_areaSelectBox").trigger("click");
-				});
 			
 			
 			
@@ -74,7 +339,7 @@
 						자세한 내용은 '개인정보 처리방침' 을 확인하시기 바랍니다.<br>
 					</div>
 					<div class="k_questionInputForm_container">
-						<form>
+						<form enctype="multipart/form-data" method="post">
 						<p class="k_agreeAboutprivacy_contanier">
 							개인정보 수집에 동의하십니까?<br>
 							* 원활한 서비스 이용을 위한 최소한의 개인정보이므로 동의하지 않을 경우 서비스를 이용하실수 없습니다.　　　　　　　　　　　　　　　　　　　
@@ -90,9 +355,9 @@
 							<tr>
 								<th class="k_question_column">연락처</th>
 								<td>
-									<input type="text" name="" id="" class="mobileLength">-
-									<input type="text" name="" id="" class="mobileLength">-
-									<input type="text" name="" id="" class="mobileLength" >
+									<input type="text" name="" id="" class="mobileLength" maxlength="3">-
+									<input type="text" name="" id="" class="mobileLength" maxlength="4">-
+									<input type="text" name="" id="" class="mobileLength" maxlength="4">
 								</td>
 								<th class="k_question_column" style="width: 195px">이메일</th>
 								<td>
@@ -112,7 +377,7 @@
 									</div>
 									
 									<div class="k_buttonGroup">
-										<select id="k_areaSelectBox" style="width: 70px;height: 25px;font-size: 9pt;">
+										<select id="k_areaSelectBox" style="width: 70px;height: 25px;font-size: 9pt; ">
 											<option value="">지역선택</option>
 											<option value="서울">서울</option>
 											<option value="경기">경기</option>
@@ -145,16 +410,21 @@
 								<th class="k_question_column">문의유형</th>
 								<td>
 									<div class="k_buttonGroup">
-										<select id="k_selectMovieTheater" style="width: 120px;height: 25px;font-size: 9pt;">
-											<option value=""></option>
-											<option value="서울"></option>
-											<option value="경기"></option>
-											<option value="인천"></option>
-											<option value="대충세"></option>
-											<option value="부대경"></option>
-											<option value="광전"></option>
-											<option value="강원"></option>
-											<option value="제주"></option>
+										<select id="k_questionType1" style="width: 120px;height: 25px;font-size: 9pt;">
+											<option value="">문의유형 선택</option>
+											<option value="일반 문의">일반 문의</option>
+											<option value="칭찬">칭찬</option>
+											<option value="불만">불만</option>
+											<option value="제안">제안</option>
+										</select>
+										<select id="k_questionType2" style="width: 120px;height: 25px;font-size: 9pt; display: none;">
+											<option value="">문의유형 선택</option>
+											<option value="영화정보">영화정보 문의</option>
+											<option value="회원및포인트">회원 및 포인트 문의</option>
+											<option value="예매/결제">예매/결제 관련 문의</option>
+											<option value="이벤트">이벤트 문의</option>
+											<option value="일반">일반 문의</option>
+											<option value="제안/건의">제안/건의</option>
 										</select>
 									</div>
 								</td>
@@ -175,12 +445,41 @@
 							<tr>
 								<th class="k_question_column">파일첨부</th>
 								<td colspan="3" width="785px;">	
-									<button style="width: 120px;height: 60px">사진 추가하기</button>
-								</td> 
+									<input type="button" id="k_attachments_upload" style="width: 120px;height: 60px" value="사진첨부">
+									<ul>
+										<li id="attachments1" style="width: 120px;height: 93px; float: left; display: none;" class="attachments">
+											<div align="center" id="k_attachments_img_container1" style="width: 120px;height: 93px">
+												<input type="file" id="k_attachments_fub1" name="imgFile1" class="uploadBtn" style="width: 76px; margin-top: 35px;">
+											</div>
+										</li>
+										<li id="attachments2" style="width: 120px;height: 93px; float: left; display: none;" class="attachments">
+											<div align="center" id="k_attachments_img_container2" style="width: 120px;height: 93px">
+												<input type="file" id="k_attachments_fub2" name="imgFile2" class="uploadBtn" style="width: 76px; margin-top: 35px;">
+											</div>
+										</li>
+										<li id="attachments3" style="width: 120px;height: 93px; float: left; display: none;" class="attachments">
+											<div align="center" id="k_attachments_img_container3" style="width: 120px;height: 93px">
+												<input type="file" id="k_attachments_fub3" name="imgFile3" class="uploadBtn" style="width: 76px; margin-top: 35px;">
+											</div>
+										</li>
+										<li id="attachments4" style="width: 120px;height: 93px; float: left; display: none;" class="attachments">
+											<div align="center" id="k_attachments_img_container4" style="width: 120px;height: 93px">
+												<input type="file" id="k_attachments_fub4" name="imgFile4" class="uploadBtn" style="width: 76px; margin-top: 35px;">
+											</div>
+										</li>
+										<li id="attachments5" style="width: 120px;height: 93px; float: left; display: none;" class="attachments">
+											<div align="center" id="k_attachments_img_container5" style="width: 120px;height: 93px">
+												<input type="file" id="k_attachments_fub5" name="imgFile5" class="uploadBtn" style="width: 76px; margin-top: 35px;">
+											</div>
+										</li>
+									</ul>
+								</td>
 							</tr>
 						</table>
-						<div class="k_submitButtonCenter_container">
-							<input type="button" id="" name="" value="등록" class="k_question_uploadButton">
+						<div class="k_submitButtonCenter_container"	style="margin: auto">
+							<center>
+								<input type="button" id="k_question_uploadButton" name="" value="등록" class="k_question_uploadButton">
+							</center>
 						</div>
 					</form>
 					</div>

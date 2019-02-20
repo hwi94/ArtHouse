@@ -29,7 +29,7 @@
 
 	<!-- 수정 -->
 	<update id="update" parameterType="noticeDTO">
-		UPDATE NOTICE SET title = #{title} WHERE titleNo = #{titleNo}
+		UPDATE NOTICE SET title = #{title}  WHERE titleNo = #{titleNo}
 	</update>
 	<!-- 삭제 -->
 	<delete id="delete" parameterType="noticeDTO">

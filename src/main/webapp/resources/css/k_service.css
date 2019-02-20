@@ -13,6 +13,7 @@
 			    height: 180px;
 			    padding: 20px 4px 20px 24px;
 			    border: 1px solid #ccc;
+
 			}
 			
 .k_question_ul_container{
@@ -76,5 +77,8 @@
 .k_buttonGroup{
 	float: left;
 	width: 15%;
+}
+.attachments{
+	border: 1px solid #ccc;
 }
 

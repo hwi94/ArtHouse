@@ -16,7 +16,7 @@ public class MovieController {
 	@RequestMapping("selectAllMovie.do")
     public String selectAllProduct(Model model){
         model.addAttribute("movieList", dao.selectAll());
-        return "movie/movieList";
+        return "movie/movieMain";
     }
 
 	

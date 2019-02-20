@@ -33,7 +33,7 @@ create table users (
 
 	영화 테이블 생성
 create table movie (
-	code int primary key,
+	code number primary key,
 	title varchar2(50),
 	ganre varchar2(20),
 	playdate varchar2(20),
@@ -41,10 +41,10 @@ create table movie (
 	summary varchar2(3000),
 	director varchar2(20),
 	actors varchar2(200),
-	agerequire int,
+	agerequire number,
 	grade varchar2(5),
-	count int,
-	recommend int,
+	count number,
+	recommend number,
 	photo varchar2(200)
 );
 
