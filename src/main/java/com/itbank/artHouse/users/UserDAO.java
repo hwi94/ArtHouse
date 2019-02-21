@@ -18,6 +18,11 @@ public class UserDAO {
 		myBatis.insert("users.insert", dto);
 	}
 	
+	//아이디 중복체크
+	public int idCheck(String id) {
+		return myBatis.selectOne("users.idCheck", id);
+	}
+	
 	//회원정보보기
 	public UserDTO select(UserDTO dto) {
 		return myBatis.selectOne("users.select", dto);
@@ -28,13 +33,18 @@ public class UserDAO {
 		myBatis.update("users.update", dto);
 	}
 	
+	//회원정보수정2 (이름, 생년월일, 전화번호, 메일주소)
+	public void update2(UserDTO dto) {
+		myBatis.update("users.update2", dto);
+	}
+	
 	//회원탈퇴
 	public void delete(UserDTO dto) {
 		myBatis.delete("users.delete", dto);
 	}
 	
 	//전체 회원 리스트
-	public List<UserDTO> selectll() {
+	public List<UserDTO> selectAll() {
 		return myBatis.selectList("users.selectAll");
 	}
 }
