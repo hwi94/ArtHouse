@@ -62,7 +62,7 @@
 			<div class="header-menu">		
 				<ul>
 					<li>
-						<a title="영화정보" class="main_menu" href="/artHouse/movie/movieMain.jsp"><span>영화</span></a>
+						<a title="영화정보" class="main_menu" href="selectAllMovie.do"><span>영화</span></a>
 					</li>
 					<li>
 						<a title="예매하기" class="main_menu"><span>예매</span></a>
