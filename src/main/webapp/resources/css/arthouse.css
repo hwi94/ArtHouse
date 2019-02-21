@@ -43,6 +43,20 @@ button
 	cursor: pointer;
 }
 
+dl, dt, dd
+{
+	font-size: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+
+em
+{
+	font-style: normal;
+}
+
 /**************** 상단메뉴 *****************/
 header
 {
@@ -227,6 +241,7 @@ header .header-wrap .header-menu ul li span:HOVER
 .col-aside ul li
 {
 	border-top: 1px solid #bbb9b1;
+	margin-bottom: 10px;
 }
 
 .col-aside ul li a

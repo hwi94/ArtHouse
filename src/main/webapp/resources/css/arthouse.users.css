@@ -309,7 +309,8 @@ input[type=text], input[type=password]
 }
 
 /**************** 마이페이지 *****************/
-/***** 회원탈퇴 *****/
+
+/***** 회원정보수정 *****/
 #del-btn
 {
 	font-size: 11px;
@@ -318,4 +319,84 @@ input[type=text], input[type=password]
 	padding-top: 5px;
 	float: right;
 	border-bottom: 1px solid #999;
+}
+
+/***** 나의 예매내역 *****/
+.ticket-list
+{
+	position: relative;
+	width: 100%;
+	padding-top: 10px;
+	border-top: 2px solid #333;
+}
+
+.ticket-list .ticket-info
+{
+	overflow: hidden;
+	width: 100%;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #d6d4ca;
+}
+
+.ticket-list .ticket-info .ticket-img
+{
+	width: 90px;
+	margin-left: 29px;
+	margin-right: 29px;
+	float: left;
+}
+
+.ticket-list .ticket-info .ticket-img a
+{
+	display: block;
+}
+
+.thumb-img
+{
+	display: block;
+	position: relative;
+}
+
+.thumb-img img
+{
+	width: 90px;
+	height: 140px;
+}
+
+.ticket-list .ticket-info .ticket-content
+{
+	width: 311px;
+	margin-right: 48px;
+	float: left;
+}
+
+.ticket-list .ticket-info .ticket-content dt
+{
+	margin-bottom: 18px;
+	color: #222;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 14px;
+}
+
+.ticket-list .ticket-info .ticket-content dd
+{
+	margin-top: 3px;
+}
+
+.ticket-list .ticket-info .ticket-content dd em
+{
+	display: inline-block;
+	width: 60px;
+	margin-right: 10px;
+	color: #222;
+	font-size: 13px;
+	font-weight: 400;
+}
+
+.ticket-list .ticket-info .ticket-content dd strong
+{
+	color: #666;
+	font-weight: 500;
 }
