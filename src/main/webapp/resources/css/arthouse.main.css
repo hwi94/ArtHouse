@@ -47,6 +47,7 @@ button
 .flip-box 
 { 
 	width: 100%; 
+	height: 520px;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -93,20 +94,110 @@ ul.tabs li.active {
 }
 
 .tab_content {
-	padding: 5px;
-	font-size: 12px;
-	display: none;
-}
-
-.flip-content .tab_content ul {
 	width: 100%;
-	margin: 0px;
-	padding: 0px;
-}
-
-.flip-content .tab_content ul li {
-	padding: 5px;
-	list-style: none
+	height: 469px;
+	position: relative;
+	overflow: hidden;
 }
 
 /***** 탭메뉴 - 세부메뉴 *****/
+.tab_content ul
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-left: 0;
+}
+
+.tab_content ul li.tab-item
+{
+	display: block;
+	width: 232px;
+	height: 452px;
+	border: 1px solid #d9d9d9;
+	margin: 8px;
+	float: left;
+}
+
+.tab-item .flip-img
+{
+	width: 100%;
+	height: 336px;
+	position: relative;
+}
+
+.tab-item .flip-img img
+{
+	width: 100%;
+	height: 336px;
+	display: block;
+	z-index: -1;
+}
+
+.tab-item .flip-info
+{
+	padding: 0 13px 10px 13px;
+}
+
+.tab-item .flip-info h3
+{
+	margin: 0;
+	padding-top: 25px;
+	padding-bottom: 5px;
+	display: block;
+	font-size: 18px;
+	font-weight: 500;
+	color: #363636;
+}
+
+.tab-item .flip-btn
+{
+	padding-left: 65px;
+}
+
+.tab-item .flip-btn a
+{
+	border: 1px solid #d9d9d9;
+	background-color: #d9d9d9;
+	display: block;
+	width: 100px;
+	height: 25px;
+	padding-top: 7px;
+	font-size: 13px;
+	font-weight: 500;
+	color: #666;
+}
+
+.tab-item .flip-btn a:hover
+{
+	border: 1px solid #428bca;
+	background-color: #fff;
+	color: #428bca;
+}
+
+/***** MOVIE SELECTION *****/
+.vid-content
+{
+	position: relative;
+}
+
+.content-title h3
+{
+	font-size: 30px;
+	font-weight: 400;
+	text-align: center;
+	margin: 70px 0 30px;
+}
+
+.content-title h3 span
+{
+	padding: 5px 1px 0;
+	display: inline-block;
+	border-top: 1px solid #333;
+}
+
+.vid-content img
+{
+	float: right;
+	height: 388px;
+}
