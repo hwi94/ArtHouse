@@ -40,10 +40,18 @@
 	margin-right: 0 !important;
 }
 </style>
-<!-- 임시로 넣어둔 스크립트 선언부 -->
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
 <script type="text/javascript">
-
+	$(function(){
+		$(".deleteMovie").click(function(){
+			var choice = confirm("정말로 영화를 삭제 하겠습니까?");
+			if(choice){
+				return true;
+			}else{
+				return false;
+			}
+		});
+	});
 </script>
 </head>
 <body>
@@ -54,6 +62,7 @@
 			<div id="chartTitle">
 				<h1>영화 차트</h1>
 				<hr>
+				<a href="insertMovie.jsp">영화등록</a>
 			</div>
 			<div>
 				<ol id="od">
@@ -83,14 +92,16 @@
 										<span class="text-info"><strong>감독 / </strong>${dto.director}</span><br>
 										
 										<span class="text-info"><strong>개봉 / </strong>${dto.playdate}</span><br>
-											<div> 
-											<span class="text-info">
-													<strong>추천수 / </strong><span id="reco">${dto.recommend}</span>&nbsp;&nbsp;&nbsp;
-											</span>
-												<a class="recommedUp">추천</a>
-											</div>
+										
+										<div> 
+										<span class="text-info">
+												<strong>추천수 / </strong>${dto.recommend}&nbsp;&nbsp;&nbsp;
+										</span>
+										</div>
+																
 										<div>
-											<a class="hypertext" href="#">예매</a>
+											<a class="updateMovie" href="updateMovie.do?code=${dto.code}">영화 수정</a>
+											<a class="deleteMovie" href="deleteMovie.do?code=${dto.code}">영화 삭제</a>
 										</div>
 									</div>
 								</div>

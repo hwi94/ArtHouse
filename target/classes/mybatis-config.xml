@@ -13,6 +13,7 @@
 		<typeAlias type="com.itbank.artHouse.book.TicketDTO" alias="ticketDTO"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.food.FoodDTO" alias="foodDTO"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.MemberDTO" alias="MemberDTO"></typeAlias>
+		<typeAlias type="com.itbank.artHouse.movie.MovieReplyDTO" alias="movieReplyDTO"></typeAlias>
 	</typeAliases>
 
 	<mappers>
@@ -23,6 +24,7 @@
 		<mapper resource="mapper/resv.xml" />
 		<mapper resource="mapper/ticket.xml" />
 		<mapper resource="mapper/food.xml"/>
+		<mapper resource="mapper/movieReply.xml" />
 	</mappers>
 	
 	
