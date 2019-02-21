@@ -13,7 +13,6 @@
    <link href="/artHouse/resources/css/arthouse.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
-<<<<<<< HEAD
 	<!-- 상단메뉴 : header -->
 	<header>
 		<div class="header-wrap">			
@@ -58,7 +57,6 @@
 			</div>
 		</div>
 	</header>
-=======
    <!-- 상단메뉴 : header -->
    <header>
       <div class="header-wrap">         
@@ -91,7 +89,7 @@
                   <a href="selectAllMovie.do" title="영화정보" class="main_menu"><span>영화</span></a>
                </li>
                <li>
-                  <a title="예매하기" class="main_menu"><span>예매</span></a>
+                  <a href="moviePage" title="예매하기" class="main_menu"><span>예매</span></a>
                </li>
                <li>
                   <a title="스토어" class="main_menu"><span>스토어</span></a>
@@ -103,6 +101,5 @@
          </div>
       </div>
    </header>
->>>>>>> branch 'master' of https://github.com/hwi94/ArtHouse
 </body>
 </html>

@@ -12,7 +12,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>아트하우스</title>
+<link rel="stylesheet" href="/artHouse/resources/css/jquery.bxslider.css">
+<!-- 제이쿼리 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function() {
@@ -273,17 +277,13 @@ ul {
 </style>
 </head>
 <body>
-	<%-- <%
-		ResvDAO rDao = new ResvDAO();
-		ResvDTO rDto = new ResvDTO();
-
-		// = rDao.selectAll();
-		rDto.setMovie("Tree");
-		List<ResvDTO> list = rDao.selectDistinct(rDto);
-	%> --%>
-
+<div class="page-body">
+		<!-- 상단메뉴 -->
+		<jsp:include page="/top.jsp"></jsp:include>
+		
+		<!-- 중간내용 -->
+		<div class="main-context">
 	<br>
-
 	<input type="text" id="hidden" style="display: none">
 	<input type="text" id="textTime" style="display: none">
 	<input type="text" id="textTheater" style="display: none">
@@ -353,5 +353,11 @@ ul {
 	</form>
 		</div>
 	</div>
+</div>
+		
+		<!-- 하단내용 -->
+		<jsp:include page="/bottom.jsp"></jsp:include>
+	</div>
+
 </body>
 </html>
