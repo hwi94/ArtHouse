@@ -26,6 +26,11 @@ a
 	color: #333;
 }
 
+a:link, a:visited
+{
+	color: #333;
+}
+
 ul, ol, dl, li, p
 {
 	padding: 0;

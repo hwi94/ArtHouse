@@ -13,7 +13,7 @@ public class MovieController {
 	@Autowired
 	MovieDAO dao;
 	
-	@RequestMapping("selectAllMovie.do")
+	@RequestMapping("movie/selectAllMovie.do")
     public String selectAllMovie(Model model){
         model.addAttribute("movieList", dao.selectAll());
         return "movie/movieList";//임시로 어드민 리턴시켜 놓음
