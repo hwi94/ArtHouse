@@ -37,6 +37,12 @@
 	</repositories>
 
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.8</version>
+		</dependency>
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -180,7 +186,7 @@
 			<artifactId>ojdbc6</artifactId>
 			<version>11.2.0.3</version>
 		</dependency>
-		
+
 		<!-- spring security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -197,11 +203,11 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>4.2.1.RELEASE</version>
 		</dependency>
-		
+
 		<dependency>
-		    <groupId>com.servlets</groupId>
-		    <artifactId>cos</artifactId>
-		    <version>09May2002</version>
+			<groupId>com.servlets</groupId>
+			<artifactId>cos</artifactId>
+			<version>09May2002</version>
 		</dependency>
 
 	</dependencies>

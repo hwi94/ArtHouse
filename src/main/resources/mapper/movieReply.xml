@@ -4,7 +4,7 @@
 
 <mapper namespace="movieReply">
 
-	<!-- 영화 상세 정보 출력 -->
+	<!-- 리뷰 내용 출력 -->
 	<select id="select" parameterType="movieReplyDTO" resultMap="rs">
 		SELECT * FROM moviereply WHERE a_code = #{a_code}
 	</select>
@@ -18,22 +18,32 @@
 		<result property="grade" column="grade" />
 	</resultMap>
 	
-	<!-- 전체 영화 리스트 출력 -->
+	<!-- 전체 리뷰 리스트 출력 -->
 	<select id="selectAll" resultMap="rs">
-		SELECT * FROM moviereply ORDER BY a_code ASC
+		SELECT * FROM
+    		(SELECT ROWNUM AS rn, A.* FROM
+				(SELECT * FROM moviereply WHERE b_code = #{code} ORDER BY a_code DESC) A
+   			)
+		WHERE rn BETWEEN #{start} AND #{end}
 	</select>
 	
-	<!-- 영화 정보 삽입 -->
+	<!-- 특정 영화 리뷰 리스트 개수 -->
+	<select id="count" resultType="int">
+		SELECT COUNT(*) FROM moviereply WHERE b_code = #{code}
+	</select>
+	
+	<!-- 리뷰 삽입 -->
 	<insert id="insert" parameterType="movieReplyDTO">
 		INSERT INTO moviereply(a_code, b_code, content, writer, day, grade) 
 		VALUES(#{a_code},#{b_code},#{content},#{writer},#{day},#{grade})
 	</insert>
 	
-	<!-- 영화 정보 삭제 -->
+	<!-- 리뷰 삭제 -->
 	<delete id="delete" parameterType="movieReplyDTO">
 		DELETE FROM moviereply WHERE a_code = #{a_code}
 	</delete>
 	
+	<!-- 리뷰 수정 -->
 	<update id="update" parameterType="movieReplyDTO">
 		UPDATE moviereply
 		SET

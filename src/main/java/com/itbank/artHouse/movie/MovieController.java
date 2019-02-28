@@ -13,15 +13,15 @@ public class MovieController {
 	@Autowired
 	MovieDAO dao;
 	
-	@RequestMapping("movie/selectAllMovie.do")
+	@RequestMapping("selectAllMovie.do")
     public String selectAllMovie(Model model){
         model.addAttribute("movieList", dao.selectAll());
         return "movie/movieList";//임시로 어드민 리턴시켜 놓음
     }
 	
 	@RequestMapping("selectDetailMovie.do")
-	public String selectDetailMovie(Model model, MovieDTO movieDTO){
-		model.addAttribute("movieDTO", dao.selectDetail(movieDTO));
+	public String selectDetailMovie(Model model, @RequestParam("code") int code){
+		model.addAttribute("movieDTO", dao.selectDetail(code));
 		return "movie/movieDetail";
 	}
 	
@@ -55,19 +55,26 @@ public class MovieController {
 	
 	//업데이트 내용 입력 화면
 	@RequestMapping("updateMovie.do")
-	public String updateMovie(MovieDTO movieDTO, Model model){
-		model.addAttribute("movieDTO", dao.selectDetail(movieDTO));
+	public String updateMovie(@RequestParam("code") int code, Model model){
+		model.addAttribute("movieDTO", dao.selectDetail(code));
 		return "movie/updateMovie";
 	}
 	
 	//실제 업데이트 이뤄지는 메소드
 	@RequestMapping("updateMovieAction.do")
-	public String updateMovieAction(MovieDTO movieDTO, Model model){
+	public String updateMovieAction(@RequestParam("code") int code, MovieDTO movieDTO, Model model){
 		dao.update(movieDTO);
-		model.addAttribute("movieDTO", dao.selectDetail(movieDTO));
+		model.addAttribute("movieDTO", dao.selectDetail(code));
 		return "movie/movieDetail";
 	}
 	
+	@RequestMapping("addRecommend.do")
+	@ResponseBody
+	public int addRecommend(@RequestParam("code") int code){
+		MovieDTO dto = dao.addRecommend(code);
+		int recommend = dto.getRecommend();
+		return recommend;
+	}
 }
 
 

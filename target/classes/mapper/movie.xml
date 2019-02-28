@@ -62,5 +62,13 @@
 		WHERE
 		code = #{code}
 	</update>
+	
+	<update id="addRecommend" parameterType="movieDTO">
+		UPDATE movie SET recommend = recommend + 1 WHERE code = #{code}
+	</update>
+	
+	<select id="selectRecommend" parameterType="movieDTO" resultMap="rs">
+		SELECT recommend FROM movie WHERE code = #{code}
+	</select>
 
 </mapper>

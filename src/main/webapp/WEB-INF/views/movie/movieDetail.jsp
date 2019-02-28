@@ -1,5 +1,7 @@
+<%@page import="com.itbank.artHouse.movie.MovieReplyDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -66,12 +68,22 @@
 	float: right;
 }
 
-
+.replyInputBtn{
+	background-color: white;
+	border: none;
+	cursor: pointer;
+}
 </style>
-<!-- 임시로 넣어둔 스크립트 선언부 -->
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
 <script type="text/javascript">
+	//JQuery 퀵 스타트
 	$(function(){
+		//처음에는 리뷰 목록 첫 페이지 출력
+		var curPage = 1;
+		
+		listReply(curPage);
+		
+		// 리뷰 쓰기
 		$("#form").submit(function(){
 			var d = $(this).serialize();
 			console.log(d);
@@ -80,12 +92,43 @@
 				type: "post",
 				data: d,
 				success: function(result){
-					$("#li").html(result);					
+					//alert("댓글 등록 성공!");
+					$("#form")[0].reset();	//AJAX 성공 후 폼을 다시 리셋
+					listReply(curPage);		//리뷰 리스트를 다시 출력해주는 함수
 				}
 			});
 			return false;
 		});
+		
+		//추천 클릭하면 추천수 증가
+		$("#recommend").click(function(){
+			$.ajax({
+				type: "get",
+				url: "addRecommend.do?code=${movieDTO.code}",
+				success: function(result){
+					console.log(result);
+					$("#newRecommend").text(result);
+				}
+			});
+		});
+		
 	});
+
+	
+	//리뷰 리스트 출력 함수
+	function listReply(curPage){
+		console.log("${movieDTO.code}");
+		$.ajax({
+			type: "get",
+			url: "listMovieReply.do?code=${movieDTO.code}&curPage="+curPage,
+			success: function(result){
+				$("#listReply").html(result);
+			}
+		});
+	};
+	
+	
+	
 </script>
 </head>
 <body>
@@ -109,7 +152,7 @@
 						<div>
 							<h1>${movieDTO.title}</h1>
 							<span class="movie-content"><strong>평점 / </strong>${movieDTO.grade}</span>&nbsp;&nbsp;
-							<span class="movie-content"><strong>추천수 / </strong>${movieDTO.recommend}</span>
+							<span class="movie-content"><strong>추천수 / </strong><span id="newRecommend">${movieDTO.recommend}</span></span>
 							<hr>
 							<span class="movie-content"><strong>장르 / </strong>${movieDTO.ganre}</span><br>
 							<span class="movie-content"><strong>감독 / </strong>${movieDTO.director}</span>&nbsp;&nbsp;
@@ -119,8 +162,8 @@
 							<p>
 						</div>
 						<div class="hypertext">
-							<a href="#">예매</a>
-							<a href="#">추천</a>
+							<button id="">예매</button>
+							<button id="recommend">추천</button>
 						</div>
 						<hr>
 						<div>
@@ -137,18 +180,18 @@
 				<hr>
 					<div align="center">
 						${movieDTO.summary}
-					</div><!-- 영화 줄거리 끝 -->
-				</div>
+					</div>
+				</div><!-- 영화 줄거리 끝 -->
 				
 				<!-- 영화 리뷰 -->
 				<div class="review">
-				<h2>평점 및 영화 리뷰</h2>
-				<hr>
-					<div class="review-input" align="center">
-						<form id="form">
-						<input type="hidden" name="b_code" value="${movieDTO.code}">
-						<input type="hidden" name="writer" value="aaa111">
-						<input type="hidden" name="day" value="2019-02-19">
+					<h2>평점 및 영화 리뷰</h2>
+					<hr>
+						<div class="review-input" align="center">
+							<form id="form">
+								<input type="hidden" name="b_code" value="${movieDTO.code}">
+								<input type="hidden" name="writer" value="aaa111">
+								<input type="hidden" name="day" value="2019-02-19">
 							<table>
 								<tr height="30">
 									<td colspan="2">
@@ -164,20 +207,26 @@
 									</td>
 								</tr>
 								<tr>
-									<td><textarea rows="4" cols="120" placeholder="댓글을 입력하세요." name="content"></textarea></td>
-									<td><button type="submit">입력</button></td>
+									<td><textarea rows="5" cols="110" placeHolder="리뷰를 작성하세요." name="content"></textarea></td>
+									<td>
+										<button type="submit" class="replyInputBtn">
+											<img width="90" height="80" src="resources/img/movie/replyInputBtn.png">
+										</button>
+									</td>
 								</tr>
 							</table>
 						</form>
-					</div><!-- 영화 리뷰 끝 -->
-					<hr>
+					</div>
+					<hr width="90%" size="3px" color="#4f4f4f">
+					
+					<!-- 리뷰 리스트 -->
 					<div class="reply" align="center">
-						<ol class="listreply">
-							<li id="li">등록된 댓글이 없습니다.</li>
+						<ol>
+							<li id="listReply"></li>
 						</ol>
 					</div>
-				</div>
-				
+				</div><!-- 영화 리뷰 끝 -->
+			
 			</div><!-- container 끝 -->
 			
 		</div><!-- main-context 끝 -->
