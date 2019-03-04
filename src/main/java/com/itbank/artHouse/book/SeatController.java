@@ -16,6 +16,10 @@ public class SeatController {
 	@Autowired
 	@Qualifier("rDao")
 	ResvDAO rDao;
+	
+	@Autowired
+	@Qualifier("tDao")
+	TicketDAO tDao;
 
 	@RequestMapping("seatPage")
 	public String seatPage(@RequestParam("playtime") String playtime, @RequestParam("takenSeats") String takenSeats,
@@ -66,7 +70,7 @@ public class SeatController {
 	}
 
 		@RequestMapping("chargePage")
-		public String charge(@RequestParam("playtime")String playtime, @RequestParam("click")String click, @RequestParam("money")String money,@RequestParam("movie")String movie, Model model) throws Exception {
+		public String charge(@RequestParam("id")String id,@RequestParam("playtime")String playtime, @RequestParam("click")String click, @RequestParam("money")String money,@RequestParam("movie")String movie, Model model) throws Exception {
 			ResvDTO resvDTO = new ResvDTO();
 			resvDTO.setPlaytime(playtime);
 			List<ResvDTO> list=rDao.selectPlaytime(resvDTO);
@@ -82,6 +86,14 @@ public class SeatController {
 			rDao.update(resvDTO1);
 			
 			model.addAttribute("resvDTO1",resvDTO1);
+			
+			TicketDTO ticketDTO = new TicketDTO();
+			ticketDTO.setId(id);
+			ticketDTO.setMoney(money);
+			ticketDTO.setrTime(playtime);
+			ticketDTO.setSeats(click);
+			tDao.insert(ticketDTO);
+			
 			return "book/chargePage";
 		}
 }

@@ -65,7 +65,7 @@
 						<a title="영화정보" class="main_menu" href="/artHouse/movie/movieMain.jsp"><span>영화</span></a>
 					</li>
 					<li>
-						<a title="예매하기" class="main_menu"><span>예매</span></a>
+						<a href="moviePage" title="예매하기" class="main_menu"><span>예매</span></a>
 					</li>
 					<li>
 						<a title="스토어" class="main_menu"><span>스토어</span></a>

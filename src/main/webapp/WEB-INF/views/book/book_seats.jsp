@@ -32,8 +32,12 @@
 	color: #fff;
 	background-color: #666;
 	font-size: 10px;
+	text-align: center;
 }
-
+.seatPlace{
+width:70%;
+height:500px;
+}
 #front {
 	/* line-height: 11px; */
 	border: solid 2px #ed8c00;
@@ -71,6 +75,18 @@
 	float: left; /*가로 정렬을 하기위한 float*/
 	width: 20px;
 	height: 20px;
+	line-height: 11px;
+	/* border: solid 2px #f71708; */
+	font-weight: bold;
+	line-height: 20px;
+	overflow: hidden;
+}
+#blank{
+font-size: 12px;
+	text-align: center;
+	float: left; /*가로 정렬을 하기위한 float*/
+	width: 22px;
+	height: 19px;
 	line-height: 11px;
 	/* border: solid 2px #f71708; */
 	font-weight: bold;
@@ -199,7 +215,7 @@ ul {
 							url : "seatSelect",
 							data : data1,
 							success : function(result) {
-								$("#seats").html(result);
+								$(".seatPlace").html(result);
 							},
 							error : function(request, status, error) {
 								alert("code:" + request.status + "\n"
@@ -388,8 +404,8 @@ ul {
 				style="display: block;"><span class="icon">.</span>Prime Zone</span>
 
 		</div>
-		<div align="center" style="width: 320px;">
-			<div id="seats" align="center"></div>
+		<div align="center" style="width: 50%;">
+			<div align="center" class="seatPlace" style="width: 100%;"></div>
 		</div>
 		<br> <br> <br>
 	</div>
@@ -415,6 +431,7 @@ ul {
 		<!-- <div class="select-body" style="background-color: red">좌석선택</div> -->
 		<form action="chargePage" id="form">
 		<!-- 영화 시간 -->
+		<input type="text" id="id" value="<%=session.getAttribute("id")%>" name="id" style="display:none">
 		<input type="text" id="movie" value="${rDto.movie}" name="movie" style="display: none">
 		<input type="text" id="inputTime" value="${rDto.playtime}" name="playtime" style="display: none">
 		<input type="text" id="click" name="click" style="display: none">
