@@ -87,9 +87,9 @@
 				
 				<!-- 아이디 비밀번호 찾기 -->
 				<p>
-					<a href="#">아이디 찾기</a>
+					<a title="아이디찾기" onclick="window.open('id_search.jsp', '아이디찾기', 'width=450, height=320')">아이디 찾기</a>
 					|
-					<a href="#">비밀번호 찾기</a>
+					<a title="비밀번호찾기" onclick="">비밀번호 찾기</a>
 				</p>
 				
 				<!-- 네이버 아이디로 로그인 버튼 노출 영역 -->

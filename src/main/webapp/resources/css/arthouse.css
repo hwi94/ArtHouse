@@ -11,7 +11,7 @@ body
 	padding: 0px;
 	font-family: "Noto Sans KR", sans-serif;
 	-webkit-font-smoothing: antialiased;
-	font-size: 15px;
+	font-size: 16px;
 	font-weight: 300;
 	color: #333;
 	letter-spacing: -0.5px;
@@ -23,7 +23,6 @@ a
 	text-decoration: none;
 	outline: none;
 	cursor: pointer;
-	color: #333;
 }
 
 ul, ol, dl, li, p
@@ -33,14 +32,18 @@ ul, ol, dl, li, p
 	list-style: none;
 }
 
-input, button
+dl, dt, dd
 {
-	outline: none;
+	font-size: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
 }
 
-button
+em
 {
-	cursor: pointer;
+	font-style: normal;
 }
 
 /**************** 상단메뉴 *****************/
@@ -155,15 +158,6 @@ header .header-wrap .header-menu ul li span:HOVER
 	font-size: 14px;
 }
 
-/***** 버튼 *****/
-.btn
-{
-	display: inline-block;
-	overflow: hidden;
-	vertical-align: middle;
-	font-weight: 600;
-}
-
 /**************** 내용출력 페이지바디 *****************/
 .page-body
 {
@@ -179,18 +173,12 @@ header .header-wrap .header-menu ul li span:HOVER
 	margin: 0px auto;
 }
 
-.center-context
-{
-	text-align: center;
-}
-
-/***** 현재위치 안내 *****/
-
 .this-menu
 {
-	border-top: 1px solid #e1e1e1;
+	line-height: 50px;
 	background-color: #f2f2f2;
 	border-bottom: 2px solid #333;
+<<<<<<< HEAD
 	margin-bottom: 80px;
 }
 
@@ -227,6 +215,7 @@ header .header-wrap .header-menu ul li span:HOVER
 .col-aside ul li
 {
 	border-top: 1px solid #bbb9b1;
+	margin-bottom: 10px;
 }
 
 .col-aside ul li a
@@ -255,6 +244,8 @@ header .header-wrap .header-menu ul li span:HOVER
 	position: relative;
 	width: 800px;
 	margin-bottom: 80px;
+=======
+>>>>>>> branch 'master' of https://github.com/hwi94/ArtHouse
 }
 
 /**************** 하단메뉴 *****************/

@@ -5,7 +5,7 @@
 <mapper namespace="notice">
 
 	<select id="select" parameterType="noticeDTO" resultMap="rs">
-		SELECT * FROM NOTICE WHERE titleNo = #{titleNo}
+		SELECT * FROM NOTICE WHERE title = #{title}
 	</select>
 	
 	<!-- 컬럼과. -->
@@ -17,14 +17,31 @@
 		<result property="contents" column="contents"/>
 	</resultMap>
 
+	
+	<!-- 전체목록카운트 -->
+	<select id="selectCount" resultMap="rs">
+		SELECT COUNT(*) FROM NOTICE
+	</select>	
+	
+	
+
+	<!-- 게시글 5 개씩보여주기 -->
+	<select id="selectListCount" resultMap="rs">
+		SELECT * FROM
+	          (SELECT ROWNUM AS rn, A.* FROM (SELECT * FROM NOTICE ORDER BY TITLENO DESC) A )
+	      WHERE rn BETWEEN #{start} AND #{end}
+	</select>
+	
+
 	<!-- 전체목록 -->
 	<select id="selectAll" resultMap="rs">
-		SELECT * FROM NOTICE
+		SELECT * FROM NOTICE ORDER BY TITLENO DESC
 	</select>
 	
 	<!-- 생성 -->
 	<insert id="insert" parameterType="noticeDTO">
-		INSERT INTO NOTICE (title,titleNo,movieTheaters,uploadDate,contents) VALUES (#{title},TITLENO.nextval,#{movieTheaters},#{uploadDate},#{contents})
+		INSERT INTO NOTICE (title,titleNo,movieTheaters,uploadDate,contents) 
+		VALUES (#{title},TITLENO.nextval,#{movieTheaters},#{uploadDate},#{contents})
 	</insert>
 
 	<!-- 수정 -->
