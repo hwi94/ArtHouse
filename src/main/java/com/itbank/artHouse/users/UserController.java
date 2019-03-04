@@ -1,5 +1,6 @@
 package com.itbank.artHouse.users;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,6 +76,17 @@ public class UserController {
 		session.setAttribute("user", userDTO);
 		
 		return "redirect:../main.jsp";
+	}
+	
+	//아이디찾기
+	@RequestMapping("users/id_search.do")
+	public void id_search(UserDTO userDTO, HttpServletRequest request) {
+		String id = dao.id_search(userDTO);
+		System.out.println(id);
+		
+		if (id != null) {
+			request.setAttribute("id", id);			
+		}		
 	}
 	
 	//회원정보수정

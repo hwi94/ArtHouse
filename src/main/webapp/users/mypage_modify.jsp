@@ -70,7 +70,7 @@
 			
 			<!-- 우측 -->
 			<div class="col-detail">
-			
+	
 				<h4>회원정보수정</h4>
 				
 				<form action="update.do" method="post">
