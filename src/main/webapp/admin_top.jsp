@@ -15,7 +15,6 @@
 <body>
 	<!-- 상단메뉴 : header -->
 	<header>
-		<!--  -->
 		<div class="header-wrap">			
 			<!-- 로고 -->
 			<div class="top_logo">
