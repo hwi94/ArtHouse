@@ -23,7 +23,7 @@
 <body>
 	<div class="page-body">
 		<!-- 상단메뉴 -->
-		<jsp:include page="top.jsp"></jsp:include>
+		<jsp:include page="../top.jsp"></jsp:include>
 
 		<!-- 중간내용 -->
 		<div class="main-context">
@@ -91,7 +91,7 @@
 		</div>
 
 		<!-- 하단내용 -->
-		<jsp:include page="bottom.jsp"></jsp:include>
+		<jsp:include page="../bottom.jsp"></jsp:include>
 	</div>
 </body>
 </html>

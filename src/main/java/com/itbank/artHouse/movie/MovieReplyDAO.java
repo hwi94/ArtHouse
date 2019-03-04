@@ -1,6 +1,8 @@
 package com.itbank.artHouse.movie;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +13,12 @@ public class MovieReplyDAO {
 	@Autowired
 	SqlSessionTemplate myBatis;
 	
-	public List<MovieDTO> selectAll() {
-		return myBatis.selectList("movieReply.selectAll");
+	public List<MovieReplyDTO> selectAll(int code, int start, int end) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("code", code);
+		map.put("start", start);
+		map.put("end", end);
+		return myBatis.selectList("movieReply.selectAll", map);
 	}
 	
 	public MovieDTO selectDetail(MovieReplyDTO movieReplyDTO) {
@@ -30,4 +36,14 @@ public class MovieReplyDAO {
 	public void update(MovieReplyDTO movieReplyDTO) {
 		myBatis.update("movieReply.update", movieReplyDTO);
 	}
+	
+	public int count(int code){
+		return myBatis.selectOne("movieReply.count", code);
+	}
 }
+
+
+
+
+
+

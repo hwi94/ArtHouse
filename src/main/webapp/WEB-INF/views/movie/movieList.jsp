@@ -85,12 +85,11 @@
 										<span class="text-info"><strong>개봉 / </strong>${dto.playdate}</span><br>
 											<div> 
 											<span class="text-info">
-													<strong>추천수 / </strong><span id="reco">${dto.recommend}</span>&nbsp;&nbsp;&nbsp;
+													<strong>추천수 / </strong><span id="newRecommend">${dto.recommend}</span>&nbsp;&nbsp;&nbsp;
 											</span>
-												<a class="recommedUp">추천</a>
 											</div>
 										<div>
-											<a class="hypertext" href="#">예매</a>
+											<button class="hypertext" href="#">예매</button>
 										</div>
 									</div>
 								</div>

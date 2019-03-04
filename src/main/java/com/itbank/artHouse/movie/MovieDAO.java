@@ -16,8 +16,8 @@ public class MovieDAO {
 		return myBatis.selectList("movie.selectAll");
 	}
 	
-	public MovieDTO selectDetail(MovieDTO movieDTO) {
-		return myBatis.selectOne("movie.select", movieDTO.getCode());
+	public MovieDTO selectDetail(int code) {
+		return myBatis.selectOne("movie.select", code);
 	}
 	
 	public void insert(MovieDTO movieDTO) {
@@ -30,6 +30,11 @@ public class MovieDAO {
 	
 	public void update(MovieDTO movieDTO) {
 		myBatis.update("movie.update", movieDTO);
+	}
+	
+	public MovieDTO addRecommend(int code){
+		myBatis.update("movie.addRecommend", code);
+		return myBatis.selectOne("movie.selectRecommend", code);
 	}
 	
 }
