@@ -7,18 +7,3 @@ $(document).ready(function(){
 		speed: 500
 	});
 });
-
-$(function() {
-	//현재상영작,상영예정작 탭메뉴
-	
-	$(".tab_content").hide(); // Initially hide all content
-	$(".tab_content:first").show();
-	
-	$("ul.tabs li").click(function() {
-		$("ul.tabs li").removeClass("active");
-		$(this).addClass("active");
-		$(".tab_content").hide();
-		var activeTab = $(this).attr("rel");
-		$("#" + activeTab).fadeIn();
-	});
-});

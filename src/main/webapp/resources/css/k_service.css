@@ -82,3 +82,14 @@
 	border: 1px solid #ccc;
 }
 
+.noticeList{
+	width: 970px;
+	height: 510px;
+	font-size: 9px;
+}
+
+.k_selectListNotice{
+        width: 100%;
+        border: 1px solid #333333;
+      }
+

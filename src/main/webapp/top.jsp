@@ -62,16 +62,16 @@
 			<div class="header-menu">		
 				<ul>
 					<li>
-						<a title="영화정보" class="main_menu" href="/artHouse/movie/movieMain.jsp"><span>영화</span></a>
+						<a title="영화정보" class="main_menu" href="/artHouse/movie/selectAllMovie.do"><span>영화</span></a>
 					</li>
 					<li>
-						<a title="예매하기" class="main_menu"><span>예매</span></a>
+						<a title="예매하기" class="main_menu" href="moviePage"><span>예매</span></a>
 					</li>
 					<li>
 						<a title="스토어" class="main_menu"><span>스토어</span></a>
 					</li>
 					<li>
-						<a title="공지사항" class="main_menu"><span>공지</span></a>
+						<a title="공지사항" class="main_menu" href="clientSound.do"><span>공지</span></a>
 					</li>
 				</ul>	
 			</div>

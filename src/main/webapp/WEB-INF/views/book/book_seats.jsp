@@ -9,6 +9,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<!-- 제이쿼리 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+	<!-- css -->
+	<!-- <link rel="stylesheet" href="/artHouse/resources/css/jquery.bxslider.css"> -->
 <style type="text/css">
 .seats {
 	width: 20px;
@@ -75,8 +80,7 @@
 
 .col-body {
 	background-color: #e0d7c0;
-	height: 500px;
-	float: left;
+	height: 450px;
 	width: 800px;
 }
 
@@ -146,7 +150,7 @@
 	float: left; /*가로 정렬을 하기위한 float*/
 	border: 1px solid #e5e5e5;
 }
-a {
+.tag{
 	float:left;
     display: block;
     height: 100%;
@@ -205,9 +209,9 @@ ul {
 
 						})//ajax
 						
-						$("a").click(function(){
-							$("a").css("color","black");
-							$("a").css("background-color","#f2f0e5");
+						$(".tag").click(function(){
+							$(".tag").css("color","black");
+							$(".tag").css("background-color","#f2f0e5");
 							$(this).removeAttr("background-color");
 							$(this).css("background-color","black");
 							$(this).css("color","white");
@@ -239,9 +243,9 @@ ul {
 									$("#click").val("");
 									$(".seats").css("background-color", "#666");
 									
-									$("a").removeAttr("background-color");
-									$("a").css("background-color","#f2f0e5");
-									$("a").css("color","black");
+									$(".tag").removeAttr("background-color");
+									$(".tag").css("background-color","#f2f0e5");
+									$(".tag").css("color","black");
 								/* 재선택이 아닐때 */
 								}else if(yesNo==false){
 									alert('결재선택을 선택해주세요');
@@ -338,13 +342,12 @@ ul {
 </head>
 <body>
 
-	<%-- tList.get(0) : <%=tList.get(0) %><br>Tree
-tList.get(1) : <%=tList.get(1) %><br>1T
-tList.get(2) : <%=tList.get(2) %><br>2019-02-14 02:13:13.0
-tList.get(3) : <%=tList.get(3) %><br>B3
-tList.get(4) : <%=tList.get(4) %><br>1T
-tList.get(5) : <%=tList.get(5) %><br>A1,A2,A3,B1,B2,B3 --%>
-	
+<div class="page-body">
+		<!-- 상단메뉴 -->
+		<jsp:include page="/top.jsp"></jsp:include>
+		
+		<!-- 중간내용 -->
+		<div class="main-context" align="center">	
 	<!-- 예약인원수 -->
 	<input type="text" id="count" name="count" style="display: none">
 	<!-- 상영관 -->
@@ -357,15 +360,15 @@ tList.get(5) : <%=tList.get(5) %><br>A1,A2,A3,B1,B2,B3 --%>
 		<span class="title" style="float:left;">일반</span>
 		<table style="float:left;">
 		<ul>
-			<li class="" type="adult"><a href="#" id="aTag" onclick="return false;">0</a></li>
-			<li type="adult" class=""><a href="#" id="aTag" onclick="return false;">1</a></li>
-			<li type="adult" class=""><a href="#" id="aTag" onclick="return false;">2</a></li>
-			<li type="adult" class=""><a href="#" id="aTag" onclick="return false;">3</a></li>
-			<li type="adult" class=""><a href="#"  id="aTag" onclick="return false;">4</a></li>
-			<li type="adult" class=""><a href="#" id="aTag" onclick="return false;">5</a></li>
-			<li type="adult"><a href="#" id="aTag" onclick="return false;">6</a></li>
-			<li type="adult"><a href="#" id="aTag" onclick="return false;">7</a></li>
-			<li type="adult"><a href="#" id="aTag" onclick="return false;">8</a></li>
+			<li class="" type="adult"><a class="tag" href="#" id="tag" onclick="return false;">0</a></li>
+			<li type="adult" class=""><a class="tag" href="#" id="tag" onclick="return false;">1</a></li>
+			<li type="adult" class=""><a class="tag" href="#" id="tag" onclick="return false;">2</a></li>
+			<li type="adult" class=""><a class="tag" href="#" id="tag" onclick="return false;">3</a></li>
+			<li type="adult" class=""><a class="tag" href="#"  id="tag" onclick="return false;">4</a></li>
+			<li type="adult" class=""><a class="tag" href="#" id="tag" onclick="return false;">5</a></li>
+			<li type="adult"><a class="tag" href="#" id="tag" onclick="return false;">6</a></li>
+			<li type="adult"><a class="tag" href="#" id="tag" onclick="return false;">7</a></li>
+			<li type="adult"><a class="tag" href="#" id="tag" onclick="return false;">8</a></li>
 		</ul>
 		</table>
 		<br>
@@ -420,5 +423,11 @@ tList.get(5) : <%=tList.get(5) %><br>A1,A2,A3,B1,B2,B3 --%>
 				onclick="submit()" id="button">결제선택</button>
 		</form>
 	</div>
+</div>
+		
+		<!-- 하단내용 -->
+		<jsp:include page="/bottom.jsp"></jsp:include>
+	</div>
+
 </body>
 </html>

@@ -25,4 +25,14 @@
 	<property name="password" value="${jdbc.pw}"></property>	
 </bean>
 
+<!-- file Upload -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- max upload size in bytes -->
+        <property name="maxUploadSize" value="15242880" /> <!-- 5MB -->
+        <!-- max size of file in memory (in bytes) -->
+        <property name="maxInMemorySize" value="11048576" /> <!-- 1MB -->
+    </bean>
+
+
+
 </beans>
