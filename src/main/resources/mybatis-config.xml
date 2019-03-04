@@ -8,6 +8,9 @@
 		<typeAlias type="com.itbank.artHouse.users.UserDTO" alias="UserDTO"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.movie.MovieDTO" alias="movieDTO"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.serviceCenter.NoticeDTO" alias="noticeDTO"></typeAlias>
+		<typeAlias type="com.itbank.artHouse.serviceCenter.QnADTO" alias="qnaDTO"></typeAlias>
+		<typeAlias type="com.itbank.artHouse.serviceCenter.QnADTO2" alias="qnaDTO2"></typeAlias>
+		
 		<typeAlias type="com.itbank.artHouse.book.ResvDTO" alias="resvDTO"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.book.ResvDTO2" alias="resvDTO2"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.book.TicketDTO" alias="ticketDTO"></typeAlias>
@@ -15,8 +18,9 @@
 		<typeAlias type="com.itbank.artHouse.MemberDTO" alias="MemberDTO"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.movie.MovieReplyDTO" alias="movieReplyDTO"></typeAlias>
 	</typeAliases>
-
+<!-- ㄴ디ㅏ룬달 -->
 	<mappers>
+		<mapper resource="mapper/qna.xml" />
 		<mapper resource="mapper/member.xml" />
 		<mapper resource="mapper/users.xml" />
 		<mapper resource="mapper/movie.xml" />

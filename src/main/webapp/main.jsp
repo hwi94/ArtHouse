@@ -17,6 +17,7 @@
 	<!-- css -->
 	<link rel="stylesheet" href="/artHouse/resources/css/jquery.bxslider.css">
 	<link rel="stylesheet" href="/artHouse/resources/css/arthouse.main.css">
+
 </head>
 <body>	
 	<div class="page-body">

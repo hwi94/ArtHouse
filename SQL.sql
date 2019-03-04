@@ -1,3 +1,19 @@
+	1:1문의사항 테이블
+	create table QnA (
+		informationConsent varchar2(20),
+		name varchar2(30),
+		tel varchar2(30),
+		email varchar2(30),
+		areaSelectBox varchar2(30),
+		selectMovieTheater varchar2(30),
+		questionType varchar2(30),
+		title varchar2(50),
+		contents varchar2(3000),
+		attachments varchar2(3000)
+	);
+	drop table QnA purge;
+
+
 
 	공지사항 테이블
 create table notice (
