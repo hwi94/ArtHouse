@@ -102,12 +102,17 @@
 		
 		//추천 클릭하면 추천수 증가
 		$("#recommend").click(function(){
+			var id = "admin"; //임시로 넣어준 세션아이디 값
 			$.ajax({
 				type: "get",
-				url: "addRecommend.do?code=${movieDTO.code}",
+				url: "addRecommend.do?code=${movieDTO.code}&userId="+id,
 				success: function(result){
 					console.log(result);
-					$("#newRecommend").text(result);
+					if(result == -1){
+						alert("이미 추천을 누르셨습니다.");
+					}else{
+						$("#newRecommend").text(result);
+					}
 				}
 			});
 		});
@@ -146,13 +151,25 @@
 				<!-- 영화 정보 -->
 				<div class="movie-info">
 					<div class="thumb" id="thumb-left">
-						<img id="img-info" src="/artHouse/resources/img/movie/${movieDTO.photo}">
+						<c:choose>
+							<c:when test="${movieDTO.photo eq null}">
+								<img class="thumb-image" src="/artHouse/resources/img/movie/empty.jpg" />
+							</c:when>
+							<c:otherwise>
+								<img id="img-info" src="/artHouse/resources/img/movie/${movieDTO.photo}">
+							</c:otherwise>
+						</c:choose>
 					</div>
 					<div class="thumb" id="thumb-right">
 						<div>
 							<h1>${movieDTO.title}</h1>
-							<span class="movie-content"><strong>평점 / </strong>${movieDTO.grade}</span>&nbsp;&nbsp;
-							<span class="movie-content"><strong>추천수 / </strong><span id="newRecommend">${movieDTO.recommend}</span></span>
+							<table>
+								<tr>
+									<td><span class="movie-content"><strong>평점 / </strong>${movieDTO.grade}</span>&nbsp;&nbsp;</td>
+									<td><span class="movie-content"><strong>추천수 / </strong><span id="newRecommend">${movieDTO.recommend}</span></span></td>
+									<td><button style="background-color: white; border: none; cursor: pointer;" id="recommend"><img src="resources/img/movie/recommendUp.png"></button></td>
+								</tr>
+							</table>
 							<hr>
 							<span class="movie-content"><strong>장르 / </strong>${movieDTO.ganre}</span><br>
 							<span class="movie-content"><strong>감독 / </strong>${movieDTO.director}</span>&nbsp;&nbsp;
@@ -160,10 +177,6 @@
 							<span class="movie-content"><strong>개봉일 / </strong>${movieDTO.playdate}</span><br>
 							<span class="movie-content"><strong>상영시간 / </strong>${movieDTO.runtime} 분</span>
 							<p>
-						</div>
-						<div class="hypertext">
-							<button id="">예매</button>
-							<button id="recommend">추천</button>
 						</div>
 						<hr>
 						<div>
@@ -190,20 +203,18 @@
 						<div class="review-input" align="center">
 							<form id="form">
 								<input type="hidden" name="b_code" value="${movieDTO.code}">
-								<input type="hidden" name="writer" value="aaa111">
-								<input type="hidden" name="day" value="2019-02-19">
+								<input type="hidden" name="writer" value="tmpAdmin"><!-- 세션아이디 넣으면 됨 -->
 							<table>
 								<tr height="30">
 									<td colspan="2">
 										평점&nbsp;&nbsp; 
-										<select style="width: 50px" name="grade">
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
+										<select style="width: 100px" name="grade">
+											<option value="1">1 ★☆☆☆☆</option>
+											<option value="2">2 ★★☆☆☆</option>
+											<option value="3" selected>3 ★★★☆☆</option>
+											<option value="4">4 ★★★★☆</option>
+											<option value="5">5 ★★★★★</option>
 										</select>
-										a_code&nbsp;&nbsp; <input type="text" name="a_code">
 									</td>
 								</tr>
 								<tr>

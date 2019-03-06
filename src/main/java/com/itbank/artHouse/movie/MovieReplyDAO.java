@@ -40,6 +40,15 @@ public class MovieReplyDAO {
 	public int count(int code){
 		return myBatis.selectOne("movieReply.count", code);
 	}
+	
+	public double gradeAvg(int code){
+		//리뷰 개수가 0이면 selectOne.gradeAvg가 널이 됨, 그래서 리뷰 개수 0일 때는 0.0을 반환해 줌. 
+		if(myBatis.selectOne("movieReply.count", code).equals(0)){
+			return 0.0;
+		}else{
+			return myBatis.selectOne("movieReply.gradeAvg", code);
+		}
+	}
 }
 
 

@@ -33,9 +33,9 @@
 	<!-- 영화 정보 삽입 -->
 	<insert id="insert" parameterType="movieDTO">
 		INSERT INTO movie
-		VALUES(#{code},#{title},#{ganre},#{playdate},#{runtime},
+		VALUES(#{title},#{ganre},#{playdate},#{runtime},
 				#{summary},#{director},#{actors},#{agerequire},#{grade},
-				#{count},#{recommend},#{photo})
+				#{count},#{recommend},#{photo},SEQ.NEXTVAL)
 	</insert>
 	
 	<!-- 영화 정보 삭제 -->
@@ -44,8 +44,7 @@
 	</delete>
 	
 	<update id="update" parameterType="movieDTO">
-		UPDATE movie
-		SET
+		UPDATE movie SET
 		code=#{code},
 		title=#{title},
 		ganre=#{ganre},
@@ -59,8 +58,7 @@
 		count=#{count},
 		recommend=#{recommend},
 		photo=#{photo}
-		WHERE
-		code = #{code}
+		WHERE code = #{code}
 	</update>
 	
 	<update id="addRecommend" parameterType="movieDTO">
@@ -70,5 +68,9 @@
 	<select id="selectRecommend" parameterType="movieDTO" resultMap="rs">
 		SELECT recommend FROM movie WHERE code = #{code}
 	</select>
+	
+	<update id="gradeAvgUpdate" parameterType="movieDTO">
+		UPDATE movie SET grade = #{grade} WHERE code = #{code}
+	</update>
 
 </mapper>
