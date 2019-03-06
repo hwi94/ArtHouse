@@ -22,6 +22,7 @@
 		<result property="playtime" column="playtime" />
 		<result property="taken" column="taken" />
 	</resultMap>
+	
 
 	<!-- 전체목록 -->
 	<select id="selectAll" resultMap="rs">
@@ -69,7 +70,7 @@
 	</insert>
 
 
-	<update id="update" parameterType="noticeDTO">
+	<update id="update" parameterType="resvDTO">
 		UPDATE resv SET taken = #{taken} WHERE playtime = #{playtime}
 	</update>
 	<!-- 삭제 -->

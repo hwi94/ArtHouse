@@ -32,6 +32,20 @@ ul, ol, dl, li, p
 	list-style: none;
 }
 
+dl, dt, dd
+{
+	font-size: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+
+em
+{
+	font-style: normal;
+}
+
 /**************** 상단메뉴 *****************/
 header
 {
@@ -164,6 +178,74 @@ header .header-wrap .header-menu ul li span:HOVER
 	line-height: 50px;
 	background-color: #f2f2f2;
 	border-bottom: 2px solid #333;
+<<<<<<< HEAD
+	margin-bottom: 80px;
+}
+
+.this-menu .cur-info
+{
+	line-height: 50px;
+	font-weight: 400;
+	font-size: 15px;
+}
+
+.this-menu a
+{
+	color: #777;
+}
+
+.this-menu a span
+{
+	padding: 0 5px 0 5px;
+}
+
+.this-menu .current-page
+{
+	color: #000;
+	font-weight: 600;
+}
+
+/**************** 좌측 서브메뉴 *****************/
+.col-aside
+{
+	float: left;
+	width: 160px;
+}
+
+.col-aside ul li
+{
+	border-top: 1px solid #bbb9b1;
+	margin-bottom: 10px;
+}
+
+.col-aside ul li a
+{
+	width: 155px;
+	height: 34px;
+	padding-left: 5px;
+	color: #222;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 34px;
+	display: block;
+	position: relative;
+}
+
+.col-aside ul li a:hover
+{
+	background-color: #000;
+	color: #fff;
+}
+
+/**************** 우측 메인컨텐츠 *****************/
+.col-detail
+{
+	float: right;
+	position: relative;
+	width: 800px;
+	margin-bottom: 80px;
+=======
+>>>>>>> branch 'master' of https://github.com/hwi94/ArtHouse
 }
 
 /**************** 하단메뉴 *****************/

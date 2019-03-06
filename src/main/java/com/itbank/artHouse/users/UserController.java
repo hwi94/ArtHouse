@@ -1,5 +1,6 @@
 package com.itbank.artHouse.users;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,7 @@ public class UserController {
 		
 		if (dao.select(userDTO) != null) {
 			String pwcp = dao.select(userDTO).getPw();	//인코딩하여 저장한 비밀번호
+			String returns = null;
 			
 			//입력한 비밀번호와 저장한 비밀번호 매치
 			boolean found = passwordEncoder.matches(pw, pwcp);
@@ -53,7 +55,12 @@ public class UserController {
 			if (found) {	//로그인 성공
 				userDTO = dao.select(userDTO);
 				session.setAttribute("user", userDTO);
-				model.addAttribute("count", 1);
+				
+				if (dao.select(userDTO).getGrade().equals("A")) {
+					model.addAttribute("count", 2);
+				} else {
+					model.addAttribute("count", 1);					
+				}
 				
 			} else {		//로그인 실패
 				model.addAttribute("count", 0);				
@@ -75,6 +82,17 @@ public class UserController {
 		session.setAttribute("user", userDTO);
 		
 		return "redirect:../main.jsp";
+	}
+	
+	//아이디찾기
+	@RequestMapping("users/id_search.do")
+	public void id_search(UserDTO userDTO, HttpServletRequest request) {
+		String id = dao.id_search(userDTO);
+		System.out.println(id);
+		
+		if (id != null) {
+			request.setAttribute("id", id);			
+		}		
 	}
 	
 	//회원정보수정

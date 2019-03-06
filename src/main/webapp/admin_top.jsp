@@ -23,37 +23,14 @@
 				</a>
 			</div>
 			
-		<%	
-			String menu1 = null;
-			String menu1_add = null;
-			
-			String menu2 = null;
-			String menu2_add = null;
-			
-			//로그인 상태가 아닐때
-			if (session.getAttribute("user") == null) {
-				menu1 = "로그인";
-				menu1_add = "/artHouse/users/login.jsp";
-				menu2 = "회원가입";
-				menu2_add = "/artHouse/users/join_terms.jsp";
-				
-			//로그인 상태일때	
-			} else {
-				menu1 = "로그아웃";
-				menu1_add = "/artHouse/users/logout.do";
-				menu2 = "마이페이지	";
-				menu2_add = "/artHouse/users/mypage_main.jsp";
-			}
-		%>
-			
 			<!-- 사용자 메뉴 -->
 			<div class="top_members">			
 				<ul>
 					<li>
-						<a title="<%= menu1 %>" class="member_menu" href="<%= menu1_add %>"><span><%= menu1 %></span></a>
+						<a title="로그아웃" class="member_menu" href="/artHouse/users/logout.do"><span>로그아웃</span></a>
 					</li>
 					<li>
-						<a title="<%= menu2 %>" class="member_menu" href="<%= menu2_add %>"><span><%= menu2 %></span></a>
+						<a title="회원관리" class="member_menu" href="/artHouse/users/user_manager.jsp"><span>회원관리</span></a>
 					</li>
 				</ul>
 			</div>		
@@ -62,15 +39,16 @@
 			<div class="header-menu">		
 				<ul>
 					<li>
-						<a title="영화정보" class="main_menu" href="selectAllMovie.do"><span>영화</span></a>
+						<a title="영화관리" class="main_menu"><span>영화관리</span></a>
 					</li>
 					<li>
+						<a title="예매관리" class="main_menu"><span>예매관리</span></a>
 					</li>
 					<li>
-						<a title="스토어" class="main_menu"><span>스토어</span></a>
+						<a title="스토어관리" class="main_menu"><span>스토어관리</span></a>
 					</li>
 					<li>
-						<a title="공지사항" class="main_menu" href="clientSound.do"><span>공지</span></a>
+						<a title="공지관리" class="main_menu"><span>공지관리</span></a>
 					</li>
 				</ul>	
 			</div>

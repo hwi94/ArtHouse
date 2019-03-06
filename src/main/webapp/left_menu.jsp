@@ -18,6 +18,9 @@
 			<li>
 				<a href="mypage_modify.jsp">회원정보수정</a>
 			</li>
+			<li>
+				<a href="mypage_ticket.jsp">나의 예매내역</a>
+			</li>
 		</ul>
 	</div>
 </body>
