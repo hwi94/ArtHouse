@@ -18,7 +18,7 @@
 		<div class="header-wrap">			
 			<!-- 로고 -->
 			<div class="top_logo">
-				<a title="ArtHouse 메인으로 가기" href="/artHouse/main.jsp">
+				<a title="ArtHouse 메인으로 가기" href="/artHouse/admin_main.jsp">
 					<img alt="ARTHOUSE" src="/artHouse/resources/img/logo01.gif" height="100px">
 				</a>
 			</div>
