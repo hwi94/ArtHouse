@@ -45,7 +45,7 @@
 						<a title="예매관리" class="main_menu"><span>예매관리</span></a>
 					</li>
 					<li>
-						<a title="스토어관리" class="main_menu"><span>스토어관리</span></a>
+						<a title="스토어관리" class="main_menu" href="/artHouse/adminFood"><span>스토어관리</span></a>
 					</li>
 					<li>
 						<a title="공지관리" class="main_menu"><span>공지관리</span></a>

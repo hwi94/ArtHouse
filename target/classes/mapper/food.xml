@@ -7,6 +7,10 @@
 	<select id="select" parameterType="foodDTO" resultMap="rs">
 		SELECT * FROM food WHERE code = #{code}
 	</select>
+	
+	<!-- <select id="selectCode" parameterType="foodDTO" resultMap="rs">
+		SELECT * FROM food WHERE code = #{code}
+	</select> -->
 
 	<resultMap type="foodDTO" id="rs">
 		<result property="code" column="code" />
@@ -26,16 +30,11 @@
 	</insert>
 
 	<update id="update" parameterType="foodDTO">
-		UPDATE food
-		SET
-		columnname1=#{param1}
-		WHERE
-		columnname2 = #{param2}
+		UPDATE food SET name=#{name},category=#{category},price=#{price},img=#{img} WHERE code = #{code}
 	</update>
 
 	<delete id="delete" parameterType="foodDTO">
-		DELETE FROM food WHERE
-		code = #{code}
+		DELETE FROM food WHERE code = #{code}
 	</delete>
 
 </mapper>

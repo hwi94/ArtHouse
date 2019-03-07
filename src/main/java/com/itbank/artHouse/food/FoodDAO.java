@@ -19,19 +19,23 @@ public class FoodDAO {
 		myBatis.insert("food.insert",dto );
 	}
 	
-	public FoodDTO select(FoodDTO dto) throws Exception {
-		return myBatis.selectOne("food.select", dto);
+	public FoodDTO select(FoodDTO dto) {
+		return myBatis.selectOne("food.select", "dto");
 	}
 	
-	public List<FoodDTO> selectAll() throws Exception { // 전체조회 메서드
+	/*public FoodDTO selectCode(String code) {
+		return myBatis.selectOne("food.select", dto);
+	}*/
+	
+	public List<FoodDTO> selectAll()  { // 전체조회 메서드
 		return myBatis.selectList("food.selectAll");
 	} // selectAll()종료
 	
-	public void delete(FoodDTO dto) throws ClassNotFoundException, SQLException{
+	public void delete(FoodDTO dto) {
 		myBatis.delete("food.delete", dto);
 	}
 	
-	public void update(FoodDTO dto) throws Exception {
+	public void update(FoodDTO dto) {
 		myBatis.update("food.update", dto);
 	}
 	

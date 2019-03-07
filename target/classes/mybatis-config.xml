@@ -17,6 +17,7 @@
 		<typeAlias type="com.itbank.artHouse.food.FoodDTO" alias="foodDTO"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.MemberDTO" alias="MemberDTO"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.movie.MovieReplyDTO" alias="movieReplyDTO"></typeAlias>
+		<typeAlias type="com.itbank.artHouse.food.CartDTO" alias="cartDTO"></typeAlias>
 	</typeAliases>
 <!-- ㄴ디ㅏ룬달 -->
 	<mappers>
@@ -29,7 +30,9 @@
 		<mapper resource="mapper/ticket.xml" />
 		<mapper resource="mapper/food.xml"/>
 		<mapper resource="mapper/movieReply.xml" />
+		<mapper resource="mapper/cart.xml"/>
 	</mappers>
+	
 	
 	
 </configuration>

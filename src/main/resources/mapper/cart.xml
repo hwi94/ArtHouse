@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cart">
+
+	<select id="select" resultMap="rs">
+		SELECT * FROM cart WHERE user_id = #{user_id}
+	</select>
+
+	<resultMap type="cartDTO" id="rs">
+		<result property="cart_id" column="cart_id" />
+		<result property="user_id" column="user_id" />
+		<result property="code" column="code" />
+		<result property="amount" column="amount" />
+		<result property="price" column="price" />
+	</resultMap>
+
+	<select id="selectAll" resultMap="rs">
+		SELECT * FROM cart
+	</select>
+
+	<insert id="insert" parameterType="cartDTO">
+		   <!--  <selectKey keyProperty="cart_id" resultType="int" order="AFTER">
+    		select seq_cart_id.CURRVAL AS cart_id FROM cart
+  		</selectKey>   -->  
+		INSERT INTO cart(cart_id,user_id,code,amount,price) VALUES(seq_cart_id.NEXTVAL,#{user_id},#{code},#{amount},#{price})
+	</insert>
+
+	<update id="update" parameterType="cartDTO">
+		UPDATE cart
+		SET
+		columnname1=#{param1}
+		WHERE
+		columnname2 = #{param2}
+	</update>
+
+	<delete id="delete" parameterType="cartDTO">
+		DELETE FROM cart WHERE
+		cart_id = #{cart_id}
+	</delete>
+
+</mapper>
