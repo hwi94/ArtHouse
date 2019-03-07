@@ -150,7 +150,14 @@
 <body>
 <h1></h1>
 	<div class="page-body">
+	<c:choose>
+		<c:when test="${user.grade eq 'A'}">
+			<jsp:include page="../../../admin_top.jsp"></jsp:include>
+		</c:when>
+		<c:otherwise>
 		<jsp:include page="../../../top.jsp"></jsp:include>
+		</c:otherwise>
+	</c:choose>
 		<!-- 상세 페이지로 넘길 데이터 -->
 		<div class="main-context">
 			<div id="movieDetail">
