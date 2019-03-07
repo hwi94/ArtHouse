@@ -66,7 +66,6 @@
 					</li>
 					<li>
 					<a title="예매" class="main_menu" href="moviePage"><span>예매</span></a>
-					
 					</li>
 					<li>
 						<a href="/artHouse/userFood" title="스토어" class="main_menu"><span>스토어</span></a>
