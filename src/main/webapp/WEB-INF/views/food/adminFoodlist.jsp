@@ -44,7 +44,7 @@
 <body>
 <div class="page-body">
 	<!-- 상단메뉴 -->
-	<jsp:include page="/top.jsp"></jsp:include>
+	<jsp:include page="/admin_top.jsp"></jsp:include>
 	
 	<!-- 중간내용 -->
 	<div class="main-context">
