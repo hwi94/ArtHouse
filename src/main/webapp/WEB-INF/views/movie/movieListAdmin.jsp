@@ -56,7 +56,7 @@
 </head>
 <body>
 	<div class="page-body">
-		<jsp:include page="../../../top.jsp"></jsp:include>
+		<jsp:include page="../../../admin_top.jsp"></jsp:include>
 		<!-- 상세 페이지로 넘길 데이터 -->
 		<div class="main-context">
 			<div id="chartTitle">

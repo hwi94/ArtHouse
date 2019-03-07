@@ -39,7 +39,7 @@
 			<div class="header-menu">		
 				<ul>
 					<li>
-						<a title="영화관리" class="main_menu"><span>영화관리</span></a>
+						<a href="selectAllMovieAdmin.do" title="영화관리" class="main_menu"><span>영화관리</span></a>
 					</li>
 					<li>
 						<a title="예매관리" class="main_menu"><span>예매관리</span></a>
