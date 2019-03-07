@@ -62,7 +62,7 @@
 			<div id="chartTitle">
 				<h1>영화 차트</h1>
 				<hr>
-				<a href="/artHouse/movie/insertMovie.jsp">영화등록</a>
+				<a href="insertMovie.jsp">영화등록</a>
 			</div>
 			<div>
 				<ol id="od">

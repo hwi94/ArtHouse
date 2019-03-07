@@ -1,5 +1,8 @@
 package com.itbank.artHouse.movie;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +21,10 @@ public class MovieReplyController {
 	@RequestMapping("insertMovieReply.do")
 	@ResponseBody
 	public void insertMovieReply(MovieReplyDTO movieReplyDTO){
+		Date day = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		movieReplyDTO.setDay(sdf.format(day));
+				
 		dao.insert(movieReplyDTO);
 	}
 	
