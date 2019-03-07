@@ -2,7 +2,11 @@ package com.itbank.artHouse.movie;
 
 import java.io.File;
 import java.text.DecimalFormat;
+import java.util.HashMap;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +31,14 @@ public class MovieController {
 	@RequestMapping("selectAllMovie.do")
     public String selectAllMovie(Model model){
         model.addAttribute("movieList", dao.selectAll());
-        return "movie/movieListAdmin";//임시로 어드민 리턴시켜 놓음
+        return "movie/movieList"; //일반 고객용 페이지
     }
+	
+	@RequestMapping("selectAllMovieAdmin.do")
+	public String selectAllMovieAdmin(Model model){
+		model.addAttribute("movieList", dao.selectAll());
+		return "movie/movieListAdmin";//관리자 페이지
+	}
 
 	@RequestMapping("selectDetailMovie.do")
 	public String selectDetailMovie(Model model, @RequestParam("code") int code, MovieDTO movieDTO){
@@ -97,13 +107,40 @@ public class MovieController {
 		return "movie/movieListAdmin";
 	}
 	
+	//추천 수 증가
 	@RequestMapping("addRecommend.do")
 	@ResponseBody
-	public int addRecommend(@RequestParam("code") int code, @RequestParam("userId") String userId, HttpSession session){
-		session.setAttribute("userId", "admin"); // 임시로 넣어준 세션값
-		if(session.getAttribute("userId").equals(userId)){
+	public int addRecommend(@RequestParam("code") int code, @RequestParam("userId") String userId,
+							HttpServletResponse response, HttpServletRequest request){
+		
+		//쿠키를 이용한 추천수 중복 방지
+		String name = "";	//쿠키에서 가져올 key를 담을 변수
+		String value = "";	//쿠키에서 가져올 value를 담을 변수
+		String ckName = "";	//쿠키에서 가져온 key와 요청페이지의 code가 같을 때 ckName = name 대입 
+		String ckValue = "";//쿠키에서 가져온 value와 현재 세션 아이디가 같을 때 ckValue = value 대입
+		
+		Cookie[] getCookie = request.getCookies();
+		if(getCookie != null){
+			for(int i=0; i<getCookie.length; i++){
+				Cookie c = getCookie[i];
+				name = c.getName(); // 쿠키 key 가져오기
+				value = c.getValue(); // 쿠키 value 가져오기
+				
+				System.out.println(name + " : " + value);
+				if(name.equals(code+"") && value.equals(userId)){ //쿠키에 스트링으로 넣어주기 위해 code+""를 해줌
+					ckName = name;
+					ckValue = value;
+				}
+			}
+		}
+		
+		if(ckName.equals(code+"") && ckValue.equals(userId)){
 			return -1;
 		}else{
+			Cookie setCookie = new Cookie(code+"", userId);
+			setCookie.setMaxAge(60*60*24);
+			response.addCookie(setCookie);
+			
 			MovieDTO dto = dao.addRecommend(code);
 			int recommend = dto.getRecommend();
 			return recommend;			

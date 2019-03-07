@@ -85,36 +85,47 @@
 		
 		// 리뷰 쓰기
 		$("#form").submit(function(){
-			var d = $(this).serialize();
-			console.log(d);
-			$.ajax({
-				url: "insertMovieReply.do",
-				type: "post",
-				data: d,
-				success: function(result){
-					//alert("댓글 등록 성공!");
-					$("#form")[0].reset();	//AJAX 성공 후 폼을 다시 리셋
-					listReply(curPage);		//리뷰 리스트를 다시 출력해주는 함수
-				}
-			});
+			if("${user.id}" == ""){
+				alert("로그인 후 리뷰를 작성할 수 있습니다.");
+				$("#form")[0].reset();
+				return false;
+			}else{
+				var d = $(this).serialize();
+				console.log(d);
+				$.ajax({
+					url: "insertMovieReply.do",
+					type: "post",
+					data: d,
+					success: function(result){
+						//alert("댓글 등록 성공!");
+						$("#form")[0].reset();	//AJAX 성공 후 폼을 다시 리셋
+						listReply(curPage);		//리뷰 리스트를 다시 출력해주는 함수
+					}
+				});
+			}
 			return false;
 		});
 		
 		//추천 클릭하면 추천수 증가
 		$("#recommend").click(function(){
-			var id = "admin"; //임시로 넣어준 세션아이디 값
-			$.ajax({
-				type: "get",
-				url: "addRecommend.do?code=${movieDTO.code}&userId="+id,
-				success: function(result){
-					console.log(result);
-					if(result == -1){
-						alert("이미 추천을 누르셨습니다.");
-					}else{
-						$("#newRecommend").text(result);
+			if("${user.id}" == ""){
+				alert("로그인 후 추천할 수 있습니다.");
+			}else{
+				var id = "${user.id}";
+				$.ajax({
+					type: "get",
+					url: "addRecommend.do?code=${movieDTO.code}&userId="+id,
+					success: function(result){
+						console.log(result);
+						if(result == -1){
+							alert("이미 추천을 누르셨습니다.");
+						}else{
+							alert("추천을 눌렀습니다.");
+							$("#newRecommend").text(result);
+						}
 					}
-				}
-			});
+				});
+			}
 		});
 		
 	});
@@ -203,7 +214,7 @@
 						<div class="review-input" align="center">
 							<form id="form">
 								<input type="hidden" name="b_code" value="${movieDTO.code}">
-								<input type="hidden" name="writer" value="tmpAdmin"><!-- 세션아이디 넣으면 됨 -->
+								<input type="hidden" name="writer" value="${user.id}"><!-- 세션아이디 넣으면 됨 -->
 							<table>
 								<tr height="30">
 									<td colspan="2">

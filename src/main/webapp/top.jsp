@@ -67,7 +67,7 @@
 					<li>
 					</li>
 					<li>
-						<a title="스토어" class="main_menu"><span>스토어</span></a>
+						<a href="/artHouse/userFood" title="스토어" class="main_menu"><span>스토어</span></a>
 					</li>
 					<li>
 						<a title="공지사항" class="main_menu" href="clientSound.do"><span>공지</span></a>
