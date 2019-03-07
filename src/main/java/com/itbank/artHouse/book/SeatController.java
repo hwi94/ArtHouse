@@ -32,7 +32,7 @@ public class SeatController {
 		
 		String sessionID = (String) session.getAttribute("user");
 		if(sessionID==null){
-			return "users/login.jsp";
+			return "redirect:users/login.jsp";
 		}
 		
 		ResvDTO2 rDto2 = new ResvDTO2();
