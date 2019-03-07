@@ -6,7 +6,17 @@
 
 	<!-- 영화 상세 정보 출력 -->
 	<select id="select" parameterType="movieDTO" resultMap="rs">
-		SELECT * FROM movie WHERE code = #{code}
+		<!-- SELECT * FROM movie WHERE code = #{code} -->
+		
+		<!-- SELECT REPLACE(summary, chr(13)||chr(10), 'br'), A.*
+			(SELECT code, title, ganre, playdate, runtime, director, 
+			actors, agerequire, grade, count, recommend, photo FROM movie WHERE code = #{code}) A
+		FROM movie WHERE code = #{code}; -->
+		
+		SELECT code, title, ganre, playdate, runtime, director, 
+			actors, agerequire, grade, count, recommend, photo,
+		REPLACE(REPLACE(A.summary, chr(13)||chr(10), '<![CDATA[<br>]]>'), chr(32), '<![CDATA[&nbsp;]]>') AS summary
+		FROM (SELECT * FROM movie WHERE code = #{code}) A
 	</select>
 	
 	<resultMap type="movieDTO" id="rs">
@@ -33,9 +43,9 @@
 	<!-- 영화 정보 삽입 -->
 	<insert id="insert" parameterType="movieDTO">
 		INSERT INTO movie
-		VALUES(#{code},#{title},#{ganre},#{playdate},#{runtime},
+		VALUES(#{title},#{ganre},#{playdate},#{runtime},
 				#{summary},#{director},#{actors},#{agerequire},#{grade},
-				#{count},#{recommend},#{photo})
+				#{count},#{recommend},#{photo},SEQ.NEXTVAL)
 	</insert>
 	
 	<!-- 영화 정보 삭제 -->
@@ -44,8 +54,7 @@
 	</delete>
 	
 	<update id="update" parameterType="movieDTO">
-		UPDATE movie
-		SET
+		UPDATE movie SET
 		code=#{code},
 		title=#{title},
 		ganre=#{ganre},
@@ -59,8 +68,7 @@
 		count=#{count},
 		recommend=#{recommend},
 		photo=#{photo}
-		WHERE
-		code = #{code}
+		WHERE code = #{code}
 	</update>
 	
 	<update id="addRecommend" parameterType="movieDTO">
@@ -70,5 +78,9 @@
 	<select id="selectRecommend" parameterType="movieDTO" resultMap="rs">
 		SELECT recommend FROM movie WHERE code = #{code}
 	</select>
+	
+	<update id="gradeAvgUpdate" parameterType="movieDTO">
+		UPDATE movie SET grade = #{grade} WHERE code = #{code}
+	</update>
 
 </mapper>

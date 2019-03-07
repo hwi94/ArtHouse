@@ -23,24 +23,31 @@
 <body>
 	<div class="page-body">
 		<!-- 상단메뉴 -->
-		<jsp:include page="../../../top.jsp"></jsp:include>
+		<jsp:include page="../../../admin_top.jsp"></jsp:include>
 
 		<!-- 중간내용 -->
 		<div class="main-context">
 			<!-- 영화등록 -->
 			<h2 style="text-align: center">관리자 - 영화 정보 수정</h2>
 			<hr>
-			<form action="updateMovieAction.do" method="get">
+			<form action="updateMovieAction.do" method="post">
+			<input type="hidden" name="code" value="${movieDTO.code}">
 			<input type="hidden" name="grade" value="${movieDTO.grade}">
 			<input type="hidden" name="count" value="${movieDTO.count}">
 			<input type="hidden" name="recommend" value="${movieDTO.recommend}">
-			<input type="hidden" name="photo" value="${movieDTO.photo}">			
+			<input type="hidden" name="photo" value="${movieDTO.photo}">
 				<div align="center">
 					<table border="1">
-						<tr>
-							<th>코드</th>
-							<td><input type="text" id="code" name="code" value="${movieDTO.code}" readOnly></td>
-						</tr>
+						<!-- <tr>
+							<td rowspan="9">
+								<div class="img_wrap">
+									<img id="poster-thumbnail" style="width: 250px; height: 360px;">
+								</div>
+								<div>
+									<input type="file" id="photo" name="file">
+								</div>
+							</td>
+						</tr> -->
 						<tr>
 							<th>제목</th>
 							<td><input type="text" id="title" name="title" value="${movieDTO.title}"></td>
@@ -77,7 +84,7 @@
 						</tr>
 						<tr>
 							<th>줄거리</th>
-							<td><textarea rows="8" cols="100" id="summary" name="summary">${movieDTO.summary}</textarea></td>
+							<td><textarea rows="12" cols="70" id="summary" name="summary">${movieDTO.summary}</textarea></td>
 						</tr>
 					</table>
 				</div>

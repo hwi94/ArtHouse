@@ -47,6 +47,7 @@ public class UserController {
 		
 		if (dao.select(userDTO) != null) {
 			String pwcp = dao.select(userDTO).getPw();	//인코딩하여 저장한 비밀번호
+			String returns = null;
 			
 			//입력한 비밀번호와 저장한 비밀번호 매치
 			boolean found = passwordEncoder.matches(pw, pwcp);
@@ -54,7 +55,12 @@ public class UserController {
 			if (found) {	//로그인 성공
 				userDTO = dao.select(userDTO);
 				session.setAttribute("user", userDTO);
-				model.addAttribute("count", 1);
+				
+				if (dao.select(userDTO).getGrade().equals("A")) {
+					model.addAttribute("count", 2);
+				} else {
+					model.addAttribute("count", 1);					
+				}
 				
 			} else {		//로그인 실패
 				model.addAttribute("count", 0);				

@@ -37,6 +37,10 @@ public class MovieDAO {
 		return myBatis.selectOne("movie.selectRecommend", code);
 	}
 	
+	public void gradeAvgUpdate(MovieDTO movie){
+		myBatis.update("movie.gradeAvgUpdate", movie);
+	}
+	
 }
 
 

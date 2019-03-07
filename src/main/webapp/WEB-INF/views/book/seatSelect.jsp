@@ -13,11 +13,12 @@
 	<!-- TakenSeats, substring3 == T -->
 	
 	<c:if test="${col==0}">
+	<c:if test="${fn:length(value)==2}">
 		<br>
-	</c:if>
+	</c:if></c:if>
 	
 	 <c:if test="${value=='S3'}">
-	<span  id="numbering">&nbsp;&nbsp;</span>
+	<span  id="blank">&nbsp;&nbsp;</span>
 	</c:if> 
 	
 	<c:if test="${row=='A'&&col=='0'}">

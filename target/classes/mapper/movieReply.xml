@@ -35,7 +35,7 @@
 	<!-- 리뷰 삽입 -->
 	<insert id="insert" parameterType="movieReplyDTO">
 		INSERT INTO moviereply(a_code, b_code, content, writer, day, grade) 
-		VALUES(#{a_code},#{b_code},#{content},#{writer},#{day},#{grade})
+		VALUES(SEQREPLY.NEXTVAL,#{b_code},#{content},#{writer},#{day},#{grade})
 	</insert>
 	
 	<!-- 리뷰 삭제 -->
@@ -56,5 +56,10 @@
 		WHERE
 		a_code = #{a_code}
 	</update>
+	
+	<!-- 리뷰 평점 출력 -->
+	<select id="gradeAvg" resultType="double">
+		SELECT AVG(grade) FROM moviereply WHERE b_code = #{b_code}
+	</select>
 
 </mapper>

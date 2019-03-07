@@ -56,13 +56,13 @@
 </head>
 <body>
 	<div class="page-body">
-		<jsp:include page="../../../top.jsp"></jsp:include>
+		<jsp:include page="../../../admin_top.jsp"></jsp:include>
 		<!-- 상세 페이지로 넘길 데이터 -->
 		<div class="main-context">
 			<div id="chartTitle">
 				<h1>영화 차트</h1>
 				<hr>
-				<a href="/artHouse/movie/insertMovie.jsp">영화등록</a>
+				<a href="insertMovie.jsp">영화등록</a>
 			</div>
 			<div>
 				<ol id="od">
