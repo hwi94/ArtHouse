@@ -402,7 +402,6 @@ ul {
 				style="display: block;"><span class="icon">.</span>Standard
 				Zone</span> <span class="radiobutton type-rating_prime" title="Prime 석"
 				style="display: block;"><span class="icon">.</span>Prime Zone</span>
-
 		</div>
 		<div align="center" style="width: 50%;">
 			<div align="center" class="seatPlace" style="width: 100%;"></div>
