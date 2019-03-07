@@ -10,7 +10,6 @@
 		<typeAlias type="com.itbank.artHouse.serviceCenter.NoticeDTO" alias="noticeDTO"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.serviceCenter.QnADTO" alias="qnaDTO"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.serviceCenter.QnADTO2" alias="qnaDTO2"></typeAlias>
-		
 		<typeAlias type="com.itbank.artHouse.book.ResvDTO" alias="resvDTO"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.book.ResvDTO2" alias="resvDTO2"></typeAlias>
 		<typeAlias type="com.itbank.artHouse.book.TicketDTO" alias="ticketDTO"></typeAlias>

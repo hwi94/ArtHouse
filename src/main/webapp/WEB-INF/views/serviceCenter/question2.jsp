@@ -7,12 +7,61 @@
 		<title>Insert title here</title>
 		<link rel="stylesheet" href="../resources/css/k_service.css">
 		<script type="text/javascript"src="../resources/js/jquery.min.js"></script>
-		
-		
-		
-		
 		<script type="text/javascript">
+		
+		
 			$(function() {
+				
+				/* 문의유형 - 지점문의(초기값 지점문의) */
+				$(document).ready(function(){
+					$("#k_questionType").html("<select style='width:140px;height:22px;' id='k_questionType' name='questionType'><option value=''>문의유형 선택</option><option value='일반문의'>일반문의</option><option value='칭찬'>칭찬</option><option value='불만'>불만</option><option value='제안'>제안</option></select>");
+				});
+				/* 문의유형 - 문의유형선택시값이들어감 */
+				$(document).on("change","#k_questionType",function(){
+					$("#k_questionType").val($("#k_questionType option:selected").val());
+				});
+				
+				/* 지역선택 - 지역선택시, 해당하는지역마다 지점 SELECT */
+				$("#k_areaSelectBox").change(function(){
+					if($(this).val()=="서울"){
+						alert("서울입니까?><");
+						$("#k_selectMovieTheater").html("<option value=''>지점선택</option><option value='강남'>강남</option><option value='강남대로(씨티)'>강남대로(씨티)</option><option value='강동'>강동</option><option value='군자'>군자</option><option value='동대문'>동대문</option><option value='마곡'>마곡</option><option value='목동'>목동</option><option value='상봉'>상암월드컵경기장</option><option value='센트럴'>센트럴</option><option value='송파파크하비오'>송파파크하비오</option><option value=''>신촌</option><option value='은평'>은평</option><option value='이수'>이수</option><option value='창동'>창동</option><option value='코엑스'>코엑스</option><option value='화곡'>화곡</option><option value='ARTNINE'>ARTNINE</option><option value='EOE4'>EOE4</option>")
+					}else if($(this).val()=="경기"){
+						alert($(this).val()+"입니까?");
+						$("#k_selectMovieTheater").html("<option value=''>지점선택</option><option value='김포'>김포</option><option value='남양주'>남양주</option><option value='동탄'>동탄</option>")
+
+					}else if($(this).val()=="인천"){
+						alert($(this).val()+"입니까?");
+						$("#k_selectMovieTheater").html("<option value=''>지점선택</option><option value='검단'>검단</option><option value='송도'>송도</option><option value='영종'>영종</option>")
+						
+					}else if($(this).val()=="대전충청세종"){
+						alert($(this).val()+"입니까?");
+						$("#k_selectMovieTheater").html("<option value=''>지점선택</option><option value='공주'>공주</option><option value='대전'>대전</option><option value='세종'>세종</option>")
+						
+					}else if($(this).val()=="부산대구경상"){
+						alert($(this).val()+"입니까?");
+						$("#k_selectMovieTheater").html("<option value=''>지점선택</option><option value='거창'>경산하양</option><option value='경주'>경주</option><option value='구미강동'>구미강동</option>")
+					
+					}else if($(this).val()=="광주전라"){
+						alert($(this).val()+"입니까?");
+						$("#k_selectMovieTheater").html("<option value=''>지점선택</option><option value='광주상무'>광주하남</option><option value='남원'>남원</option><option value='목포'>목포</option>")
+					
+					}else if($(this).val()=="강원"){
+						alert($(this).val()+"입니까?");
+						$("#k_selectMovieTheater").html("<option value=''>지점선택</option><option value='남춘천'>남춘천</option><option value='속초'>속초</option><option value='원주센트럴'>원주센트럴</option>")
+
+					}else if($(this).val()=="제주"){
+						alert($(this).val()+"입니까?");
+						$("#k_selectMovieTheater").html("<option value=''>지점선택</option><option value='제주'>제주</option>")
+						
+					}
+				});
+				
+			
+				
+				
+				
+				
 				
 				var cnt = 1;
 				
@@ -50,7 +99,7 @@
 				
 				// ------------------------------------------------사진공간----------------------------------------------------------------------------
 				
-				/* 사진업로드1번버튼 */
+				/* 사진업로드 - 1번버튼 */
 				$("#k_attachments_fub1").change(function(e) {
 					console.log("사진업로드 1번버튼 ");
 					/* 선택한파일을 files에넣는다. */
@@ -94,7 +143,7 @@
 					
 				});
 				//--------------------------------------------------------------------------------------------------------------------------------------
-				/* 사진업로드1번버튼 */
+				/* 사진업로드 - 2번버튼 */
 				$("#k_attachments_fub2").change(function(e) {
 					console.log("사진업로드 1번버튼 ");
 					/* 선택한파일을 files에넣는다. */
@@ -281,10 +330,13 @@
 					alert("기타문의를 클릭하셨군요");
 					$("#k_areaSelectBox").prop("disabled",true);
 					$("#k_selectMovieTheater").prop("disabled",true);
+					
+					$("#k_question_place").prop("checked",false);
+					
 					/* 문의유형선택바뀜  */
-					$("#k_questionType1").hide();
-					$("#k_questionType2").show();
+					$("#k_questionType").html("<select style='width:140px;height:22px;' name='questionType'><option value=''>문의유형 선택</option><option value='영화정보문의'>영화정보문의</option><option value='회원및포인트문의'>회원및포인트문의</option><option value='예매/결제관련문의'>예매/결제관련문의</option><option value='이벤트문의'>이벤트문의</option><option value='일반문의'>일반문의</option><option value='제안/건의'>제안/건의</option></select>");
 					$("#k_areaSelectBox").val("전체");
+					
 					checkNum2 =0;
 				});
 				
@@ -293,9 +345,11 @@
 					alert("지점문의를 클릭하셨군요");
 					$("#k_areaSelectBox").prop("disabled",false);
 					$("#k_selectMovieTheater").prop("disabled",false);
+
+					$("#k_question_other").prop("checked",false);
+					
 					/* 문의유형선택바뀜  */
-					$("#k_questionType1").show();
-					$("#k_questionType2").hide();
+					$("#k_questionType").html("<select style='width:140px;height:22px;' name='questionType'><option value=''>문의유형 선택</option><option value='일반문의'>일반문의</option><option value='칭찬'>칭찬</option><option value='불만'>불만</option><option value='제안'>제안</option></select>");
 					checkNum2 =1;
 				});
 				
@@ -349,6 +403,7 @@
 					}else if($("#k_email").val()==""){
 						alert("이메일을 입력해주세요")	;
 						return false;
+						
 						/* 지점문의가선택되어있다면 무조건 지역과 영화관을 선택해야한다. */
 					}else if(checkNum2==0){
 						alert("기타문의군요");
@@ -356,7 +411,7 @@
 						if($("#k_questionType").val()==""){
 							alert("문의유형을 선택해주세요");
 							return false;
-						}else if($("#k_title").val()==""){
+						}else if($("#k_writeTitle").val()==""){
 							alert("제목을 입력해주세요");
 							return false;
 						}else if($("#k_contents").val().length == 0){
@@ -364,7 +419,6 @@
 							alert("내용을 입력해주세요");
 							return false;
 						}else{
-							
 							$("form").submit();
 						}
 						
@@ -380,7 +434,7 @@
 						}else if($("#k_questionType").val()==""){
 							alert("문의유형을 선택해주세요");
 							return false;
-						}else if($("#k_title").val()==""){
+						}else if($("#k_writeTitle").val()==""){
 							alert("제목을 입력해주세요");
 							return false;
 						}else if($("#k_contents").val().length == 0){
@@ -410,8 +464,6 @@
 
 	</head>
 	<body>
-		<div class="page-body">
-			<jsp:include page="../top.jsp"></jsp:include>
 				<div class="k_question_container">
 					<ul class="k_question_ul_container">
 						<li>
@@ -467,10 +519,10 @@
 									<td colspan="3">
 										<div class="k_buttonGroup">
 											<span>
-												<input type="radio" class="radioMenu" id="k_question_place" name="questionType" checked="checked"><label class="selectMenu">지점문의</label>
+												<input type="radio" class="radioMenu" id="k_question_place"  checked="checked"><label class="selectMenu">지점문의</label>
 											</span>
 											<span>
-												<input type="radio" class="radioMenu" id="k_question_other" name="questionType"><label class="selectMenu">기타문의</label>
+												<input type="radio" class="radioMenu" id="k_question_other" ><label class="selectMenu">기타문의</label>
 											</span>
 										</div>
 										
@@ -480,9 +532,9 @@
 												<option value="서울">서울</option>
 												<option value="경기">경기</option>
 												<option value="인천">인천</option>
-												<option value="대충세">대전/충청/세종</option>
-												<option value="부대경">부산/대구/경상</option>
-												<option value="광전">광주/전라</option>
+												<option value="대전충청세종">대전/충청/세종</option>
+												<option value="부산대구경상">부산/대구/경상</option>
+												<option value="광주전라">광주/전라</option>
 												<option value="강원">강원</option>
 												<option value="제주">제주</option>
 											</select>
@@ -490,7 +542,7 @@
 										
 										<div class="k_buttonGroup">
 											<select id="k_selectMovieTheater" name="selectMovieTheater" style="width: 70px;height: 25px;font-size: 9pt;">
-												<option value="">영화관선택</option>
+												<!-- <option value="">영화관선택</option>
 												<option value="서울">서울</option>
 												<option value="경기">경기</option>
 												<option value="인천">인천</option>
@@ -498,7 +550,7 @@
 												<option value="부대경">부산/대구/경상</option>
 												<option value="광전">광주/전라</option>
 												<option value="강원">강원</option>
-												<option value="제주">제주</option>
+												<option value="제주">제주</option> -->
 											</select>
 										</div>
 										
@@ -507,30 +559,15 @@
 								<tr>
 									<th class="k_question_column">문의유형</th>
 									<td>
-										<div class="k_buttonGroup">
-											<select id="k_questionType1" name="questionType" style="width: 120px;height: 25px;font-size: 9pt;">
-												<option value="">문의유형 선택</option>
-												<option value="일반문의">일반문의</option>
-												<option value="칭찬">칭찬</option>
-												<option value="불만">불만</option>
-												<option value="제안">제안</option>
-											</select>
-											<select id="k_questionType2" name="questionType" style="width: 120px;height: 25px;font-size: 9pt; display: none;">
-												<option value="">문의유형 선택</option>
-												<option value="영화정보">영화정보 문의</option>
-												<option value="회원및포인트">회원 및 포인트 문의</option>
-												<option value="예매/결제">예매/결제 관련 문의</option>
-												<option value="이벤트">이벤트 문의</option>
-												<option value="일반">일반 문의</option>
-												<option value="제안/건의">제안/건의</option>
-											</select>
+										<div id="k_questionType" class="k_buttonGroup">
+											<!-- 문의유형이들어갈공간  -->
 										</div>
 									</td>
 								</tr>
 								<tr>
 									<th class="k_question_column">제목</th>
 									<td colspan="3">
-										<input type="text" id="k_title" name="title" style="width: 785px">
+										<input type="text" id="k_writeTitle" name="title" style="width: 785px">
 									</td>
 								</tr>
 								<tr>
@@ -582,7 +619,5 @@
 					</form>
 					</div>
 				</div>
-			<jsp:include page="../bottom.jsp"></jsp:include>
-		</div>
 	</body>
 </html>

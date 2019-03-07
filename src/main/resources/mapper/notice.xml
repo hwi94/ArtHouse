@@ -4,9 +4,7 @@
 
 <mapper namespace="notice">
 
-	<select id="select" parameterType="noticeDTO" resultMap="rs">
-		SELECT * FROM NOTICE WHERE title = #{title}
-	</select>
+	
 	
 	<!-- 컬럼과. -->
 	<resultMap type="noticeDTO" id="rs">
@@ -17,6 +15,13 @@
 		<result property="contents" column="contents"/>
 	</resultMap>
 
+
+
+	<select id="select" parameterType="noticeDTO" resultMap="rs">
+		SELECT * FROM NOTICE WHERE title = #{title}
+	</select>
+
+
 	
 	<!-- 전체목록카운트 -->
 	<select id="selectCount" resultMap="rs">
@@ -24,8 +29,9 @@
 	</select>	
 	
 	
+	
 
-	<!-- 게시글 5 개씩보여주기 -->
+	<!-- 게시글 10 개씩보여주기 -->
 	<select id="selectListCount" resultMap="rs">
 		SELECT * FROM
 	          (SELECT ROWNUM AS rn, A.* FROM (SELECT * FROM NOTICE ORDER BY TITLENO DESC) A )
@@ -50,7 +56,7 @@
 	</update>
 	<!-- 삭제 -->
 	<delete id="delete" parameterType="noticeDTO">
-		DELETE FROM member WHERE titleNo = #{titleNo}
+		DELETE FROM NOTICE WHERE title = #{title}
 	</delete>
 
 </mapper>
