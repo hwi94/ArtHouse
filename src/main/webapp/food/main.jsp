@@ -39,7 +39,7 @@
     	/* 상단로고를 클릭시 메인화면으로 이동  */
 		$(function() { 
 			$("#top").click(function() {
-				$(location).attr('href','http://localhost:7777/artHouse/main.jsp');
+				$(location).attr('href','http://localhost:8888/artHouse/main.jsp');
 			});
 			
 			$("#p1").click(function() { /* 팝콘1을 클릭했을때 */

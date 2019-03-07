@@ -43,6 +43,8 @@
 						
 					} else if (result == 1) {
 						location.href = '../main.jsp';
+					} else if (result == 2) {
+						location.href = '../admin_main.jsp';
 					}
 				}
 			});
