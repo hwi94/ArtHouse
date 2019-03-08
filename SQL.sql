@@ -40,14 +40,21 @@
 	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다74','테스트내용입니다2','');
 	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다75','테스트내용입니다2','');
 
-	공지사항 테이블
-<<<<<<< HEAD
+	
 	create table notice (
-		title varchar2(30) not null,
-		titleNo number(10) ,												
-		movieTheaters varchar2(30) not null,
-		uploadDate varchar2(30),
-		contents varchar2(3000) not null
+	title varchar2(30) not null,
+	titleNo number(10) ,											
+	movieTheaters varchar2(30) not null,
+	uploadDate varchar2(30),
+	contents varchar2(3000) not null
+	);
+
+	시퀀스먼저만들어야함
+	CREATE SEQUENCE titleNo(
+		INCREMENT BY 1,
+		START WITH 100,
+		MINVALUE 100,
+		MAXVALUE 999999
 	);
 	
 	insert into NOTICE VALUES('테스트타이틀입니다01','01','전체','03/04/2019','테스트내용입니다01');
@@ -76,24 +83,8 @@
 	insert into NOTICE VALUES('테스트타이틀입니다25','24','전체','03/04/2019','테스트내용입니다24');
 	
 	
-	*시퀀스 먼저 제일먼저 *
-=======
-create table notice (
-	title varchar2(30) not null,
-	titleNo number(10) ,											
-	movieTheaters varchar2(30) not null,
-	uploadDate varchar2(30),
-	contents varchar2(3000) not null
-);
+	 
 
->>>>>>> branch 'master' of https://github.com/hwi94/ArtHouse
-	oracle sequence (auto_increment 기능)
-	CREATE SEQUENCE titleNo(
-		INCREMENT BY 1,
-		START WITH 100,
-		MINVALUE 100,
-		MAXVALUE 999999
-	);
 	
 	
 --------------------------------------------------------------------------------------------------------------------------------------------
