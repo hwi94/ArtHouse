@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.itbank.artHouse.movie.MovieDAO;
+import com.itbank.artHouse.movie.MovieDTO;
 import com.mysql.fabric.xmlrpc.base.Array;
 
 @Controller
@@ -20,8 +22,11 @@ public class BookController {
 	@Qualifier("rDao")
 	ResvDAO rDao;
 	
+	@Autowired
+	MovieDAO mDao;
+	
 	@RequestMapping("moviePage")
-	public String select(Model model) throws Exception{
+	public String select(Model model, @RequestParam("movie")String movieGiven) throws Exception{
 
 		// = rDao.selectAll();
 		List<ResvDTO> list = rDao.selectMovie();
@@ -36,7 +41,7 @@ public class BookController {
 		}
 		
 		model.addAttribute("dayList",dayList);
-		
+		model.addAttribute("movieGiven",movieGiven);
 		return "book/book";
 	}
 	
@@ -54,5 +59,20 @@ public class BookController {
 		dto.setMovie(movie);
 		model.addAttribute("list",rDao.select(dto));
 		return "book/playtimeInfo";
+	}
+	
+	@RequestMapping("movieInformation")
+	public String selectMovie(String movie, Model model) throws Exception{
+		MovieDTO movieDTO = new MovieDTO();
+		movieDTO.setTitle(movie);
+		List<MovieDTO> list=mDao.selectMovie(movieDTO);
+		if(list.size()!=0){
+			movieDTO=list.get(0);
+			model.addAttribute("movieDTO",movieDTO);
+		}
+		
+		
+		return "book/movieInformation";
+		
 	}
 }

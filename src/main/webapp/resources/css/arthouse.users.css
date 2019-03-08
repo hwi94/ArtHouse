@@ -117,7 +117,7 @@ input[type=text], input[type=password]
 .main-context h4
 {
 	font-size: 15px;
-	margin: 5px 0;
+	margin: 50px 0 5px 0;
 }
 
 .main-context h5
@@ -132,7 +132,7 @@ input[type=text], input[type=password]
 	color: #555;
 	font-weight: 400;
 	font-size: 13px;
-	margin: 10px 0;
+	margin: 50px 0 10px 0;
 }
 
 /***** 이용약관 *****/
