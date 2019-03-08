@@ -85,18 +85,18 @@
 										<span class="text-info"><strong>감독 / </strong>${dto.director}</span><br>
 										
 										<span class="text-info"><strong>개봉 / </strong>${dto.playdate}</span><br>
-											<div> 
-											<span class="text-info">
-													<strong>추천수 / </strong><span id="newRecommend">${dto.recommend}</span>&nbsp;&nbsp;&nbsp;
-											</span>
-											</div>
+										<div> 
+										<span class="text-info">
+												<strong>추천수 / </strong><span id="newRecommend">${dto.recommend}</span>&nbsp;&nbsp;&nbsp;
+										</span>
+										</div>
 										<div>
 											<c:choose>
 												<c:when test="${user.id eq null}">
-													<a href="javascript:notResv()">예매</a>
+													<a href="javascript:notResv()"><img src="resources/img/movie/reservationBtn.png"></a>
 												</c:when>
 												<c:otherwise>
-													<a href="moviePage?movie=${dto.title}">예매</a>
+													<a href="moviePage?movie=${dto.title}"><img src="resources/img/movie/reservationBtn.png"></a>
 												</c:otherwise>
 											</c:choose>
 										</div>
