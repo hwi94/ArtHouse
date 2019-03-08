@@ -342,7 +342,7 @@ ul {
 		<!-- 중간내용 -->
 		<div class="main-context">
 	<br>
-	<input type="text" id="movieGiven" value="${movieGiven}">
+	<input type="text" id="movieGiven" style="display: none" value="${movieGiven}">
 	<input type="text" id="hidden" style="display: none">
 	<input type="text" id="textTime" style="display: none">
 	<input type="text" id="textTheater" style="display: none">
