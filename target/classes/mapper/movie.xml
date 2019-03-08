@@ -19,6 +19,15 @@
 		FROM (SELECT * FROM movie WHERE code = #{code}) A
 	</select>
 	
+	<!-- 영화검색 -->
+		<select id="selectMovie" parameterType="movieDTO" resultMap="rs">
+		
+		SELECT code, title, ganre, playdate, runtime, director, 
+			actors, agerequire, grade, count, recommend, photo,
+		REPLACE(REPLACE(A.summary, chr(13)||chr(10), '<![CDATA[<br>]]>'), chr(32), '<![CDATA[&nbsp;]]>') AS summary
+		FROM (SELECT * FROM movie WHERE title = #{title}) A
+	</select>
+	
 	<resultMap type="movieDTO" id="rs">
 		<result property="code" column="code" />
 		<result property="title" column="title" />

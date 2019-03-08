@@ -24,9 +24,56 @@
 		/* 영화제목 클릭하면 - 극장리스트 #theater-html, #hidden-val설정 */
 		/* 극장제목 클릭하면 - bookable과 unbookable css영향 */
 		/* Bookable인 날짜 클릭하면 - #infoDate, h1태그(시간컬럼)설정 */
+		$(document).ready(function(){
+			var movie1 = $("#movieGiven").val();
+			if(movie1!=null){
+				var list = $("li").text();
+				$(list).each(function(index){
+					if(movieGiven==index){
+						$(this).css("background-color", "black");
+						$(this).css("color", "white");
+						$("#infoMovie").html(movie1);
+						$("#passMovie").val(movie1);
+						var movie = {
+							"movie" : movie1
+						};
+						$.ajax({
+							url : "movieInfo",
+							data : movie,
+							type : "get",
+							success : function(result) {
+								/* 극장컬럼 */
+								$("#theater").html(result);
+							}
+						})//ajax
+
+						$.ajax({
+							url : "playtimeInfo",
+							data : movie,
+							success : function(result) {
+								/* 클릭한 영화의 - 모든정보 모아놓는 히든텍스트 */
+								$("#hidden").val(result);
+							}//success
+						})//ajax
+						
+						$.ajax({
+							url : "movieInformation",
+							data : movie,
+							success: function(result){
+								$("#movieInformation").html(result);
+							}
+							
+						})
+					}
+				})
+			}
 		
+		})
 		/* 영화제목이 클릭되면 */
 		$("li").click(function() {
+			/* 영화정보초기화 */
+			$("#movieInformation").html();
+			
 			/* bookable(클릭가능한 날짜설정)초기화 */
 			$("#bookable").removeAttr('style');
 			$("#bookable").attr("id", "unbookable");
@@ -69,6 +116,15 @@
 					$("#hidden").val(result);
 				}//success
 			})//ajax
+			
+			$.ajax({
+				url : "movieInformation",
+				data : movie,
+				success: function(result){
+					$("#movieInformation").html(result);
+				}
+				
+			})
 		})// $("li").click(function())
 
 		/* 영화이름 클릭하면 CSS설정 */
@@ -284,6 +340,7 @@ ul {
 		<!-- 중간내용 -->
 		<div class="main-context">
 	<br>
+	<input type="text" id="movieGiven" style="display:none" value="${movieGiven }">
 	<input type="text" id="hidden" style="display: none">
 	<input type="text" id="textTime" style="display: none">
 	<input type="text" id="textTheater" style="display: none">
@@ -327,7 +384,8 @@ ul {
 		<!-- <a href="seatPage">좌석예약</a> -->
 		<div class="select">
 			<div class="select-body">
-				영화정보<br> <span class="spanHeader" id="infoMovie">이영화는</span>
+			<div id="movieInformation"></div>
+				 영화정보<br> <span class="spanHeader" id="infoMovie">이영화는</span>
 			</div>
 			<div class="select-body" align="left">
 				<div>
