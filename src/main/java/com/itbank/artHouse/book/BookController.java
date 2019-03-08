@@ -66,8 +66,11 @@ public class BookController {
 		MovieDTO movieDTO = new MovieDTO();
 		movieDTO.setTitle(movie);
 		List<MovieDTO> list=mDao.selectMovie(movieDTO);
-		movieDTO=list.get(0);
-		model.addAttribute("movieDTO",movieDTO);
+		if(list.size()!=0){
+			movieDTO=list.get(0);
+			model.addAttribute("movieDTO",movieDTO);
+		}
+		
 		
 		return "book/movieInformation";
 		
