@@ -95,7 +95,7 @@
 
 <!-- 해당 페이지 내 프레임바디 설정 -->	
 <div id="frame_body">  
-	<jsp:include page="../../../top.jsp"></jsp:include>
+	<jsp:include page="../../../admin_top.jsp"></jsp:include>
 <div id="header_admin">
 	<h1 id="title_admin">상품 수정</h1>
 	<hr>

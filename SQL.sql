@@ -11,6 +11,8 @@
 		contents varchar2(3000),
 		attachments varchar2(3000)
 	);
+	
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','','','','테스트제목입니다1','테스트내용입니다2','');
 	drop table QnA purge;
 
 
@@ -25,7 +27,6 @@ create table notice (
 );
 
 	oracle sequence (auto_increment 기능)
-
 	CREATE SEQUENCE titleNo(
 		INCREMENT BY 1,
 		START WITH 1,
@@ -63,7 +64,7 @@ create table movie (
 	recommend number,
 	photo varchar2(200)
 );
-
+insert into movie values(1,'Tree','3','4','5','6','7','8',9,'10',11,12,'13');
 ===================유민재===================
 
 	카트 테이블 생성
@@ -105,6 +106,16 @@ insert into resv values('Tree','1T','20190312081000','B3');
 insert into resv values('Tree','2T','20190313065000','B3');
 insert into resv values('Harry','1T','20190310011000','B1');
 insert into resv values('Harry','3T','20190312011000','A3-A1-C1-C2-C3-C4');
+insert into resv values('콜드 워','1T','20190312023000','A3');
+insert into resv values('가버나','1T','20190312021000','A3');
+insert into resv values('일일시호일','3T','20190313021800','A3');
+insert into resv values('쉰들러리스트','1T','20190313021000','A3');
+insert into resv values('그린북','1T','20190316021000','A3');
+insert into resv values('파이널리스트','1T','20190316021000','A3');
+insert into resv values('이차크','1T','20190313031000','A3');
+insert into resv values('테스크','1T','20190314041000','A3');
+insert into resv values('이차크','3T','20190312011000','A3');
+
 
 select resv.movie, resv.tName, resv.playtime, resv.taken, theater.name, theater.seats
 from resv join theater

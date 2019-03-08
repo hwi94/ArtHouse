@@ -5,6 +5,5 @@
 <div align="center"> 
 <c:forEach var="dto" items="${list }">
 <span id="tName">${dto.tName }</span><br>
-<br>
 </c:forEach>
 </div>

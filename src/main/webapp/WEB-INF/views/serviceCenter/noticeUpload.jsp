@@ -1,31 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Insert title here</title>
 	
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css"/> <!-- 달력 스타일시트 -->
+	
+	
+				<!-- 달력 스타일시트 -->
+				<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css"/> 
 				<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 				<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+				<!-- 달력 스타일시트 -->
+				
 				
 				<!-- 네이버 스마트 에디터 -->
 				<script type="text/javascript" src="../resources/SE2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 				<script type="text/javascript">
-				
-					
-				
-				
-				var oEditors = [];
-					
-				$(function() {
-					
-					/* 작성일 */ 
-					$("#k_uploadDate").datepicker({
-						
-					}); 
 
+				var oEditors = [];
+						
+						
+				
+				$(function(){
+						
+						$("#k_uploadDate").datepicker({
+							
+						});
+					
+						
 						/* 스마트에디터 */
 						nhn.husky.EZCreator.createInIFrame({
 						oAppRef: oEditors,
@@ -40,16 +40,14 @@
 						}
 					},
 					
-					fOnAppLoad : function(){
-						// 기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
-						// 로딩이 완료된후 에디터에 삽입되는 텍스트.
-
-						
-					},//appLoad
-					fCreator : "createSEditor2"
-				});//Editor
-						
+						fOnAppLoad : function(){
+							// 기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
+							// 로딩이 완료된후 에디터에 삽입되는 텍스트.
+	
 							
+						},//appLoad
+						fCreator : "createSEditor2"
+					});//Editor
 							
 						 $("#save").click(function(){
 							 //저장 클릭시 에디터내용을 area에 전달
@@ -64,35 +62,49 @@
 								alert("날짜를 입력하세요");
 								return false;
 							 }else{			//내용 실패...
-						         oEditors.getById["k_contents"].exec("UPDATE_CONTENTS_FIELD",[]);
-						         $("#k_form").submit();
+								 var title = $("#k_noticeTitle").val();
+									alert("눌렀냐");
+								 $.ajax({
+									url : "overlapCheckNoticeTitle.do?title="+title,
+									type : 'POST',
+									success : function(result){
+										
+										if(result.result == "overlap"){
+											console.log("중복");
+											alert("제목을 다시입력해주세요");
+										}else{
+											alert("등록되었습니다^^");
+											oEditors.getById["k_contents"].exec("UPDATE_CONTENTS_FIELD",[]);
+									         $("#k_form").submit();
+										}
+										
+										
+									}
+								 });
 							 } //else
-					      }); //저장
-						
+						 }); //저장
 					
-				}); // callBack
+			});  //callback 
 			
 				</script>
 				
 				
-	</head>
-	<body>
-			<center><h3>공지사항 등록 페이지</h3></center>
+			<center><h3>공지사항 등록 페이지 입니다.</h3></center>
 			<hr>
 				<form action="noticeUpload.do" id="k_form">
 					<table style="margin: 0 auto">
 						<tr>
-							<th style="background: gray">제목</th>
+							<th style="background-color: #EAEAEA">제목</th>
 							<td colspan="3" style="width: 592px">
-								<input type="text" style="width: 600px;" id="k_title" name="title">
+								<input type="text" style="width: 600px;" id="k_noticeTitle" name="title">
 							</td>
 						</tr>
 						<tr>
-							<th style="background: gray">영화관</th>
+							<th style="background-color: #EAEAEA">영화관</th>
 							<td>
 								<input type="text" style="width: 270px" id="k_movieTheaters" name="movieTheaters">
 							</td>
-							<th style="background: gray">등록일</th>
+							<th style="background-color:  #EAEAEA">등록일</th>
 							<td>
 								<input type="text" style="width: 270px" id="k_uploadDate" name="uploadDate">
 							</td>
@@ -113,5 +125,3 @@
 				</form>
 
 	
-	</body>
-</html>
