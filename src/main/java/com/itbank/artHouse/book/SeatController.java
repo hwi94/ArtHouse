@@ -26,14 +26,10 @@ public class SeatController {
 
 	@RequestMapping("seatPage")
 	public String seatPage(@RequestParam("playtime") String playtime, @RequestParam("takenSeats") String takenSeats,
-			String passMovie, String passTheater, String passDate, Model model, HttpSession session) throws Exception {
+			String passMovie, String passTheater, String passDate, Model model) throws Exception {
 		// ArrayList<ResvDTO> rList = rDao.select("playtime", "2019-02-17
 		// 06:50:13");
 		
-		String sessionID = (String) session.getAttribute("user");
-		if(sessionID==null){
-			return "redirect:users/login.jsp";
-		}
 		
 		ResvDTO2 rDto2 = new ResvDTO2();
 		rDto2.setPlaytime(playtime);
