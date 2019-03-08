@@ -27,9 +27,11 @@
 		$(document).ready(function(){
 			var movie1 = $("#movieGiven").val();
 			if(movie1!=null){
-				var list = $("li").text();
-				$(list).each(function(index){
-					if(movieGiven==index){
+				
+				$("#movie").each(function(result){
+					var title = $(this).text();
+					alert(title);
+					if(movie1==title){
 						$(this).css("background-color", "black");
 						$(this).css("color", "white");
 						$("#infoMovie").html(movie1);
@@ -340,7 +342,7 @@ ul {
 		<!-- 중간내용 -->
 		<div class="main-context">
 	<br>
-	<input type="text" id="movieGiven" style="display:none" value="${movieGiven }">
+	<input type="text" id="movieGiven" value="${movieGiven}">
 	<input type="text" id="hidden" style="display: none">
 	<input type="text" id="textTime" style="display: none">
 	<input type="text" id="textTheater" style="display: none">
@@ -361,7 +363,6 @@ ul {
 					<ul>
 						<c:forEach var="rDto" items="${list }">
 							<li id="movie">${rDto.movie }</li>
-							<br>
 						</c:forEach>
 					</ul>
 				</table>
