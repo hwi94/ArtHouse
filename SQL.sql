@@ -2,12 +2,11 @@
 	
 	
 	시퀀스먼저만들어야함
-	CREATE SEQUENCE titleNo(
-		INCREMENT BY 1,
-		START WITH 100,
-		MINVALUE 100,
-		MAXVALUE 999999
-	);
+	CREATE SEQUENCE titleNo
+		INCREMENT BY 1
+		START WITH 100
+		MINVALUE 100
+		MAXVALUE 999999;
 	
 	
 	create table notice (
@@ -18,7 +17,6 @@
 	contents varchar2(3000) not null
 	);
 
-	
 	insert into NOTICE VALUES('테스트타이틀입니다01','01','전체','03/04/2019','테스트내용입니다01');
 	insert into NOTICE VALUES('테스트타이틀입니다02','02','전체','03/04/2019','테스트내용입니다02');
 	insert into NOTICE VALUES('테스트타이틀입니다03','03','전체','03/04/2019','테스트내용입니다03');
@@ -86,19 +84,37 @@
 	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다75','테스트내용입니다2','');
 
 	
-	
-	
-	
-	 
+----------------------------------------------------------------------
+영화 & 리뷰
 
 	
+	시퀀스
+	create sequence seqreply 
+		start with 1 
+		maxvalue 999999 
+		nocache;
+		
+	영화 테이블
+	create table movie (
+		code number primary key,
+		title varchar2(50),
+		ganre varchar2(20),
+		playdate varchar2(20),
+		runtime varchar2(10),
+		summary varchar2(3000),
+		director varchar2(20),
+		actors varchar2(200),
+		agerequire number,
+		grade varchar2(5),
+		count number,
+		recommend number,
+		photo varchar2(200)
+	);
 	
---------------------------------------------------------------------------------------------------------------------------------------------
 	
-
-	
-drop table serviceCenter purge;
-
+------------------------------------------------------------
+유저		
+		
 	유저 테이블 생성
 create table users (
 	id varchar2(15) primary key,
@@ -111,23 +127,17 @@ create table users (
 	gender varchar2(5)
 );
 
-	영화 테이블 생성
-create table movie (
-	code number primary key,
-	title varchar2(50),
-	ganre varchar2(20),
-	playdate varchar2(20),
-	runtime varchar2(10),
-	summary varchar2(3000),
-	director varchar2(20),
-	actors varchar2(200),
-	agerequire number,
-	grade varchar2(5),
-	count number,
-	recommend number,
-	photo varchar2(200)
-);
-insert into movie values(1,'Tree','3','4','5','6','7','8',9,'10',11,12,'13');
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------
 ===================유민재===================
 
 	카트 테이블 생성
