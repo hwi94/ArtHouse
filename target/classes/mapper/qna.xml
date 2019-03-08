@@ -4,15 +4,32 @@
 
 <mapper namespace="qna">
 
-	<select id="select" parameterType="noticeDTO" resultMap="rs">
-		SELECT * FROM QnA WHERE titleNo = #{titleNo}
+	<select id="selectOne" parameterType="qnaDTO" resultMap="rs">
+		SELECT * FROM QnA WHERE TITLE = #{TITLE}
 	</select>
 	
 	<!-- 컬럼과. -->
 	<resultMap type="qnaDTO" id="rs">
+		<result property="informationConsent" column="informationConsent"/>
+		<result property="name" column="name"/>
+		<result property="tel" column="tel"/>
+		<result property="areaSelectBox" column="areaSelectBox"/>
+		<result property="email" column="email"/>
+		<result property="selectMovieTheater" column="selectMovieTheater"/>
+		<result property="questionType" column="questionType"/>
 		<result property="contents" column="contents"/>
+		<result property="attachments" column="attachments"/>
 	</resultMap>
 
+
+
+	<select id="selectCountList" resultMap="rs">
+		SELECT * FROM
+	          (SELECT ROWNUM AS rn, A.* FROM (SELECT * FROM QnA) A )
+	      WHERE rn BETWEEN #{start} AND #{end}
+	</select>
+
+		
 	<!-- 전체목록 -->
 	<select id="selectAll" resultMap="rs">
 		SELECT * FROM QnA

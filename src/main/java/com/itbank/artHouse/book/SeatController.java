@@ -3,6 +3,9 @@ package com.itbank.artHouse.book;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -23,9 +26,15 @@ public class SeatController {
 
 	@RequestMapping("seatPage")
 	public String seatPage(@RequestParam("playtime") String playtime, @RequestParam("takenSeats") String takenSeats,
-			String passMovie, String passTheater, String passDate, Model model) throws Exception {
+			String passMovie, String passTheater, String passDate, Model model, HttpSession session) throws Exception {
 		// ArrayList<ResvDTO> rList = rDao.select("playtime", "2019-02-17
 		// 06:50:13");
+		
+		String sessionID = (String) session.getAttribute("user");
+		if(sessionID==null){
+			return "redirect:users/login.jsp";
+		}
+		
 		ResvDTO2 rDto2 = new ResvDTO2();
 		rDto2.setPlaytime(playtime);
 		List<ResvDTO2> rList = rDao.selectTheater(rDto2);

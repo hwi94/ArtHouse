@@ -16,14 +16,14 @@
 	
 	<!-- css -->
 	<link rel="stylesheet" href="/artHouse/resources/css/jquery.bxslider.css">
-	<link rel="stylesheet" href="/artHouse/resources/css/arthouse.main.css">
+	<link rel="stylesheet" href="/artHouse/resources/css/arthouse.css">
 
 </head>
 <body>	
 	<div class="page-body">
 		<!-- 상단메뉴 -->
 		<jsp:include page="top.jsp"></jsp:include>
-		
+			
 		<!-- 중간내용 -->
 		<div class="main-context">
 			<!-- 이미지 슬라이드 -->	
