@@ -88,9 +88,9 @@
 													<strong>추천수 / </strong><span id="newRecommend">${dto.recommend}</span>&nbsp;&nbsp;&nbsp;
 											</span>
 											</div>
-										<!-- <div>
-											<button class="hypertext" href="#">예매</button>
-										</div> -->
+										<div>
+											<a href="moviePage?movie=${dto.title}">예매</a>
+										</div>
 									</div>
 								</div>
 								<!-- 영화 간략 정보 끝 -->
