@@ -43,7 +43,9 @@
 <!-- 임시로 넣어둔 스크립트 선언부 -->
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
 <script type="text/javascript">
-
+	function notResv(){
+		alert("로그인 후 예매할 수 있습니다.");		
+	}
 </script>
 </head>
 <body>
@@ -83,14 +85,21 @@
 										<span class="text-info"><strong>감독 / </strong>${dto.director}</span><br>
 										
 										<span class="text-info"><strong>개봉 / </strong>${dto.playdate}</span><br>
-											<div> 
-											<span class="text-info">
-													<strong>추천수 / </strong><span id="newRecommend">${dto.recommend}</span>&nbsp;&nbsp;&nbsp;
-											</span>
-											</div>
-										<!-- <div>
-											<button class="hypertext" href="#">예매</button>
-										</div> -->
+										<div> 
+										<span class="text-info">
+												<strong>추천수 / </strong><span id="newRecommend">${dto.recommend}</span>&nbsp;&nbsp;&nbsp;
+										</span>
+										</div>
+										<div>
+											<c:choose>
+												<c:when test="${user.id eq null}">
+													<a href="javascript:notResv()"><img src="resources/img/movie/reservationBtn.png"></a>
+												</c:when>
+												<c:otherwise>
+													<a href="moviePage?movie=${dto.title}"><img src="resources/img/movie/reservationBtn.png"></a>
+												</c:otherwise>
+											</c:choose>
+										</div>
 									</div>
 								</div>
 								<!-- 영화 간략 정보 끝 -->

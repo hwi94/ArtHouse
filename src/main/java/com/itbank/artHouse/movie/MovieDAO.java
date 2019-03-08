@@ -41,6 +41,9 @@ public class MovieDAO {
 		myBatis.update("movie.gradeAvgUpdate", movie);
 	}
 	
+	public List<MovieDTO> selectMovie(MovieDTO movieDTO){
+		return myBatis.selectList("movie.selectMovie", movieDTO);
+	}
 }
 
 

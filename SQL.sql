@@ -20,7 +20,7 @@
 	공지사항 테이블
 create table notice (
 	title varchar2(30) not null,
-	titleNo number(10) ,												
+	titleNo number(10) ,											
 	movieTheaters varchar2(30) not null,
 	uploadDate varchar2(30),
 	contents varchar2(3000) not null
@@ -64,7 +64,7 @@ create table movie (
 	recommend number,
 	photo varchar2(200)
 );
-
+insert into movie values(1,'Tree','3','4','5','6','7','8',9,'10',11,12,'13');
 ===================유민재===================
 
 	카트 테이블 생성
@@ -87,6 +87,8 @@ seats varchar2(1000)
 insert into theater values('1T','A0,A1,A2,S3,A3,A4,A5,A6,A7,A8,S3,A9,A10,B0,B1,B2,S3,B3,B4,B5,B6,B7,B8,S3,B9,B10,C0,C1,C2,S3,C3,C4,C5,C6,C7,C8,S3,C9,C10,D0,D1,D2,S3,D3,D4,D5,D6,D7,D8,S3,D9,D10,E0,E1,E2,S3,E3,E4,E5,E6,E7,E8,S3,E9,E10,F0,F1,F2,S3,F3,F4,F5,F6,F7,F8,S3,F9,F10,G0,G1,G2,S3,G3,G4,G5,G6,G7,G8,S3,G9,G10,H0,H1,H2,S3,H3,H4,H5,H6,H7,H8,S3,H9,H10,I0,I1,I2,S3,I3,I4,I5,I6,I7,I8,S3,I9,I10');
 insert into theater values('2T','A0,A1,A2,A3,B0,B1,B2,B3');
 insert into theater values('3T','A0,A1,A2,A3,A4,A5,S3,A6,A7,A8,A9,A10,S3,A11,A12,A13,A14,A15,B0,S3,B2,B3,B4,B5,S3,B6,B7,B8,B9,B10,S3,B11,B12,B13,B14,S3,C0,S3,S3,C3,C4,C5,S3,C6,C7,C8,C9,C10,S3,C11,C12,C13,S3,S3,D0,S3,S3,S3,D4,D5,S3,D6,D7,D8,D9,D10,S3,D11,D12,S3,S3,S3,E0,S3,S3,S3,S3,E5,S3,E6,E7,E8,E9,E10,S3,E11,S3,S3,S3,S3,F0,S3,S3,S3,S3,S3,S3,F6,F7,F8,F9,F10,S3,S3,S3,S3,S3,S3,G0,S3,S3,S3,S3,S3,S3,G6,G7,G8,G9,G10,S3,S3,S3,S3,S3,S3,H0,S3,S3,S3,S3,S3,S3,H6,H7,H8,H9,H10,S3,S3,S3,S3,S3,S3,I0,S3,S3,S3,S3,S3,S3,I6,I7,I8,I9,I10,S3,S3,S3,S3,S3,S3');
+insert into theater values('4T','A0,A1,	A2,	S3,	S3,	S3,	S3,	S3,B0,S3,B2,B3,S3,S3,S3,S3,C0,S3,S3,S3,C4,C5,S3,S3,D0,S3,S3,S3,S3,D5,D6,S3,E0,S3,S3,S3,S3,S3,E6,E7,F0,S3,S3,S3,S3,F5,F6,S3,G0,S3,S3,S3,G4,G5,S3,S3,H0,S3,S3,H3,H4,S3,S3,S3,I0,I1,I2,S3,S3,S3,S3,S3');
+insert into theater values('4T','A0,A1,A2,S3,S3,S3,S3,S3,B0,S3,B2,B3,S3,S3,S3,S3,C0,S3,S3,C3,C4,S3,S3,S3,D0,S3,S3,S3,D4,D5,S3,S3,E0,S3,S3,S3,S3,E5,E6,S3,F0,S3,S3,S3,S3,S3,F6,F7,G0,S3,S3,S3,S3,G5,G6,S3,H0,S3,S3,S3,H4,H5,S3,S3,I0,S3,S3,I3,I4,S3,S3,S3,');
 
 col playtime for a20;
 col taken for a20;
@@ -106,6 +108,17 @@ insert into resv values('Tree','1T','20190312081000','B3');
 insert into resv values('Tree','2T','20190313065000','B3');
 insert into resv values('Harry','1T','20190310011000','B1');
 insert into resv values('Harry','3T','20190312011000','A3-A1-C1-C2-C3-C4');
+insert into resv values('콜드 워','1T','20190312023000','A3');
+insert into resv values('가버나','1T','20190312021000','A3');
+insert into resv values('일일시호일','3T','20190313021800','A3');
+insert into resv values('쉰들러리스트','1T','20190313021000','A3');
+insert into resv values('그린북','1T','20190316021000','A3');
+insert into resv values('파이널리스트','1T','20190316021000','A3');
+insert into resv values('이차크','1T','20190313031000','A3');
+insert into resv values('테스크','1T','20190314041000','A3');
+insert into resv values('이차크','3T','20190312011000','A3');
+insert into resv values('이차크','4T','20190313011000','A3');
+
 
 select resv.movie, resv.tName, resv.playtime, resv.taken, theater.name, theater.seats
 from resv join theater
