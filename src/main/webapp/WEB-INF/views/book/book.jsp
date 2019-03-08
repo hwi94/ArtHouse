@@ -28,13 +28,12 @@
 			var movie1 = $("#movieGiven").val();
 			if(movie1!=null){
 				
-				$("#movie").each(function(result){
+				$("li").each(function(result){
 					var title = $(this).text();
-					alert(title);
 					if(movie1==title){
 						$(this).css("background-color", "black");
 						$(this).css("color", "white");
-						$("#infoMovie").html(movie1);
+						 $("#infoMovie").html(movie1);
 						$("#passMovie").val(movie1);
 						var movie = {
 							"movie" : movie1
@@ -43,29 +42,29 @@
 							url : "movieInfo",
 							data : movie,
 							type : "get",
-							success : function(result) {
+							success : function(result) { 
 								/* 극장컬럼 */
-								$("#theater").html(result);
+								 $("#theater").html(result);
 							}
-						})//ajax
+						})//ajax 
 
 						$.ajax({
 							url : "playtimeInfo",
 							data : movie,
-							success : function(result) {
-								/* 클릭한 영화의 - 모든정보 모아놓는 히든텍스트 */
-								$("#hidden").val(result);
+							success : function(result) { 
+								 /* 클릭한 영화의 - 모든정보 모아놓는 히든텍스트  */
+								 $("#hidden").val(result);
 							}//success
-						})//ajax
+						})//ajax 
 						
-						$.ajax({
+						 $.ajax({
 							url : "movieInformation",
 							data : movie,
 							success: function(result){
 								$("#movieInformation").html(result);
 							}
 							
-						})
+						}) 
 					}
 				})
 			}
