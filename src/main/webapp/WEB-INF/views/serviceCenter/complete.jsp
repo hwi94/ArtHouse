@@ -9,9 +9,7 @@
 		<script type="text/javascript">
 
 			$(function(){
-				
 				location.href="clientSound.do";
-			
 			});
 		
 		</script>

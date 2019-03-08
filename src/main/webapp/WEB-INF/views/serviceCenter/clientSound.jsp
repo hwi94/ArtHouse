@@ -23,6 +23,12 @@
 	<script type="text/javascript">
 		$(function() {
 			
+			
+			
+			
+			
+			
+			
 			/* 공지사항 - 리스트 (돔트리완료후) */
 			$.ajax({
 				url :"selectNoticeList.do",
@@ -211,7 +217,7 @@
 			
 			
 			
-			/* 1:1문의 - 상단메뉴(작성)*/
+			/* 1:1문의 - 작성 */
 			$(document).on("click","#k_questionMenu",function(){
 				alert("1:1문의클릭");
 				$("#k_questionImg").attr("src","../resources/img/notice/157.png");
