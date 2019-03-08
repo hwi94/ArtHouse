@@ -43,7 +43,9 @@
 <!-- 임시로 넣어둔 스크립트 선언부 -->
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
 <script type="text/javascript">
-
+	function notResv(){
+		alert("로그인 후 예매할 수 있습니다.");		
+	}
 </script>
 </head>
 <body>
@@ -89,7 +91,14 @@
 											</span>
 											</div>
 										<div>
-											<a href="moviePage?movie=${dto.title}">예매</a>
+											<c:choose>
+												<c:when test="${user.id eq null}">
+													<a href="javascript:notResv()">예매</a>
+												</c:when>
+												<c:otherwise>
+													<a href="moviePage?movie=${dto.title}">예매</a>
+												</c:otherwise>
+											</c:choose>
 										</div>
 									</div>
 								</div>
