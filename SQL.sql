@@ -1,3 +1,50 @@
+	공지사항 / 1:1문의 테이블 -----------------------------------------------------------------------------------------------------
+	
+	
+	시퀀스먼저만들어야함
+	CREATE SEQUENCE titleNo(
+		INCREMENT BY 1,
+		START WITH 100,
+		MINVALUE 100,
+		MAXVALUE 999999
+	);
+	
+	
+	create table notice (
+	title varchar2(30) not null,
+	titleNo number(10) ,											
+	movieTheaters varchar2(30) not null,
+	uploadDate varchar2(30),
+	contents varchar2(3000) not null
+	);
+
+	
+	insert into NOTICE VALUES('테스트타이틀입니다01','01','전체','03/04/2019','테스트내용입니다01');
+	insert into NOTICE VALUES('테스트타이틀입니다02','02','전체','03/04/2019','테스트내용입니다02');
+	insert into NOTICE VALUES('테스트타이틀입니다03','03','전체','03/04/2019','테스트내용입니다03');
+	insert into NOTICE VALUES('테스트타이틀입니다04','04','전체','03/04/2019','테스트내용입니다04');
+	insert into NOTICE VALUES('테스트타이틀입니다05','05','전체','03/04/2019','테스트내용입니다05');
+	insert into NOTICE VALUES('테스트타이틀입니다06','06','전체','03/04/2019','테스트내용입니다06');
+	insert into NOTICE VALUES('테스트타이틀입니다07','07','전체','03/04/2019','테스트내용입니다07');
+	insert into NOTICE VALUES('테스트타이틀입니다08','08','전체','03/04/2019','테스트내용입니다08');
+	insert into NOTICE VALUES('테스트타이틀입니다09','09','전체','03/04/2019','테스트내용입니다09');
+	insert into NOTICE VALUES('테스트타이틀입니다11','10','전체','03/04/2019','테스트내용입니다10');
+	insert into NOTICE VALUES('테스트타이틀입니다12','11','전체','03/04/2019','테스트내용입니다11');
+	insert into NOTICE VALUES('테스트타이틀입니다13','12','전체','03/04/2019','테스트내용입니다12');
+	insert into NOTICE VALUES('테스트타이틀입니다14','13','전체','03/04/2019','테스트내용입니다13');
+	insert into NOTICE VALUES('테스트타이틀입니다15','14','전체','03/04/2019','테스트내용입니다14');
+	insert into NOTICE VALUES('테스트타이틀입니다16','15','전체','03/04/2019','테스트내용입니다15');
+	insert into NOTICE VALUES('테스트타이틀입니다17','16','전체','03/04/2019','테스트내용입니다16');
+	insert into NOTICE VALUES('테스트타이틀입니다18','17','전체','03/04/2019','테스트내용입니다17');
+	insert into NOTICE VALUES('테스트타이틀입니다19','18','전체','03/04/2019','테스트내용입니다18');
+	insert into NOTICE VALUES('테스트타이틀입니다20','19','전체','03/04/2019','테스트내용입니다19');
+	insert into NOTICE VALUES('테스트타이틀입니다21','20','전체','03/04/2019','테스트내용입니다20');
+	insert into NOTICE VALUES('테스트타이틀입니다22','21','전체','03/04/2019','테스트내용입니다21');
+	insert into NOTICE VALUES('테스트타이틀입니다23','22','전체','03/04/2019','테스트내용입니다22');
+	insert into NOTICE VALUES('테스트타이틀입니다24','23','전체','03/04/2019','테스트내용입니다23');
+	insert into NOTICE VALUES('테스트타이틀입니다25','24','전체','03/04/2019','테스트내용입니다24');
+	
+	
 	1:1문의사항 테이블
 	create table QnA (
 		informationConsent varchar2(20),
@@ -12,27 +59,43 @@
 		attachments varchar2(3000)
 	);
 	
-	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','','','','테스트제목입니다1','테스트내용입니다2','');
-	drop table QnA purge;
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다51','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다52','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다53','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다54','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다55','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다56','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다57','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다58','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다59','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다60','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다61','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다62','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다63','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다64','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다65','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다66','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다67','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다68','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다69','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다70','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다71','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다72','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다73','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다74','테스트내용입니다2','');
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다75','테스트내용입니다2','');
 
+	
+	
+	
+	
+	 
 
+	
+	
+--------------------------------------------------------------------------------------------------------------------------------------------
+	
 
-	공지사항 테이블
-create table notice (
-	title varchar2(30) not null,
-	titleNo number(10) ,											
-	movieTheaters varchar2(30) not null,
-	uploadDate varchar2(30),
-	contents varchar2(3000) not null
-);
-
-	oracle sequence (auto_increment 기능)
-	CREATE SEQUENCE titleNo(
-		INCREMENT BY 1,
-		START WITH 1,
-		MINVALUE 1,
-		MAXVALUE 999999
-	);
 	
 drop table serviceCenter purge;
 
