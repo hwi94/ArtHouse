@@ -255,7 +255,14 @@
 			$("#takenSeats").val(takenSeats);
 			
 		})
-		
+		$("#button").click(function(){
+			if($("#pass").val()==""){
+				alert("영화 시간을 선택해주세요");
+				return false;
+			} else {
+				$("#form").submit();
+			}
+		})
 		
 	})//function
 </script>

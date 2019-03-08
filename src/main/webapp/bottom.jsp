@@ -23,11 +23,14 @@
 			</div>
 			
 			<!-- 하단내용 -->
-			<div class="footer-text">
-				더 아트하우스 서울특별시 금천구 가산동 벚꽃로 244 벽산디지털밸리5차 2층<br>
-				하단내용 어쩌고 저쩌고
+			<div id="footer-text">
+				서울특별시 금천구 가산동 벚꽃로 244 벽산디지털밸리5차 2층 더 아트하우스<br>
+				대표자명 염규원 장유리 유민재 양찬우 김휘령<br>
+				사업자등록번호 123-45-67890
 			</div>
-			
+			<div id="footer-text2">
+				Copyright 2019 by TheArtHouse, Inc. All rights reserved
+			</div>
 		</div>
 	</footer>
 </body>

@@ -1,3 +1,4 @@
+<%@page import="com.itbank.artHouse.users.UserDTO"%>
 <%@page import="com.itbank.artHouse.book.ResvDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.itbank.artHouse.book.ResvDAO"%>
@@ -430,7 +431,9 @@ ul {
 		<!-- <div class="select-body" style="background-color: red">좌석선택</div> -->
 		<form action="chargePage" id="form">
 		<!-- 영화 시간 -->
-		<input type="text" id="id" value="<%=session.getAttribute("id")%>" name="id" style="display:none">
+		<%UserDTO userdto = (UserDTO)session.getAttribute("user");
+		%>
+		<input type="text" id="id" value="<%=userdto.getId() %>" name="id" style="display:none">
 		<input type="text" id="movie" value="${rDto.movie}" name="movie" style="display: none">
 		<input type="text" id="inputTime" value="${rDto.playtime}" name="playtime" style="display: none">
 		<input type="text" id="click" name="click" style="display: none">
