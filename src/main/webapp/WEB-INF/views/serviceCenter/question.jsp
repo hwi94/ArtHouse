@@ -14,6 +14,9 @@
 		<script type="text/javascript">
 			$(function() {
 				
+			
+				
+				
 				var cnt = 1;
 				
 				/* 클릭마다사진올릴수있는공간생성  */
@@ -412,15 +415,15 @@
 	<body>
 				<div class="k_question_container">
 					<ul class="k_question_ul_container">
-						<li>
+						<li style="font-size: 11px">
 							문의하시기 전 FAQ를 확인하시면 궁금증을 더욱 빠르게 해결하실 수 있습니다.
 						</li>
-						<li>
+						<li style="font-size: 11px">
 							1:1 문의글 답변 운영시간 09:00 ~ 21:00
 						</li>
 					</ul>
 					<h4 style="font-size: 10px">개인정보 수집에 대한 동의</h4>
-					<div class="k_custommer_container" style="font-size: 8pt;">
+					<div class="k_custommer_container" style="font-size: 11pt;">
 						귀하께서 문의하신 다음의 내역은 법률에 의거 개인정보 수집. 이용에 대한 본인동의가 필요한 항목입니다.<br>
 						<br>
 						개인정보의 수집 및 이용목적<br>
@@ -436,7 +439,7 @@
 					</div>
 					<div class="k_questionInputForm_container">
 						<form id="k_form" enctype="multipart/form-data" method="post" action="questionUpload.do">
-							<p class="k_agreeAboutprivacy_contanier">
+							<p class="k_agreeAboutprivacy_contanier" style="font-size: 11px;">
 								개인정보 수집에 동의하십니까?<br>
 								* 원활한 서비스 이용을 위한 최소한의 개인정보이므로 동의하지 않을 경우 서비스를 이용하실수 없습니다.　　　　　　　　　　　　　　　　　　　
 								<input type="radio" id="k_agree" name="informationConsent"value="agree"><label class="selectMenu">동의함</label><input type="radio" id="k_disagree" name="informationConsent" value="disagree"><label class="selectMenu">동의하지 않음</label>
@@ -505,7 +508,7 @@
 								<tr>
 									<th class="k_question_column">문의유형</th>
 									<td>
-										<div class="k_buttonGroup">
+										<div id="k_questionType" class="k_buttonGroup">
 											<select id="k_questionType1" name="questionType" style="width: 120px;height: 25px;font-size: 9pt;">
 												<option value="">문의유형 선택</option>
 												<option value="일반문의">일반문의</option>

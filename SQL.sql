@@ -11,6 +11,8 @@
 		contents varchar2(3000),
 		attachments varchar2(3000)
 	);
+	
+	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','','','','테스트제목입니다1','테스트내용입니다2','');
 	drop table QnA purge;
 
 
@@ -25,7 +27,6 @@ create table notice (
 );
 
 	oracle sequence (auto_increment 기능)
-
 	CREATE SEQUENCE titleNo(
 		INCREMENT BY 1,
 		START WITH 1,

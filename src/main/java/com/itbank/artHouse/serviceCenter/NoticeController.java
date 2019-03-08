@@ -1,14 +1,17 @@
 package com.itbank.artHouse.serviceCenter;
 
 
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 
@@ -18,6 +21,40 @@ public class NoticeController {
 
 	@Autowired
 	NoticeDAO dao;
+	
+	
+	
+	
+	/* 공지사항 - 등록 페이지이동 */
+	@RequestMapping("serviceCenter/noticeUploadPage.do")
+	public String noticeUploadPage(){
+		return "serviceCenter/noticeUpload";
+	}
+	
+	
+	
+	/* 공지사항 - 제목중복처리 */
+	@RequestMapping("serviceCenter/overlapCheckNoticeTitle.do")
+		@ResponseBody
+		public Map<Object, Object> OverlapCheckTitle(@RequestBody @RequestParam("title")String title){
+			System.out.println("여기는 중복체크를위한 컨트롤러임 들어왔니?");
+			System.out.println("들어온 title값:"+title);
+			Map<Object , Object> map = new HashMap<Object , Object>();
+			
+			List<NoticeDTO> count = dao.selectCount(title);
+			System.out.println("count값은? : " +count.size());
+			
+			if(count.size() > 0){
+				map.put("result", "overlap");
+			}else{
+				map.put("result", "unOverlap");
+			}
+			System.out.println(map.get("result"));
+			
+			return map;
+		}
+	
+	
 	
 	/* 공지사항 - 등록 */
 	@RequestMapping("serviceCenter/noticeUpload.do")
@@ -39,10 +76,10 @@ public class NoticeController {
 		System.out.println("페이지숫자"+page);
 		List list =  dao.selectListAll();
 		int total = list.size(); 					// 전체 게시물수 
-		int countPage = 5; 							// 한페이지당보여줄게시물수 5개.
+		int countPage = 10; 							// 한페이지당보여줄게시물수 5개.
 		int block = 5;								// 페이지목록 5개만.
-		int startBlock = 5 * 1 + 1; //시작블록.
-		int endBlcok = 5 * 2;
+		/*int startBlock = 5 * 1 + 1; 				//시작블록.
+		int endBlcok = 5 * 2;*/
 		int startPosts = (page-1) * countPage + 1;	// 1번버튼부터시작한다( 왜냐하면 초기값이 1이니까)
 		int endPosts = page * countPage; 			// 1~ 10버튼까지보여준다.
 		System.out.println("시작값:" + startPosts + "마지막값:"+endPosts);
@@ -84,6 +121,43 @@ public class NoticeController {
 			return "serviceCenter/noticeContents";
 		}
 		
+		/* 공지사항 - 삭제 */
+		@RequestMapping("serviceCenter/selectNoticeDelete.do")
+		
+		public String deleteNoticeList(@RequestParam("title")String title , Model model){
+			System.out.println("넘어온 타이틀값:"+title);
+			dao.deleteNoticeList(title);
+			
+			int page = 1;
+			List list =  dao.selectListAll();
+			int total = list.size(); 					// 전체 게시물수 
+			int countPage = 10; 							// 한페이지당보여줄게시물수 5개.
+			int block = 5;								// 페이지목록 5개만.
+			int startPosts = (page-1) * countPage + 1;	// 1번버튼부터시작한다( 왜냐하면 초기값이 1이니까)
+			int endPosts = page * countPage; 			// 1~ 10버튼까지보여준다.
+			System.out.println("시작값:" + startPosts + "마지막값:"+endPosts);
+			List list2 = dao.selectCountList(startPosts,endPosts); //dao로 들어가자.
+			
+			int pageSu = total / countPage;
+			System.out.println("토탈 나누기 보여줄페이지 = "+pageSu);
+			int plusPageSu = total % countPage;
+			if(plusPageSu > 0){
+				pageSu++;
+			}
+			/* 총페이지수가 보드페이지넘버보다 클때 */
+			/*이전버튼을 생성해줌.*/
+			
+			model.addAttribute("pageSu",pageSu);	
+			model.addAttribute("list2",list2);
+			model.addAttribute("block",block);
+			
+			
+			
+			//삭제완료후 다시 공지사항 1페이지를 보여준다.
+			
+			return "serviceCenter/notice";
+		}
+		
 		
 		
 		
@@ -113,8 +187,11 @@ public class NoticeController {
 		@RequestMapping("serviceCenter/uploadQuestion.do")
 		public String uploadQuestion(){
 			System.out.println("여기는 컨트롤러이고 공지사항을띄워주는 컨트롤러야 잘들어왔니??");
-			return "serviceCenter/question";
+			return "serviceCenter/question2";
 		}
+		
+		
+		
 		
 		
 		
