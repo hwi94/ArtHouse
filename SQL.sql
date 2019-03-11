@@ -127,7 +127,6 @@ create table movie (
 	recommend number,
 	photo varchar2(200)
 );
-insert into movie values(1,'Tree','3','4','5','6','7','8',9,'10',11,12,'13');
 ===================유민재===================
 
 	카트 테이블 생성
@@ -152,9 +151,6 @@ insert into theater values('2T','A0,A1,A2,A3,B0,B1,B2,B3');
 insert into theater values('3T','A0,A1,A2,A3,A4,A5,S3,A6,A7,A8,A9,A10,S3,A11,A12,A13,A14,A15,B0,S3,B2,B3,B4,B5,S3,B6,B7,B8,B9,B10,S3,B11,B12,B13,B14,S3,C0,S3,S3,C3,C4,C5,S3,C6,C7,C8,C9,C10,S3,C11,C12,C13,S3,S3,D0,S3,S3,S3,D4,D5,S3,D6,D7,D8,D9,D10,S3,D11,D12,S3,S3,S3,E0,S3,S3,S3,S3,E5,S3,E6,E7,E8,E9,E10,S3,E11,S3,S3,S3,S3,F0,S3,S3,S3,S3,S3,S3,F6,F7,F8,F9,F10,S3,S3,S3,S3,S3,S3,G0,S3,S3,S3,S3,S3,S3,G6,G7,G8,G9,G10,S3,S3,S3,S3,S3,S3,H0,S3,S3,S3,S3,S3,S3,H6,H7,H8,H9,H10,S3,S3,S3,S3,S3,S3,I0,S3,S3,S3,S3,S3,S3,I6,I7,I8,I9,I10,S3,S3,S3,S3,S3,S3');
 insert into theater values('4T','A0,A1,A2,S3,S3,S3,S3,S3,B0,S3,B2,B3,S3,S3,S3,S3,C0,S3,S3,C3,C4,S3,S3,S3,D0,S3,S3,S3,D4,D5,S3,S3,E0,S3,S3,S3,S3,E5,E6,S3,F0,S3,S3,S3,S3,S3,F6,F7,G0,S3,S3,S3,S3,G5,G6,S3,H0,S3,S3,S3,H4,H5,S3,S3,I0,S3,S3,I3,I4,S3,S3,S3,');
 
-col playtime for a20;
-col taken for a20;
-set linesize 100;
 
 create table resv(
 movie varchar2(20),
@@ -180,11 +176,7 @@ insert into resv values('이차크','1T','20190313031000','A3');
 insert into resv values('테스크','1T','20190314041000','A3');
 insert into resv values('이차크','3T','20190312011000','A3');
 insert into resv values('이차크','4T','20190313011000','A3');
-
-
-select resv.movie, resv.tName, resv.playtime, resv.taken, theater.name, theater.seats
-from resv join theater
-on resv.tName = theater.name where playtime='20190221011000';
+insert into resv values('이차크','2T','20190315031000','A3');
 
 
 create table ticket(
