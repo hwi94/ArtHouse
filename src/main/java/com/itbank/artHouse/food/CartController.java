@@ -27,7 +27,7 @@ public class CartController {
    
    
    @RequestMapping("cartInsert.do")
-   public String cartInsert(CartDTO cartDTO,Model model, HttpSession session, @RequestParam("name") String name,UserDTO userDTO) throws Exception{
+   public String cartInsert(CartDTO cartDTO,Model model, HttpSession session, @RequestParam("name") String name,UserDTO userDTO,@RequestParam("img") String img) throws Exception{
       
       userDTO = (UserDTO)session.getAttribute("user");
       cartDTO.setUser_id(userDTO.getId());

@@ -24,7 +24,7 @@
  <jsp:include page="top.jsp"></jsp:include> 
 	
 	<div class="page-body">
-	<h1>달콤팝콘(L) 상세페이지</h1>
+	<h1>더블치즈팝콘(L) 상세페이지</h1>
 	<hr>
 	<form action="cartInsert.do" method="post">
 	<img src="/artHouse/resources/img/food/pop3.jpg">
@@ -42,7 +42,7 @@
 	    <option value="5">5</option>
 	    </select>개
 	<br>
-		&nbsp;&nbsp;&nbsp;<input type="button" value="바로 결제" style="background-color: pink;">&nbsp;&nbsp;&nbsp;<input type="submit" value="장바구니" style="background-color: pink;">&nbsp;&nbsp;&nbsp;<input type="button" value="추천" style="background-color: skyblue;">
+		&nbsp;&nbsp;&nbsp;<input type="submit" value="장바구니" style="background-color: pink;">&nbsp;&nbsp;&nbsp;<!-- <input type="button" value="추천" style="background-color: skyblue;"> -->
 	</form>
 	
 	<hr>

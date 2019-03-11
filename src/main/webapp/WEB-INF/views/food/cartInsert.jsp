@@ -12,6 +12,9 @@
 	String id = (String)session.getAttribute("id");   //지금 접속한 아이디를 가져옴
 	String name = request.getParameter("name");
 	String pname = URLEncoder.encode(name, "UTF-8");
+	
+	String img = request.getParameter("img");     //이미지 파일을 가져옴
+	String pimg = URLEncoder.encode(name, "UTF-8"); //이미지파일명을 UTF-8로 변환(이유: 익스플로러 url로 파라메터 넘길시 에러)
 %>
 	<!-- 제이쿼리 -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -34,22 +37,58 @@
 
 </head>
 <body>
+<div class="page-body">
+<jsp:include page="../../../top.jsp"></jsp:include>
 <c:forEach var="dto" items="${list }">
-	<h1>장바구니 Insert 성공</h1>
+<hr>
+	<h1>장바구니에 담겼습니다</h1>
     <%-- <h3>주문번호: ${dto.cart_id }</h3>  --%>
 	<h3>주문자 id: ${dto.user_id }</h3>
 	<h3>상품명: <%= name %></h3> 
 	<h3>상품코드: ${dto.code }</h3>
 	<h3>상품가격: ${dto.price }</h3>
 	<h3>상품수량: ${dto.amount }</h3>
+	<%-- <h3>상품이미지: <%= img %></h3> --%>
 	<hr>
 	<%-- <form action="cartView.do" method="get">
 	<input type="hidden" name="cart_id" value="">
 	<input type="hidden" name="id" value="<%=id%>" id="user_id">
 	<input type="submit" value="장바구니 확인">
 	</form> --%>
-	<a href="cartView?&user_id=${dto.user_id }&code=${dto.code}&price=${dto.price}&amount=${dto.amount}&name=<%=pname%>">장바구니 확인</a>
+	<a href="cartView?&user_id=${dto.user_id }&code=${dto.code}&price=${dto.price}&amount=${dto.amount}&name=<%=pname%>&img=<%=img%>"><font color="blue">장바구니 확인</font></a>
 	<!-- <input type="button" value="장바구니 확인" id="btn1" width="100"> -->
 	</c:forEach>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<jsp:include page="../../../bottom.jsp"></jsp:include>
 </body>
 </html>

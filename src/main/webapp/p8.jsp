@@ -24,16 +24,15 @@
  <jsp:include page="top.jsp"></jsp:include> 
 	
 	<div class="page-body">
-	<h1>고소팝콘(L) 상세페이지</h1>
+	<h1>더블치즈팝콘(M) 상세페이지</h1>
 	<hr>
 	<form action="cartInsert.do" method="post">
-	<img src="/artHouse/resources/img/food/pop1.jpg">
-	<p class="food_name">고소팝콘(L)</p>
-	<p class="food_price">5,000</p>
-	<input type="hidden" name="code" value="pop1">  <!-- 상품코드 -->
-	<input type="hidden" name="price" value="5000">  <!-- 상품가격 -->
-	<input type="hidden" name="name" value="고소팝콘(L)">  <!-- 상품명 -->
-	<input type="hidden" name="img" value="pop1.jpg">    <!-- 상품이미지 -->
+	<img src="/artHouse/resources/img/food/pop8.jpg">
+	<p class="food_name">더블치즈팝콘(M)</p>
+	<p class="food_price">5,500</p>
+	<input type="hidden" name="code" value="pop8">  <!-- 상품명 -->
+	<input type="hidden" name="price" value="5500">  <!-- 상품가격 -->
+	<input type="hidden" name="name" value="더블치즈팝콘(L)">  <!-- 상품명 -->
 	<input name="prdId" type="hidden" value="5">   
 	   &nbsp;&nbsp;&nbsp;<select name="amount" class="amount_set">
 	    <option value="1">1</option>
@@ -43,7 +42,7 @@
 	    <option value="5">5</option>
 	    </select>개
 	<br>
-		<!-- &nbsp;&nbsp;&nbsp;<input type="button" value="바로 결제" style="background-color: pink;"> -->&nbsp;&nbsp;&nbsp;<input type="submit" value="장바구니" style="background-color: pink;">
+		&nbsp;&nbsp;&nbsp;<input type="submit" value="장바구니" style="background-color: pink;">&nbsp;&nbsp;&nbsp;<!-- <input type="button" value="추천" style="background-color: skyblue;"> -->
 	</form>
 	
 	<hr>

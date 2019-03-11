@@ -21,12 +21,12 @@ public class FoodController {
    @Autowired
    FoodDAO dao;
    
-   @RequestMapping("selectAll.do")   //상품페이지 (회원, 비회원 가능)
+   /*@RequestMapping("selectAll.do")   //상품페이지 (회원, 비회원 가능)
    public String selectAll(Model model) throws Exception{
       List<FoodDTO> list = dao.selectAll();
       model.addAttribute("list", list);
       return "food/test";
-   }
+   }*/
    
    @RequestMapping("/adminFood")   //db에 저장된 상품을 가져다 관리자 페이지에다 뿌려주는 컨트롤러
    public String selectAlladmin(Model model,HttpSession session){
@@ -84,7 +84,7 @@ public class FoodController {
       long fileSize = mf.getSize();                
       System.out.println("파일용량 : "+mf.getSize());
       // 곂치지않기위한 새로운 저장이름 
-      String saveFile = path + System.currentTimeMillis() + mf.getOriginalFilename();
+      String saveFile = path + mf.getOriginalFilename();
       System.out.println("새로운저장이름:"+saveFile);
       
       try {

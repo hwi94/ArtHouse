@@ -7,8 +7,44 @@
 <title>삭제 완료</title>
 </head>
 <body>
+<div class="page-body">
+<jsp:include page="../../../admin_top.jsp"></jsp:include>
+<br>
 	<h1>삭제가 완료되었습니다</h1>
 	<hr>
-	
+	<br>
+	<!-- <input type="button" value="관리자 페이지로 이동"> -->
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<jsp:include page="../../../bottom.jsp"></jsp:include>
 </body>
 </html>

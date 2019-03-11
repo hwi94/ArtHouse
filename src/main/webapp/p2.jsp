@@ -42,7 +42,7 @@
 	    <option value="5">5</option>
 	    </select>개
 	<br>
-		&nbsp;&nbsp;&nbsp;<input type="button" value="바로 결제" style="background-color: pink;">&nbsp;&nbsp;&nbsp;<input type="submit" value="장바구니" style="background-color: pink;">&nbsp;&nbsp;&nbsp;<input type="button" value="추천" style="background-color: skyblue;">
+		&nbsp;&nbsp;&nbsp;<input type="submit" value="장바구니" style="background-color: pink;"><!-- &nbsp;&nbsp;&nbsp;<input type="button" value="추천" style="background-color: skyblue;"> -->
 	</form>
 	
 	<hr>
