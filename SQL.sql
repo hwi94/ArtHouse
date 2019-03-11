@@ -2,12 +2,11 @@
 	
 	
 	시퀀스먼저만들어야함
-	CREATE SEQUENCE titleNo(
-		INCREMENT BY 1,
-		START WITH 100,
-		MINVALUE 100,
-		MAXVALUE 999999
-	);
+	CREATE SEQUENCE titleNo
+		INCREMENT BY 1
+		START WITH 100
+		MINVALUE 100
+		MAXVALUE 999999;
 	
 	
 	create table notice (
@@ -17,8 +16,7 @@
 	uploadDate varchar2(30),
 	contents varchar2(3000) not null
 	);
-
-	
+											
 	insert into NOTICE VALUES('테스트타이틀입니다01','01','전체','03/04/2019','테스트내용입니다01');
 	insert into NOTICE VALUES('테스트타이틀입니다02','02','전체','03/04/2019','테스트내용입니다02');
 	insert into NOTICE VALUES('테스트타이틀입니다03','03','전체','03/04/2019','테스트내용입니다03');
@@ -58,7 +56,7 @@
 		contents varchar2(3000),
 		attachments varchar2(3000)
 	);
-	
+																																		마지막은 사진값들어가는데 여기선넣을수가없네요 
 	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다51','테스트내용입니다2','');
 	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다52','테스트내용입니다2','');
 	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다53','테스트내용입니다2','');
@@ -86,31 +84,73 @@
 	insert into QnA values('agree','홍길동','010-0000-0000','khr1287@naver.com','서울','남양주','일반문의','테스트제목입니다75','테스트내용입니다2','');
 
 	
-	
-	
-	
-	 
+----------------------------------------------------------------------
+
+	영화 & 리뷰
 
 	
+	시퀀스
+	create sequence seqreply 
+		start with 1 
+		maxvalue 999999 
+		nocache;
+		
+	영화 테이블
+	create table movie (
+		code number primary key,
+		title varchar2(50),
+		ganre varchar2(20),
+		playdate varchar2(20),
+		runtime varchar2(10),
+		summary varchar2(3000),
+		director varchar2(20),
+		actors varchar2(200),
+		agerequire number,
+		grade varchar2(5),
+		count number,
+		recommend number,
+		photo varchar2(200)
+	);
 	
---------------------------------------------------------------------------------------------------------------------------------------------
+	영화 테스트데이터
+	Insert into ORACLE.MOVIE (CODE,TITLE,GANRE,PLAYDATE,RUNTIME,SUMMARY,DIRECTOR,ACTORS,AGEREQUIRE,GRADE,COUNT,RECOMMEND,PHOTO) values (1,'콜드 워','공포','2019-02-13','120','“옛 성당엔 신만이 볼 수 있는 예술품들이 숨겨져 있고 그 뒤엔 위대한 건축가가   있죠. 살인도 마찬가지입니다” 살인을 예술이라 믿는, 광기에 사로잡힌 자칭 ‘교양 살인마’ 잭그를 지옥으로 이끄는 안내자 버지와 동행하며 자신이 12년에 걸쳐 저지른 살인   중다섯 가지 중요한 살인 사건에 대한 전말을 고백하기 시작하는데…','김감독','나배우, 김주연',15,'3.4',15000,165,'M1.jpg');
+	Insert into ORACLE.MOVIE (CODE,TITLE,GANRE,PLAYDATE,RUNTIME,SUMMARY,DIRECTOR,ACTORS,AGEREQUIRE,GRADE,COUNT,RECOMMEND,PHOTO) values (2,'가버나움','공포','2019-02-13','120','“옛 성당엔 신만이 볼 수 있는 예술품들이 숨겨져 있고 그 뒤엔 위대한 건축가가   있죠. 살인도 마찬가지입니다” 살인을 예술이라 믿는, 광기에 사로잡힌 자칭 ‘교양 살인마’ 잭 그를 지옥으로 이끄는 안내자 버지와 동행하며 자신이 12년에 걸쳐 저지른 살인   중 다섯 가지 중요한 살인 사건에 대한 전말을 고백하기 시작하는데…','나감독','나주연, 나조연, 나배우',15,'3',15000,254,'M2.jpg');
+	Insert into ORACLE.MOVIE (CODE,TITLE,GANRE,PLAYDATE,RUNTIME,SUMMARY,DIRECTOR,ACTORS,AGEREQUIRE,GRADE,COUNT,RECOMMEND,PHOTO) values (3,'쉰들러리스트','공포','2019-02-13','120','“옛 성당엔 신만이 볼 수 있는 예술품들이 숨겨져 있고 그 뒤엔 위대한 건축가가   있죠. 살인도 마찬가지입니다” 살인을 예술이라 믿는, 광기에 사로잡힌 자칭 ‘교양 살인마’ 잭 그를 지옥으로 이끄는 안내자 버지와 동행하며 자신이 12년에 걸쳐 저지른 살인   중 다섯 가지 중요한 살인 사건에 대한 전말을 고백하기 시작하는데…','나감독','나주연, 나조연, 나배우',15,'0',15000,345,'M3.jpg');
+	Insert into ORACLE.MOVIE (CODE,TITLE,GANRE,PLAYDATE,RUNTIME,SUMMARY,DIRECTOR,ACTORS,AGEREQUIRE,GRADE,COUNT,RECOMMEND,PHOTO) values (4,'일일시호일','공포','2019-02-13','120','“옛 성당엔 신만이 볼 수 있는 예술품들이 숨겨져 있고 그 뒤엔 위대한 건축가가   있죠. 살인도 마찬가지입니다"살인을 예술이라 믿는, 광기에 사로잡힌 자칭 ‘교양 살인마’ 잭 그를 지옥으로 이끄는 안내자 버지와 동행하며 자신이 12년에 걸쳐 저지른 살인   중 다섯 가지 중요한 살인 사건에 대한 전말을 고백하기 시작하는데…','김감독','나주연, 나조연, 나배우',15,'0',15000,460,'M4.jpg');
+	Insert into ORACLE.MOVIE (CODE,TITLE,GANRE,PLAYDATE,RUNTIME,SUMMARY,DIRECTOR,ACTORS,AGEREQUIRE,GRADE,COUNT,RECOMMEND,PHOTO) values (5,'파이널리스트','공포','2019-02-13','120','“옛 성당엔 신만이 볼 수 있는 예술품들이 숨겨져 있고 그 뒤엔 위대한 건축가가   있죠. 살인도 마찬가지입니다” 살인을 예술이라 믿는, 광기에 사로잡힌 자칭 ‘교양 살인마’ 잭 그를 지옥으로 이끄는 안내자 버지와 동행하며 자신이 12년에 걸쳐 저지른 살인   중 다섯 가지 중요한 살인 사건에 대한 전말을 고백하기 시작하는데…','나감독','나주연, 나조연, 나배우',15,'0',15000,556,'M5.jpg');
+	Insert into ORACLE.MOVIE (CODE,TITLE,GANRE,PLAYDATE,RUNTIME,SUMMARY,DIRECTOR,ACTORS,AGEREQUIRE,GRADE,COUNT,RECOMMEND,PHOTO) values (6,'그린북','공포','2019-02-13','120','“옛 성당엔 신만이 볼 수 있는 예술품들이 숨겨져 있고 그 뒤엔 위대한 건축가가   있죠. 살인도 마찬가지입니다” 살인을 예술이라 믿는, 광기에 사로잡힌 자칭 ‘교양 살인마’ 잭 그를 지옥으로 이끄는 안내자 버지와 동행하며 자신이 12년에 걸쳐 저지른 살인   중 다섯 가지 중요한 살인 사건에 대한 전말을 고백하기 시작하는데…','나감독','나주연, 나조연, 나배우',15,'0',15000,666,'M6.jpg');
+	Insert into ORACLE.MOVIE (CODE,TITLE,GANRE,PLAYDATE,RUNTIME,SUMMARY,DIRECTOR,ACTORS,AGEREQUIRE,GRADE,COUNT,RECOMMEND,PHOTO) values (7,'이차크','공포','2019-02-13','120','“옛 성당엔 신만이 볼 수 있는 예술품들이 숨겨져 있고 그 뒤엔 위대한 건축가가   있죠. 살인도 마찬가지입니다” 살인을 예술이라 믿는, 광기에 사로잡힌 자칭 ‘교양 살인마’ 잭 그를 지옥으로 이끄는 안내자 버지와 동행하며 자신이 12년에 걸쳐 저지른 살인   중 다섯 가지 중요한 살인 사건에 대한 전말을 고백하기 시작하는데…','나감독','나주연, 나조연, 나배우',15,'0',15000,777,'M7.jpg');
+	Insert into ORACLE.MOVIE (CODE,TITLE,GANRE,PLAYDATE,RUNTIME,SUMMARY,DIRECTOR,ACTORS,AGEREQUIRE,GRADE,COUNT,RECOMMEND,PHOTO) values (8,'로마','공포','2019-02-13','120','“옛 성당엔 신만이 볼 수 있는 예술품들이 숨겨져 있고 그 뒤엔 위대한 건축가가   있죠. 살인도 마찬가지입니다”살인을 예술이라 믿는, 광기에 사로잡힌 자칭 ‘교양 살인마’ 잭 그를 지옥으로 이끄는 안내자 버지와 동행하며 자신이 12년에 걸쳐 저지른 살인   중 다섯 가지 중요한 살인 사건에 대한 전말을 고백하기 시작하는데…','나감독','나주연, 나조연, 나배우',15,'0.0',15000,888,'M8.jpg');
+	Insert into ORACLE.MOVIE (CODE,TITLE,GANRE,PLAYDATE,RUNTIME,SUMMARY,DIRECTOR,ACTORS,AGEREQUIRE,GRADE,COUNT,RECOMMEND,PHOTO) values (9,'테스트1','공포','2019-02-18','90','응~ 테스트야~','장감독','장배우,장주연',11,'0.0',0,0,null);
+	Insert into ORACLE.MOVIE (CODE,TITLE,GANRE,PLAYDATE,RUNTIME,SUMMARY,DIRECTOR,ACTORS,AGEREQUIRE,GRADE,COUNT,RECOMMEND,PHOTO) values (10,'테스트2','멜로','2019-02-18','90','응~ 테스트야~','장감독','장배우,장주연',11,'0',0,0,null);
 	
-
+	영화 리뷰테이블
+	create table moviereply (
+		A_CODE int,
+		B_CODE int,
+		content varchar2(300),
+		writer varchar2(20),
+		day varchar2(10),
+		grade int
+	);
 	
-drop table serviceCenter purge;
-
+	
+------------------------------------------------------------
+	유저		
+		
 	유저 테이블 생성
-create table users (
-	id varchar2(15) primary key,
-	pw varchar2(100),
-	name varchar2(10),
-	birth varchar2(10),
-	tel varchar2(15),
-	mail varchar2(30),
-	grade varchar2(3),
-	gender varchar2(5)
-);
+	create table users (
+		id varchar2(15) primary key,
+		pw varchar2(100),
+		name varchar2(10),
+		birth varchar2(10),
+		tel varchar2(15),
+		mail varchar2(30),
+		grade varchar2(3),
+		gender varchar2(5)
+	);
 
+<<<<<<< HEAD
 	영화 테이블 생성
 create table movie (
 	code number primary key,
@@ -127,6 +167,19 @@ create table movie (
 	recommend number,
 	photo varchar2(200)
 );
+=======
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------
+>>>>>>> branch 'master' of https://github.com/hwi94/ArtHouse
 ===================유민재===================
 
 	카트 테이블 생성
